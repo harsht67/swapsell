@@ -2,11 +2,13 @@ package com.stackroute.userservice.controller;
 
 import com.stackroute.userservice.domain.User;
 import com.stackroute.userservice.exception.UserAlreadyExistsException;
+import com.stackroute.userservice.exception.UserNotFoundException;
 import com.stackroute.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +27,15 @@ public class UserServiceController {
             return new ResponseEntity<>(userDetails,HttpStatus.CREATED);
         } catch (UserAlreadyExistsException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+    }
+    @PutMapping("/updateDetails")
+    public ResponseEntity<?> updateUserDetails(@RequestBody User user){
+        try {
+            User updateUserDetails = userService.updateUserDetails(user);
+            return new ResponseEntity<>(updateUserDetails,HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
     }
 }

@@ -37,12 +37,24 @@ public class UserServiceImpl implements UserService {
         Optional<User> userByEmail = userServiceRepository.findUserByEmail(userDetails.getEmail());
         if (userByEmail.isPresent()){
             User userFromDb = userByEmail.get();
-            userFromDb.setAddress(userDetails.getAddress());
-            userFromDb.setEmail(userDetails.getEmail());
-            userFromDb.setImage(userDetails.getImage());
-            userFromDb.setLastName(userDetails.getLastName());
-            userFromDb.setFirstName(userDetails.getFirstName());
-            userFromDb.setPhoneNumber(userDetails.getPhoneNumber());
+            if (userDetails.getEmail()!=null){
+                userFromDb.setEmail(userDetails.getEmail());
+            }
+            if (userDetails.getAddress()!=null){
+                userFromDb.setAddress(userDetails.getAddress());
+            }
+            if (userDetails.getImage()!=null){
+                userFromDb.setImage(userDetails.getImage());
+            }
+            if (userDetails.getLastName()!=null){
+                userFromDb.setLastName(userDetails.getLastName());
+            }
+            if (userDetails.getFirstName()!=null){
+                userFromDb.setFirstName(userDetails.getFirstName());
+            }
+            if (userDetails.getPhoneNumber()!=null){
+                userFromDb.setPhoneNumber(userDetails.getPhoneNumber());
+            }
             return  userServiceRepository.save(userFromDb);
         }
         throw new UserNotFoundException("No user exist with email id "+ userDetails.getEmail());
