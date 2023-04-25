@@ -1,9 +1,13 @@
 package com.stackroute.userservice.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.userservice.domain.User;
+import com.stackroute.userservice.exception.UserAlreadyExistsException;
 import com.stackroute.userservice.service.UserServiceImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -17,6 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static reactor.core.publisher.Mono.when;
+
 @ExtendWith(MockitoExtension.class)
 class UserServiceControllerTest {
     @Mock
@@ -45,8 +53,21 @@ class UserServiceControllerTest {
         user=null;
         userList=null;
     }
+    private String jsontoString(Object ob)  {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            String jsoncontent = mapper.writeValueAsString(ob);//this will call the toString() of Customer Class
+            return jsoncontent;
+        }
+        catch (JsonProcessingException exception)
+        {
+            return exception.getMessage();
+        }
+    }
 
     @Test
-    void registerUser() {
+    @DisplayName("Test for user registration")
+    void registerUser() throws Exception {
+
     }
 }
