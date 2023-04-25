@@ -2,6 +2,8 @@ package com.stackroute.userservice.service;
 
 import com.stackroute.userservice.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserService extends MongoRepository<User,Long> {
+@Repository
+public interface UserServiceRepository extends MongoRepository<User,Long> {
 }
