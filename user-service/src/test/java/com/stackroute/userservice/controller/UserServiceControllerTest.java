@@ -10,6 +10,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +36,14 @@ class UserServiceControllerTest {
         user=new User(3L,"user3","userLastName2","8569471230","user1@gmail.com","address1,city1","image.png");
         user=new User(4L,"user4","userLastName3","9214530870","user1@gmail.com","address1,city1","image.png");
         user=new User(5L,"user5","userLastName4","6457823145","user1@gmail.com","address1,city1","image.png");
+        userList.add(user);
+        mockMvc = MockMvcBuilders.standaloneSetup(userServiceController).build();
     }
 
     @AfterEach
     void tearDown() {
+        user=null;
+        userList=null;
     }
 
     @Test
