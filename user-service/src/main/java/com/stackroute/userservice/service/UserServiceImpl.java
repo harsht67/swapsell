@@ -2,6 +2,7 @@ package com.stackroute.userservice.service;
 
 import com.stackroute.userservice.domain.User;
 import com.stackroute.userservice.exception.UserAlreadyExistsException;
+import com.stackroute.userservice.exception.UserNotFoundException;
 import com.stackroute.userservice.repository.UserServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,21 +19,33 @@ public class UserServiceImpl implements UserService {
         this.userServiceRepository = userServiceRepository;
     }
 
-    boolean checkExistingUser(User user) throws UserAlreadyExistsException {
+    boolean checkExistingUser(User user){
         Optional<User> userByEmail = userServiceRepository.findUserByEmail(user.getEmail());
-        boolean userNotExists = true;
-        if (userByEmail.isPresent()) {
-            throw new UserAlreadyExistsException("This email id is already taken try other");
-        }
-        return userNotExists;
+        return userByEmail.isPresent();
     }
 
     @Override
     public User registerUserToApplication(User userDetails) throws UserAlreadyExistsException {
-        User storeUserDetails =null;
-        if (checkExistingUser(userDetails)) {
-            storeUserDetails= userServiceRepository.save(userDetails);
+        if (checkExistingUser(userDetails)){
+            throw new UserAlreadyExistsException("This email id is already taken other");
         }
-        return storeUserDetails;
+        return userServiceRepository.save(userDetails);
+    }
+
+    @Override
+    public User updateUserDetails(User userDetails) throws UserNotFoundException{
+        Optional<User> userByEmail = userServiceRepository.findUserByEmail(userDetails.getEmail());
+        if (userByEmail.isPresent()){
+            User userFromDb = userByEmail.get();
+            userFromDb.setAddress(userDetails.getAddress());
+            userFromDb.setEmail(userDetails.getEmail());
+            userFromDb.setImage(userDetails.getImage());
+            userFromDb.setLastName(userDetails.getLastName());
+            userFromDb.setFirstName(userDetails.getFirstName());
+            userFromDb.setPhoneNumber(userDetails.getPhoneNumber());
+            return  userServiceRepository.save(userFromDb);
+        }
+        throw new UserNotFoundException("No user exist with email id "+ userDetails.getEmail());
+
     }
 }
