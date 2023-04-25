@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: userServiceApp
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: SwapSellUsers
+server:
+  port: 8081
