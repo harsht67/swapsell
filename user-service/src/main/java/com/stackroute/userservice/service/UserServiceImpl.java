@@ -1,9 +1,12 @@
 package com.stackroute.userservice.service;
 
+import com.stackroute.userservice.configuration.MessageConfiguration;
+import com.stackroute.userservice.configuration.UserDTO;
 import com.stackroute.userservice.domain.User;
 import com.stackroute.userservice.exception.UserAlreadyExistsException;
 import com.stackroute.userservice.exception.UserNotFoundException;
 import com.stackroute.userservice.repository.UserServiceRepository;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +26,10 @@ public class UserServiceImpl implements UserService {
         Optional<User> userByEmail = userServiceRepository.findUserByEmail(user.getEmail());
         return userByEmail.isPresent();
     }
-
+    @RabbitListener(queues = MessageConfiguration.queueName1)
+    public void userDataFromAuthService(UserDTO userDTO){
+        System.out.println(userDTO);
+    }
     @Override
     public User registerUserToApplication(User userDetails) throws UserAlreadyExistsException {
         if (checkExistingUser(userDetails)){

@@ -1,9 +1,6 @@
 package com.stackroute.userservice.configuration;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
