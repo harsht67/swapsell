@@ -22,5 +22,5 @@ public class User {
     private String email;
     private String address;
     private byte image;
-
+    private String password;
 }
