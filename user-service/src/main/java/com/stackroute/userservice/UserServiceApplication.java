@@ -16,7 +16,7 @@ public class UserServiceApplication {
 	public FilterRegistrationBean<JwtFilter> filterRegistrationBean(){
 		FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
 		registrationBean.setFilter(new JwtFilter());
-		registrationBean.addUrlPatterns("swapSell/user/*");
+		registrationBean.addUrlPatterns("/swapSell/user/*");
 		return registrationBean;
 	}
 
