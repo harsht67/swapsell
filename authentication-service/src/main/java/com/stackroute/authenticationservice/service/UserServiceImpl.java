@@ -1,5 +1,7 @@
 package com.stackroute.authenticationservice.service;
 
+import com.stackroute.authenticationservice.configuration.MessageConfiguration;
+import com.stackroute.authenticationservice.configuration.UserDTO;
 import com.stackroute.authenticationservice.domain.User;
 import com.stackroute.authenticationservice.exception.UserAlreadyExistException;
 import com.stackroute.authenticationservice.repository.UserRepository;
@@ -23,7 +25,7 @@ public class UserServiceImpl implements UserService {
         if(userRepository.findByEmail(user.getEmail()).isPresent()) {
             throw new UserAlreadyExistException();
         }
-
+        rabbitTemplate.convertAndSend(MessageConfiguration.exchangeName1,MessageConfiguration.routingKey1, user);
         return userRepository.save(user);
     }
 
