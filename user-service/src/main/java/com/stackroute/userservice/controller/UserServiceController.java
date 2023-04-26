@@ -39,8 +39,8 @@ public class UserServiceController {
     @DeleteMapping("/deleteUser/{emailId}")
     public ResponseEntity<?> deleteUser(@PathVariable String emailId){
         try {
-            boolean deleteUser = userService.deleteUser(emailId);
-            return new ResponseEntity<>(deleteUser,HttpStatus.OK);
+            userService.deleteUser(emailId);
+            return new ResponseEntity<>("User with "+emailId +"removed from database",HttpStatus.OK);
         } catch (UserNotFoundException e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
