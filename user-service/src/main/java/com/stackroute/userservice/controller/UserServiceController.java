@@ -7,10 +7,7 @@ import com.stackroute.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserServiceController {
@@ -34,6 +31,16 @@ public class UserServiceController {
         try {
             User updateUserDetails = userService.updateUserDetails(user);
             return new ResponseEntity<>(updateUserDetails,HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+        }
+    }
+
+    @DeleteMapping("/deleteUser/{emailId}")
+    public ResponseEntity<?> deleteUser(@PathVariable String emailId){
+        try {
+            boolean deleteUser = userService.deleteUser(emailId);
+            return new ResponseEntity<>(deleteUser,HttpStatus.OK);
         } catch (UserNotFoundException e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
