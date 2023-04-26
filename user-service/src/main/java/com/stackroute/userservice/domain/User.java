@@ -21,6 +21,6 @@ public class User {
     private int phoneNumber;
     private String email;
     private String address;
-    private String image;
+    private byte image;
 
 }

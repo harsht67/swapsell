@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
             if (userDetails.getAddress()!=null){
                 userFromDb.setAddress(userDetails.getAddress());
             }
-            if (userDetails.getImage()!=null){
+            if (userDetails.getImage()!=0){
                 userFromDb.setImage(userDetails.getImage());
             }
             if (userDetails.getLastName()!=null){
