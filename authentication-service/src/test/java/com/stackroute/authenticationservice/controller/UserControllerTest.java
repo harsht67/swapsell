@@ -51,8 +51,8 @@ public class UserControllerTest {
     @Test
     public void testSaveUser() throws Exception {
         User user = new User();
-        user.setFirstname("bob");
-        user.setLastname("the builder");
+        user.setFirstName("bob");
+        user.setLastName("the builder");
         user.setEmail("bob@gmail.com");
         user.setPassword("bob10000");
 
