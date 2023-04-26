@@ -91,7 +91,8 @@ public class UserServiceImpl implements UserService {
     public boolean deleteUser(String emailId) throws UserNotFoundException {
         Optional<User> userByEmail = userServiceRepository.findUserByEmail(emailId);
         if (userByEmail.isPresent()){
-            userServiceRepository.findUserByEmail(emailId);
+            String userEmail = userByEmail.get().getEmail();
+            userServiceRepository.deleteUserByEmail(userEmail);
             return true;
         }
         throw new UserNotFoundException("User not found with "+emailId);
