@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/swapSell")
 public class UserServiceController {
     private final UserService userService;
     @Autowired
@@ -26,7 +27,7 @@ public class UserServiceController {
 //            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 //        }
 //    }
-    @PutMapping("/updateDetails")
+    @PutMapping("/user/updateDetails")
     public ResponseEntity<?> updateUserDetails(@RequestBody User user){
         try {
             User updateUserDetails = userService.updateUserDetails(user);
@@ -36,7 +37,7 @@ public class UserServiceController {
         }
     }
 
-    @DeleteMapping("/deleteUser/{emailId}")
+    @DeleteMapping("/user/deleteUser/{emailId}")
     public ResponseEntity<?> deleteUser(@PathVariable String emailId){
         try {
             userService.deleteUser(emailId);
