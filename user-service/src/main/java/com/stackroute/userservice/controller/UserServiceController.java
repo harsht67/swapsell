@@ -37,11 +37,11 @@ public class UserServiceController {
         }
     }
 
-    @DeleteMapping("/user/deleteUser/{emailId}")
-    public ResponseEntity<?> deleteUser(@PathVariable String emailId){
+    @DeleteMapping("/user/deleteUser")
+    public ResponseEntity<?> deleteUser(@RequestBody User user){
         try {
-            userService.deleteUser(emailId);
-            return new ResponseEntity<>("User with "+emailId +"removed from database",HttpStatus.OK);
+            userService.deleteUser(user.getEmail());
+            return new ResponseEntity<>("User with "+user.getEmail() +" removed from database",HttpStatus.OK);
         } catch (UserNotFoundException e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
