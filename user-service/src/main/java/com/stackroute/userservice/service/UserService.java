@@ -9,5 +9,6 @@ public interface UserService {
     User registerUserToApplication(UserDTO userDTO) throws UserAlreadyExistsException;
     User updateUserDetails(User userDetails) throws UserNotFoundException;
 
-    //TODO : implement delete method
+    boolean deleteUser(String emailId) throws UserNotFoundException;
+
 }
