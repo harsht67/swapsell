@@ -12,13 +12,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-    private String firstname;
-    private String lastname;
+public class UserLogin {
     private String email;
     private String password;
 }
