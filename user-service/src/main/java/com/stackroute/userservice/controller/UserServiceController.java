@@ -20,15 +20,15 @@ public class UserServiceController {
         this.userService = userService;
     }
 
-    @PostMapping("/registerUser")
-    public ResponseEntity<?> registerUser(@RequestBody User user){
-        try {
-            User userDetails = userService.registerUserToApplication(user);
-            return new ResponseEntity<>(userDetails,HttpStatus.CREATED);
-        } catch (UserAlreadyExistsException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
-        }
-    }
+//    @PostMapping("/registerUser")
+//    public ResponseEntity<?> registerUser(@RequestBody Us user){
+//        try {
+//            User userDetails = userService.registerUserToApplication(user);
+//            return new ResponseEntity<>(userDetails,HttpStatus.CREATED);
+//        } catch (UserAlreadyExistsException e) {
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+//        }
+//    }
     @PutMapping("/updateDetails")
     public ResponseEntity<?> updateUserDetails(@RequestBody User user){
         try {
