@@ -1,9 +1,5 @@
-.profile-image{
+#image-div{
     height: 30vh;
     width: 30vh;
     border: 2px solid gold;
-}
-.main-edit-div{
-    display: grid;
-    grid-template-columns: auto auto;
 }
