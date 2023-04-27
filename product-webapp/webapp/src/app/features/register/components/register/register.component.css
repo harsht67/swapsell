@@ -4,18 +4,23 @@
 
 .register__card {
     width: 50%;
-    padding: 0rem 2rem;
     background-color: #582eac;
     color: #fff;
     display: flex;
     flex-flow: column;
     align-items: center;
-    gap: 1rem;
+    /* gap: 2rem; */
+}
+
+.register__card > div {
+    transform: translateY(-4rem);
 }
 
 .logo {
     width: 15rem;
     transform: translateY(4rem);
+    display: block;
+    margin: auto;
 }
 
 .card__title {
@@ -32,22 +37,31 @@
 .card__img {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     font-size: 1.15rem;
     font-weight: 500;
     line-height: 1.25em;
+    margin-block: 2rem;
 }
 
 .card__footer {
-    margin-block-start: 2rem;
     text-align: center;
     font-size: 1rem;
     font-weight: 500;
 }
 
+.card__footer > a {
+    font-weight: 700;
+    cursor: pointer;
+}
+
 .register__form {
     width: 50%;
-    padding: 6rem 4rem;
+    padding: 0 4rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 }
 
 form {
@@ -56,7 +70,6 @@ form {
 
 mat-form-field {
     width: 100%;
-    margin-block-end: 0.5rem;
 }
 
 .form__small {
@@ -74,7 +87,6 @@ button {
     cursor: pointer;
     font-weight: 600;
     border-radius: 0.5rem;
-    margin-block: 1rem 1.5rem;
 }
 
 .submitBtn {
@@ -96,6 +108,7 @@ button {
     text-align: center;
     color: #616161;
     font-weight: 700;
+    margin-block: 1rem;
 }
 
 .googleBtn > img {
