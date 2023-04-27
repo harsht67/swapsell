@@ -26,4 +26,8 @@ export class RegisterComponent {
     console.log(this.isPasswordDiff,this.user.password,this.user.confirmPassword)
   }
 
+  register() {
+
+  }
+
 }

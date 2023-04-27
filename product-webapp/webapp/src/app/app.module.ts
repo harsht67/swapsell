@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
+import {MatButtonModule} from '@angular/material/button'; 
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { UserDashBoardComponent } from './features/user-dash-board/user-dash-boa
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
