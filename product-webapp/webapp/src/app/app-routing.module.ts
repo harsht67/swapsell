@@ -5,7 +5,7 @@ import { RegisterComponent } from './features/register/components/register/regis
 import { HomeComponent } from './features/home/components/home/home.component';
 
 const routes: Routes = [
-  {path: "", component: RegisterComponent},
+  {path: "", component: HomeComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent}
 ];
