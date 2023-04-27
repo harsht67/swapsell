@@ -9,6 +9,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
 import { HomeComponent } from './features/home/components/home/home.component';
+import { FormsModule } from '@angular/forms'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { HomeComponent } from './features/home/components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,11 +5,25 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
+  user = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""    
+  }
+
+  isPasswordDiff:boolean = true;
+  checkPassword() {
+    if(this.user.password === this.user.confirmPassword)
+      this.isPasswordDiff = false; 
+      else
+        this.isPasswordDiff = true;
+    console.log(this.isPasswordDiff,this.user.password,this.user.confirmPassword)
   }
 
 }
