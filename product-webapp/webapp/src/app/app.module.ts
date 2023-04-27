@@ -12,6 +12,7 @@ import { HomeComponent } from './features/home/components/home/home.component';
 import { FormsModule } from '@angular/forms'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    UserDashBoardComponent,
   ],
   imports: [
     BrowserModule,
