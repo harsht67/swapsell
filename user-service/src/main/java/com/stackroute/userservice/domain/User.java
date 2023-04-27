@@ -4,6 +4,8 @@ import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -16,10 +18,9 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
-    private String phoneNumber;
+    private int phoneNumber;
     private String email;
     private String address;
-    private String image;
-
-
+    private byte image;
+    private String password;
 }
