@@ -41,6 +41,9 @@
 .card__footer > a {
     font-weight: 700;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login__form {

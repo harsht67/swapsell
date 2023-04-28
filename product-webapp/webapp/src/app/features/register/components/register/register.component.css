@@ -54,6 +54,9 @@
 .card__footer > a {
     font-weight: 700;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .register__form {
@@ -62,6 +65,12 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
+}
+
+.form__msg {
+    font-size: 0.9em;
+    color: #616161;
+    margin-block: 0.5rem;
 }
 
 form {
