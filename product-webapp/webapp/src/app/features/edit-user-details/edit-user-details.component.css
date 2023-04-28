@@ -1,5 +1,54 @@
-#image-div{
-    height: 30vh;
-    width: 30vh;
-    border: 2px solid gold;
+
+#card-container{
+    display: flex;
+    margin: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 8px;
+    column-gap: 2vh;
+    width: fit-content;
+}
+.example-card {
+    display: flex;
+    column-gap: 1vh;
+    flex-wrap: wrap;
+    width:60% ;
+}
+#profile-image{
+    height: 100px ;
+    width: 100px;
+    border-radius: 50%;
+}
+#content-card{
+    display: flex;
+    flex-direction: column;
+    column-gap: 2vh;
+    flex-wrap: wrap;
+}
+#user-name{
+    display: flex;
+    column-gap: 5vh;
+    flex-wrap: wrap;
+}
+#card-buttons{
+    display: flex;
+    gap: 6vw;
+    flex-wrap: wrap;
+}
+#image-card-content{
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+}
+#card-1{
+    height: 35vw;
+    width: 25vw;
+}
+
+#card-image-1{
+    height: 30%;
+    width: 40%;
+    padding: 1%;
+    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 75%, 54% 100%, 0 75%, 0 0);
+    clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%, 0 0);
 }
