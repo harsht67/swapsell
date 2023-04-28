@@ -1,6 +1,7 @@
 .footer {
     position: relative;
-    background-color: #242329;
+    background-color: #f2f2f2;
+    background: linear-gradient(145deg, rgba(134,88,225,1) 0%, rgba(88,46,172,1) 100%);
     color: #fff;
     padding: 1rem;
 }
@@ -19,10 +20,10 @@
 }
 
 .footer__title {
-    color: #a7a7a7;
+    color: #d4d4d4;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     margin-block-end: 0.75rem;
 }
 
@@ -86,6 +87,6 @@ nav li {
     margin-block-start: 1rem;
     font-size: 0.9em;
     font-weight: 500;
-    color: #a7a7a7;
+    color: #d4d4d4;
     text-align: center;
 }
