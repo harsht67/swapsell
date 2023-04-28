@@ -123,9 +123,15 @@
 
             </mat-form-field>
 
-            <mat-checkbox class="form__msg">
+            <!-- <div class="form__msg">
+                <mat-checkbox>
+                    By continuing, you agree to SwapSell's Conditions of Use and Privacy Policy.
+                </mat-checkbox>
+            </div> -->
+
+            <div class="form__msg">
                 By continuing, you agree to SwapSell's Conditions of Use and Privacy Policy.
-            </mat-checkbox>
+            </div>
 
             <button 
                 class="submitBtn"
@@ -146,6 +152,14 @@
             <span>Google</span>
         
         </button>
+
+        <p class="form__footer">
+            Already has an account? <br/>
+            <a routerLink="/login">
+                Log in
+                <mat-icon>lock_open</mat-icon>
+            </a>
+        </p>
 
     </section>
 

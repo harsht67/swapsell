@@ -1,15 +1,28 @@
 .login {
     display: flex;
-    height: 100%;
 }
+@media screen and (min-width: 576px) {
+    .login {
+        height: 100%;
+    }
+}
+
+/* 
+    login card - left section 
+*/
 
 .login__card {
     width: 50%;
     background-color: #582eac;
     color: #fff;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+    display: none;
+}
+@media screen and (min-width: 576px) {
+    .login__card {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
 }
 
 .login__card > div {
@@ -38,7 +51,7 @@
     font-weight: 500;
 }
 
-.card__footer > a {
+a {
     font-weight: 700;
     cursor: pointer;
     display: flex;
@@ -47,12 +60,22 @@
     gap: 0.25em;
 }
 
+/*  
+    login form - right section 
+*/
+
 .login__form {
-    width: 50%;
-    padding: 0 4rem;
+    width: 100%;
+    padding: 4rem 2rem;
     display: flex;
     flex-flow: column;
     justify-content: center;
+}
+@media screen and (min-width: 576px) {
+    .login__form {
+        width: 50%;
+        padding: 0 4rem;
+    }
 }
 
 form {
@@ -102,4 +125,14 @@ button {
     top: 50%;
     left: 0.75rem;
     transform: translateY(-50%);
+}
+
+.form__footer {
+    margin: 4rem 0 2rem;
+    text-align: center;
+}
+@media screen and (min-width: 576px) {
+    .form__footer {
+        display: none;
+    }
 }

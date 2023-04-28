@@ -2,14 +2,22 @@
     display: flex;
 }
 
+/* 
+    register card - left section 
+*/
+
 .register__card {
     width: 50%;
     background-color: #582eac;
     color: #fff;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    /* gap: 2rem; */
+    display: none;
+}
+@media screen and (min-width: 576px) {
+    .register__card {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
 }
 
 .register__card > div {
@@ -51,7 +59,7 @@
     font-weight: 500;
 }
 
-.card__footer > a {
+a {
     font-weight: 700;
     cursor: pointer;
     display: flex;
@@ -60,19 +68,34 @@
     gap: 0.25em;
 }
 
+
+/*  
+    signup form - right section 
+*/
+
 .register__form {
-    width: 50%;
-    padding: 0 4rem;
+    width: 100%;
+    padding: 4rem 2rem;
     display: flex;
     flex-flow: column;
     justify-content: center;
+}
+@media screen and (min-width: 576px) {
+    .register__form {
+        width: 50%;
+        padding: 0 4rem;
+    }
 }
 
 .form__msg {
     font-size: 0.9em;
     color: #616161;
-    margin-block: 0.5rem;
+    margin-block: 0.5rem 1rem;
 }
+
+/* .form__msg mat-checkbox .mat-checkbox-label {
+    white-space: normal;
+} */
 
 form {
     text-align: center;
@@ -84,7 +107,13 @@ mat-form-field {
 
 .form__small {
     display: flex;
-    gap: 2rem;
+    flex-flow: column;
+}
+@media screen and (min-width: 576px) {
+    .form__small {
+        flex-flow: row;
+        gap: 2rem;
+    }
 }
 
 button {
@@ -126,4 +155,14 @@ button {
     top: 50%;
     left: 0.75rem;
     transform: translateY(-50%);
+}
+
+.form__footer {
+    margin: 4rem 0 2rem;
+    text-align: center;
+}
+@media screen and (min-width: 576px) {
+    .form__footer {
+        display: none;
+    }
 }
