@@ -16,7 +16,10 @@
             
             <p class="card__footer">
                 Don't have an account? <br/>
-                <a routerLink="/register">Sign up</a>
+                <a routerLink="/register">
+                    Sign up
+                    <mat-icon>exit_to_app</mat-icon>
+                </a>
             </p>
 
         </div>
@@ -24,6 +27,11 @@
     </section>
 
     <section class="login__form">
+
+        <div class="form__header">
+            Welcome back.
+            <p>Let's sign you in.</p>
+        </div>
 
         <form #form="ngForm">
 
@@ -80,6 +88,14 @@
             <span>Google</span>
         
         </button>
+
+        <div class="form__footer">
+            Don't have an account? <br/>
+            <a routerLink="/register">
+                Sign up
+                <mat-icon>exit_to_app</mat-icon>
+            </a>
+        </div>
 
     </section>
 

@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 * {
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 html, body { 
@@ -22,5 +24,9 @@ h1, h2, h3, h4, h5, h6, p {
 
 a {
     text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
     color: inherit;
 }
