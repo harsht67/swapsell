@@ -18,7 +18,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { EditUserDetailsComponent } from './features/edit-user-details/edit-user-details.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import {MatTabsModule} from '@angular/material/tabs';
 
 

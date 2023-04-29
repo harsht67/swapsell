@@ -77,7 +77,7 @@
 <mat-tab-group>
  <mat-tab label="Update details">
         <div id="card-container">
-            <mat-card id="card-1" color="accent">
+            <mat-card id="card-1" >
                 <div id="card-1-images">
                     <img mat-card-image id="card-image-1" src="https://images.unsplash.com/photo-1642543348745-03b1219733d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Photo of a Shiba Inu">
                 </div>  
@@ -91,25 +91,23 @@
                 </mat-card-content>
                 <mat-card-content id="content-card">
                     <mat-card-content id="user-name" >
-                        <mat-form-field class="example-full-width">
-                            <mat-label>First name</mat-label>
-                            <input matInput placeholder="Ex. bob" >
-                        </mat-form-field>
-                        <mat-form-field class="example-full-width">
+                        <mat-form-field appearance="outline">
+                          <mat-label>First name</mat-label>
+                          <input matInput placeholder="first name">
+                        </mat-form-field>  
+                        <mat-form-field appearance="outline">
                             <mat-label>Last name</mat-label>
-                            <input matInput placeholder="Ex. the builder" >
-                        </mat-form-field>
+                            <input matInput placeholder="last name">
+                          </mat-form-field>  
                     </mat-card-content> 
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Phone number</mat-label>
-                        <input matInput placeholder="Ex. 9857***09" >
-                    </mat-form-field>
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Email</mat-label>
-                        <input type="email" matInput 
-                               placeholder="Ex. pat@example.com">
-                        <mat-hint>Errors appear instantly!</mat-hint>
-                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>phone number</mat-label>
+                        <input matInput placeholder="contact number">
+                      </mat-form-field>  
+                      <mat-form-field appearance="outline">
+                        <mat-label>E-Mail id</mat-label>
+                        <input matInput placeholder="Your Email id">                    
+                      </mat-form-field>  
                     <mat-form-field class="example-full-width">
                         <mat-label>Address</mat-label>
                         <textarea matInput placeholder="Ex.  Home Decor, Shop no. 6, Maruti Darshan CHS Opp IIT Main Gate, Adishankaracharya Marg, 400076, Powai, Mumbai, Maharashtra 400076"></textarea>
