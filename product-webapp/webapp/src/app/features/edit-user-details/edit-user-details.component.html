@@ -79,17 +79,21 @@
         <div id="card-container">
             <mat-card id="card-1" >
                 <div id="card-1-images">
-                    <img mat-card-image id="card-image-1" src="https://images.unsplash.com/photo-1642543348745-03b1219733d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Photo of a Shiba Inu">
+                    <p id="image-card-para"><br><br>Trade your treasures and unlock new<br><br> possibilities with<br><br>
+                         our barter-enabled platform<br><br> 
+                         for buying and selling <br><br>
+                         second-hand goods<br><br>
+                    </p>
                 </div>  
             </mat-card>
-            <mat-card class="example-card">
+            <mat-card [class.mat-elevation-z8]="true" class="example-card">
                 <mat-card-content id="image-card-content">
                     <img mat-card-image id="profile-image" src="https://cdn.vectorstock.com/i/1000x1000/48/06/image-preview-icon-picture-placeholder-vector-31284806.webp" alt="Photo of a Shiba Inu">
                     <mat-form-field class="example-full-width-1">
                         <input  type="file" matInput  >
                     </mat-form-field>
                 </mat-card-content>
-                <mat-card-content id="content-card">
+                <mat-card-content  id="content-card">
                     <mat-card-content id="user-name" >
                         <mat-form-field appearance="outline">
                           <mat-label>First name</mat-label>
