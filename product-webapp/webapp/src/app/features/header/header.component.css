@@ -6,19 +6,43 @@ header {
     padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
+    /* justify-content: space-between; */
+}
+@media screen and (min-width: 576px) {
+    header {
+        gap: 0;
+        justify-content: space-between;
+    }
+}
+
+.menuBtn {
+    font-size: 2rem;
+    transform: translateY(-2.5px);
 }
 
 .logo {
     position: absolute;
-    width: 7.5rem;
+    width: 8.5rem;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-45%);
     left: 2rem;
+    display: none;
+}
+@media screen and (min-width: 576px) {
+    .logo {
+        display: block;
+    }
 }
 
 .input {
     position: relative;
+    width: 100%;
+}
+@media screen and (min-width: 576px) {
+    .input {
+        width: 400px;
+    }
 }
 
 input {
@@ -28,7 +52,7 @@ input {
     color: #000;
     border-radius: 10rem;
     padding: 0.5rem 1rem;
-    width: 400px;
+    width: 100%;
 }
 
 .searchIcon {
@@ -39,19 +63,38 @@ input {
     color: #000;
 }
 
+.header__btns {
+    display: none;
+}
+@media screen and (min-width: 576px) {
+    .header__btns {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
 .content {
     padding: 1rem;
     z-index: 10;
     position: fixed;
     top: 0;
     bottom: 0;
-    left: -300px;
-    width: 300px;
+    left: -100%;
+    width: 100%;
+    font-size: 1.25rem;
     background-color: #fff;
     color: #000;
     transition: all 0.35s;
     display: flex;
     flex-flow: column;
+}
+@media screen and (min-width: 576px) {
+    .content {
+        width: 300px;
+        left: -300px;
+        font-size: 1rem;
+    }
 }
 
 .content-open {
@@ -60,20 +103,24 @@ input {
 }
 
 .content ul {
-    margin-block-start: 1rem;
     list-style-type: none;
     padding: 0;
     margin: 0;
     height: 100%;
+    margin-block-start: 1rem;
 }
 
 .content li {
     margin-block-start: 1rem;
-    font-size: 1.1em;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    font-weight: 500;
+    gap: 2.5rem;
+    font-weight: 600;
+}
+@media screen and (min-width: 576px) {
+    .content li {
+        gap: 1.5rem;
+    }
 }
 
 .btns {
@@ -81,7 +128,12 @@ input {
 }
 
 .content img {
-    width: 2rem;
+    width: 2.5rem;
+}
+@media screen and (min-width: 576px) {
+    .content img {
+        width: 2rem;
+    }
 }
 
 button {
