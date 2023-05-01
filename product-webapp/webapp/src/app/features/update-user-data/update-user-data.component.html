@@ -9,7 +9,7 @@
         </p>
       </mat-card>      
     </div>
-      <form class="col-6"   [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+      <form class="col"   [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
         <mat-card class="shipping-card">
           <mat-card-header>
             <mat-card-title>update your information</mat-card-title>
@@ -114,12 +114,15 @@
               </div>
             </div>
             <div class="row">
+              <div class="col">
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+              </div>
+              <div class="col">
+                <button mat-raised-button color="primary" routerLink="/userDashBoard" >Go Back</button>
+              </div>
             </div>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit">Submit</button>
-            <button mat-raised-button color="primary" routerLink="userDashBoard" >Go Back</button>
-          </mat-card-actions>
+          
         </mat-card>
       </form>
   

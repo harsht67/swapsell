@@ -46,7 +46,7 @@
   border-radius: 50%;
 } 
 #card-1{
-  background: linear-gradient(145deg, rgba(134,88,225,1) 0%, rgba(88,46,172,1) 100%);
+  background: linear-gradient(145deg, rgba(88,46,172,1)  0%, rgba(134,88,225,1) 100%);
   display: flex;
   align-items: center;
 }
