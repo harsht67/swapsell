@@ -26,7 +26,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatRadioModule,
     MatDatepickerModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
