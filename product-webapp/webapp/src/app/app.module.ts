@@ -9,7 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
 import { HomeComponent } from './features/home/components/home/home.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
@@ -21,6 +21,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     HomeComponent,
     UserDashBoardComponent,
     EditUserDetailsComponent,
+    UpdateUserDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatGridListModule,
     MatTabsModule,
     MatRadioModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

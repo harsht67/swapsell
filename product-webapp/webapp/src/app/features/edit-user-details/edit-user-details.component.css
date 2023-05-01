@@ -1,4 +1,4 @@
-#card-container{
+/* #card-container{
     display: flex;
     margin: 10px;
     flex-wrap: wrap;
@@ -6,12 +6,14 @@
     border-radius: 8px;
     column-gap: 2vh;
     row-gap: 2vh;
+    background-color: aqua;
 }
 .example-card {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    width: 100vh;
-    column-gap: 2vh;
+    column-gap: 1vh;
+    background-color: aliceblue;
 }
 #profile-image{
     height: 100px ;
@@ -36,6 +38,7 @@
     padding: 1%;
     display: flex;
     flex-direction: column;
+    background-color: #ceb6f9;
 }
 #card-1{
     display: flex;
@@ -46,7 +49,6 @@
     font-size: x-large;
     text-align: center;
     font-weight: normal;
-    /* font-family: 'Pacifico', cursive; */
     color:rgb(90, 39, 230);
     text-shadow: 25px 9px 9px rgba(0,0,0,0.39);
     background: -webkit-linear-gradient(10deg, #c9c0c0 0%, #ceb6f9 100%);
@@ -54,12 +56,7 @@
     -webkit-text-fill-color: transparent;
     
 }
-/* #card-1-images{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-} */
+
 .mat-mdc-radio-button ~ .mat-mdc-radio-button {
     margin-left: 16px;
 }
@@ -75,4 +72,69 @@
         align-items: center;
     }
 
+} */
+#card-container{
+    border: 5px solid gold;
+    display: flex;
+    column-gap: 2vh;
+    margin: 1vh;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 2vh;
+}
+
+#card-1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(152deg, rgba(134,88,225,1) 0%, rgb(107, 75, 171) 100%);
+}
+.example-card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: aquamarine;
+    column-gap: 4vh;
+}
+#image-card-content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    align-items: center;
+    border: 2px solid goldenrod;
+    justify-content: space-between;
+    width: 20%;
+
+}
+#profile-image{
+    background-color: blueviolet;
+    border-radius: 50%;
+    width: 20%;
+    height: 40%;
+}
+#image-card-para{
+    font-size: x-large;
+    text-align: center;
+    font-weight: normal;
+    color:rgb(90, 39, 230);
+    text-shadow: 25px 9px 9px rgba(0,0,0,0.39);
+    background: -webkit-linear-gradient(10deg, #c9c0c0 0%, #ceb6f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#content-card{
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+}
+#user-name{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 2vh;
+}
+#image-card-content{
+    display: flex;
+    flex-direction: column;
 }
