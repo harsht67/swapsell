@@ -19,7 +19,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private  RabbitTemplate rabbitTemplate;
 
-
     @Override
     public User saveUser(User user) throws UserAlreadyExistException {
         if(userRepository.findByEmail(user.getEmail()).isPresent()) {
