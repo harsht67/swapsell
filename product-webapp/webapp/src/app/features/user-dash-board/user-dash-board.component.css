@@ -1,0 +1,28 @@
+.header-div{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    /* border-bottom: 2px solid gray; */
+}
+.user-icon-umage{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
+.user-options{
+    display: flex;
+    gap: 1vw;
+}
+.example-card {
+    width: 20vw;
+    margin: 0.5%;
+}
+
+/* .example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+} */
+.place-day{
+    display: flex;
+    justify-content: space-between;
+}
