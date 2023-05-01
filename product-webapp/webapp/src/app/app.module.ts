@@ -25,6 +25,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
 
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -48,10 +50,15 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatGridListModule,
     MatTabsModule,
+<<<<<<< HEAD
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule
+=======
+    MatRadioModule,
+    MatDatepickerModule
+>>>>>>> 116e025ec46b87658200f11448c431075a5bb88b
   ],
   providers: [],
   bootstrap: [AppComponent]

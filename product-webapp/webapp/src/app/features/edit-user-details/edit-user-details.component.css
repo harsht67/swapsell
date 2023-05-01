@@ -38,14 +38,11 @@
     flex-direction: column;
 }
 #card-1{
-    height: 55vh;
-    width: 80vh;
+    display: flex;
+    flex-wrap: wrap;
     background: linear-gradient(15deg, rgba(134,88,225,1) 0%, rgba(88,46,172,1) 100%);
 }
 #image-card-para{
-    position: relative;
-    bottom: 30%;
-    left: 1%;
     font-size: x-large;
     text-align: center;
     font-weight: normal;
@@ -57,16 +54,16 @@
     -webkit-text-fill-color: transparent;
     
 }
-#card-1-images{
+/* #card-1-images{
     display: flex;
     flex-wrap: wrap;
-    justify-content: baseline;
-    align-items: center;
+    justify-content: space-between;
+    
+} */
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
 }
-#card1-image{
-    width: fit-content;
-    height: 50vh;
-}
+
 
 
 @media screen and (max-width: 576px) {
