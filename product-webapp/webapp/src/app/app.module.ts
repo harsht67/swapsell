@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './features/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
@@ -19,10 +19,15 @@ import {MatCardModule} from '@angular/material/card';
 import { EditUserDetailsComponent } from './features/edit-user-details/edit-user-details.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
 import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +52,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatGridListModule,
     MatTabsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
     MatRadioModule,
     MatDatepickerModule,
     MatSelectModule,
