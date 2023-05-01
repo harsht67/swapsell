@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './features/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
@@ -23,10 +23,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-
-
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 @NgModule({
   declarations: [
@@ -50,15 +49,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatCardModule,
     MatGridListModule,
     MatTabsModule,
-<<<<<<< HEAD
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
-=======
+    MatListModule,
     MatRadioModule,
     MatDatepickerModule
->>>>>>> 116e025ec46b87658200f11448c431075a5bb88b
   ],
   providers: [],
   bootstrap: [AppComponent]

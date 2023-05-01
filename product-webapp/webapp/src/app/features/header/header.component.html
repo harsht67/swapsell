@@ -1,27 +1,72 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>webapp</span>
-    </mat-toolbar>
-    <!-- Add Content Here -->
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<header>
+
+    <mat-icon 
+        (click)="toggleMenu()"
+        class="btns menuBtn"    
+    >
+        menu
+    </mat-icon>
+
+    <img
+        src="../../../assets/logo.svg"
+        alt="logo"
+        class="logo"
+    />
+
+    <div class="input">
+        
+        <input type="text" name="search" 
+            placeholder="Search for product"
+        />
+        
+        <mat-icon class="searchIcon">
+            search
+        </mat-icon>
+
+    </div>
+
+    <nav 
+        class="content"
+        [ngClass]="{'content-open': isMenuOpen}"
+    >
+        
+        <p>
+            <mat-icon 
+                (click)="toggleMenu()"
+                class="btns"    
+            >
+                close
+            </mat-icon>
+        </p>
+
+        <ul>
+            <li>
+                <img src="../../../assets/home-icon.png" alt="home-icon" />
+                Home
+            </li>
+            <li>
+                <img src="../../../assets/user-icon.png" alt="user-icon" />
+                Profile
+            </li>
+            <li>
+                <img src="../../../assets/fav-icon.png" alt="fav-icon" />
+                Wishlist
+            </li>
+            <li>
+                <img src="../../../assets/chat-icon.png" alt="chat-icon" />
+                Chat
+            </li>
+        
+        </ul>
+
+        <button class="post">
+            post an ad 
+        </button>
+
+        <button class="log">
+            logout
+        </button>
+    
+    </nav>
+
+</header>
