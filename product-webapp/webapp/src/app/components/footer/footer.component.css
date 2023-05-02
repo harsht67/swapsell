@@ -4,6 +4,7 @@
     background: linear-gradient(145deg, rgba(134,88,225,1) 0%, rgba(88,46,172,1) 100%);
     color: #fff;
     padding: 1rem;
+    /* box-shadow: 1px 1px 4px rgba(0,0,0, 0.25); */
 }
 
 .logo {
