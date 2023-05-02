@@ -85,5 +85,9 @@
 }
 .add-heading{
     margin-top: 2%;
+    margin-bottom: 2%;
     font-weight: bold;
+    background-color: rgb(186, 144, 225);
+    border-radius: 4px;
+    text-align: justify;
 }
