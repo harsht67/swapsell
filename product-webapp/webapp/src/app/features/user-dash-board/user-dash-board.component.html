@@ -62,66 +62,47 @@
     </mat-card>
       
 </div> -->
-<div class="container">
-    <div class="row mt-2" >           
-        <div id="name-email">
-            <div class="user-pic">
-                <img id="user-profile-image" src="../../../../../assets/SwapSelll(2).svg">
-            </div>
-            <div class="user-name-email" >
-                <h2>UserFirstName UserLastName</h2>
-                <h3>EmailId@gmail.com</h3>    
-            </div>   
-            <div class="edit-msg-notify-btn">
-                <button mat-stroked-button matTooltip="update your details" color="primary" routerLink="/editDetails">
-                    <mat-icon >edit</mat-icon>
-                </button>
-                <button mat-stroked-button matTooltip="Your messages" color="accent">
-                    <mat-icon > message</mat-icon>
-                </button>
-                <button mat-stroked-button matTooltip="Notifications" color="warn">
-                    <mat-icon  >notifications</mat-icon>
-                </button>
-            </div>                                                                 
-        </div>                               
+
+<div class="container">   
+    <div class="container__header" >           
+        <div class="header__img">
+            <img  src="../../../../../assets/SwapSelll(2).svg">
+        </div>
+        <div class="header__info" >
+            <h2>John Doe</h2>
+            <h3>JohnDoe@gmail.com</h3>    
+        </div>   
+        <div class="header__options">
+            <button  matTooltip="update your details"  routerLink="/editDetails">
+                <mat-icon >edit</mat-icon>
+            </button>
+            <button  matTooltip="Your messages" >
+                <mat-icon > message</mat-icon>
+            </button>
+            <button  matTooltip="Notifications" >
+                <mat-icon  >notifications</mat-icon>
+            </button>
+            <button class="post">
+                post an ad 
+            </button>
+        </div>                                                                                              
     </div>
 
     <!-- next div -->
  
-    <div class="row mb-4 d-flex gap-2" >
-        <div class="add-heading">
+    <div class="ads" >
+
+        <div class="ads__title">
             <h1>Your live adds</h1>
         </div>
-        <mat-card class="mat-card-puchase-buy ">
-            <mat-card-content>
-                <img class="purchase-sell-images" src="../../../../../assets/car.jpg">
-                <h2 id="price">₹ 4,50,000</h2>
-                <div class="row d-flex">
-                    <div class="col">
-                        <p>2nd hand Car </p> 
-                    </div>
-                    <div class="col">
-                        <p>status : sold</p>
-                    </div>   
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p>PUNJAB</p>
-                    </div>
-                    <div class="col">
-                        <p>JAN 10</p>
-                    </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-        <mat-card class="mat-card-puchase-buy">
-            <mat-card-content>
-                <img class="purchase-sell-images" src="../../../../../assets/cupboard.jpg">
+        <div class="ads__container">
+            <mat-card class="mat-card-puchase-buy">
+                <mat-card-content>
+                    <img class="purchase-sell-images" src="../../../../../assets/car.jpg">
                     <h2 id="price">₹ 4,50,000</h2>
-                    <div class="row">
+                    <div class="row d-flex">
                         <div class="col">
-                            <p>Cup board</p>
-                            
+                            <p>2nd hand Car </p> 
                         </div>
                         <div class="col">
                             <p>status : sold</p>
@@ -129,100 +110,118 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p>State</p>
+                            <p>PUNJAB</p>
                         </div>
                         <div class="col">
-                            <p>purchase date</p>
+                            <p>JAN 10</p>
                         </div>
                     </div>
-            </mat-card-content>
-        </mat-card>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="mat-card-puchase-buy">
+                <mat-card-content>
+                    <img class="purchase-sell-images" src="../../../../../assets/cupboard.jpg">
+                        <h2 id="price">₹ 4,50,000</h2>
+                        <div class="row">
+                            <div class="col">
+                                <p>Cup board</p>
+                                
+                            </div>
+                            <div class="col">
+                                <p>status : sold</p>
+                            </div>   
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>State</p>
+                            </div>
+                            <div class="col">
+                                <p>purchase date</p>
+                            </div>
+                        </div>
+                </mat-card-content>
+            </mat-card>
 
-        <mat-card class="mat-card-puchase-buy">
-            <mat-card-content>
-                <img class="purchase-sell-images" src="https://5.imimg.com/data5/ANDROID/Default/2021/9/MF/BD/ZX/13691803/product-jpeg-500x500.jpg">
-                    <h2 id="price">₹ 4,50,000</h2>
-                    <div class="row">
-                        <div class="col">
-                            <p>Cup board</p>
-                            
+            <mat-card class="mat-card-puchase-buy">
+                <mat-card-content>
+                    <img class="purchase-sell-images" src="https://5.imimg.com/data5/ANDROID/Default/2021/9/MF/BD/ZX/13691803/product-jpeg-500x500.jpg">
+                        <h2 id="price">₹ 4,50,000</h2>
+                        <div class="row">
+                            <div class="col">
+                                <p>Cup board</p>
+                                
+                            </div>
+                            <div class="col">
+                                <p>status : sold</p>
+                            </div>   
                         </div>
-                        <div class="col">
-                            <p>status : sold</p>
-                        </div>   
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>State</p>
+                        <div class="row">
+                            <div class="col">
+                                <p>State</p>
+                            </div>
+                            <div class="col">
+                                <p>purchase date</p>
+                            </div>
                         </div>
-                        <div class="col">
-                            <p>purchase date</p>
-                        </div>
-                    </div>
-            </mat-card-content>
-        </mat-card>
+                </mat-card-content>
+            </mat-card>
 
-        <mat-card class="mat-card-puchase-buy">
-            <mat-card-content>
-                <img class="purchase-sell-images" src="https://cdn.bigboytoyz.com/new-version/products/bbt-rubicon-3.jpg">
-                    <h2 id="price">₹ 4,50,000</h2>
-                    <div class="row">
-                        <div class="col">
-                            <p>Cup board</p>
-                            
+            <mat-card class="mat-card-puchase-buy">
+                <mat-card-content>
+                    <img class="purchase-sell-images" src="https://cdn.bigboytoyz.com/new-version/products/bbt-rubicon-3.jpg">
+                        <h2 id="price">₹ 4,50,000</h2>
+                        <div class="row">
+                            <div class="col">
+                                <p>Cup board</p>
+                                
+                            </div>
+                            <div class="col">
+                                <p>status : sold</p>
+                            </div>   
                         </div>
-                        <div class="col">
-                            <p>status : sold</p>
-                        </div>   
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>State</p>
+                        <div class="row">
+                            <div class="col">
+                                <p>State</p>
+                            </div>
+                            <div class="col">
+                                <p>purchase date</p>
+                            </div>
                         </div>
-                        <div class="col">
-                            <p>purchase date</p>
-                        </div>
-                    </div>
-            </mat-card-content>
-        </mat-card>
-        <mat-card class="mat-card-ad">
-            <mat-card-content>
-                <h1><b>post a new ad</b></h1>
-                <p>Sell item ! <br>click on plus icon</p>
-                <button mat-stroked-button matTooltip="click to sell product" color="warn">
-                    <mat-icon  >add_box</mat-icon>
-                </button>
-            </mat-card-content>
-        </mat-card>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
 
-    <div class="row" >
-        <div class="add-heading">
+    <div class="ads" >
+        <div class="ads__title">
             <h1>Purchased </h1>
         </div>
-        <mat-card class="mat-card-puchase-buy">
-            <mat-card-content>
-                <img class="purchase-sell-images" src="https://cdn.bigboytoyz.com/new-version/products/bbt-rubicon-3.jpg">
-                    <h2 id="price">₹ 5,000</h2>
-                    <div class="row">
-                        <div class="col">
-                            <p>Cup board</p>
-                            
+        <div class="ads_container">
+            <mat-card class="mat-card-puchase-buy">
+                <mat-card-content>
+                    <img class="purchase-sell-images" src="https://cdn.bigboytoyz.com/new-version/products/bbt-rubicon-3.jpg">
+                        <h2 id="price">₹ 5,000</h2>
+                        <div class="row">
+                            <div class="col">
+                                <p>Cup board</p>
+                                
+                            </div>
+                            <div class="col">
+                                <p>status : listed</p>
+                            </div>   
                         </div>
-                        <div class="col">
-                            <p>status : listed</p>
-                        </div>   
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>State</p>
+                        <div class="row">
+                            <div class="col">
+                                <p>State</p>
+                            </div>
+                            <div class="col">
+                                <p>purchase date</p>
+                            </div>
                         </div>
-                        <div class="col">
-                            <p>purchase date</p>
-                        </div>
-                    </div>
-            </mat-card-content>
-        </mat-card>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        
     </div>
     
 

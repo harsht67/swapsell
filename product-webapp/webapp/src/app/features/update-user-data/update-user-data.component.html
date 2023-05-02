@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row" >
-    <div class="col-md-4 m-2">
+
+  <div class="row m-2 d-flex justify-content-evenly" >
+    <div class="col-md-4 mt-3 ">
       <mat-card  id="card-1" >
         <img id="card1-image" src="../../../../../assets/update-profile.png" alt="">        
         <p id="image-card-para"><br><br> barter-enabled platform<br><br> 
@@ -12,20 +12,18 @@
       <form class="col"   [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
         <mat-card class="shipping-card">
           <mat-card-header>
-            <mat-card-title>update your information</mat-card-title>
+            <mat-card-title class="p-3 mb-2 bg-info text-dark rounded-3 border border-3" >Update Your Information</mat-card-title>
           </mat-card-header>
           <mat-card-content>
             <div class="row">
-              <div class="col d-flex align-items-lg-center align-self-center" >
-                <mat-card-content  >
-                    <img mat-card-image  id="profile-image" src="../../../../../assets/SwapSelll(2).svg" alt="Photo of a Shiba Inu">
-                    <div class="col">
-                      <mat-form-field appearance="outline" >
-                        <input  type="file" matInput>
-                      </mat-form-field>
-                    </div>  
-                </mat-card-content>
-              </div>
+              <mat-card-content class="align-items-lg-center align-self-center" >
+                  <img mat-card-image  id="profile-image" src="../../../../../assets/SwapSelll(2).svg" alt="Photo of a Shiba Inu">
+                  <div class="col  mt-2">
+                    <mat-form-field  appearance="outline" >
+                      <input  type="file" matInput>
+                    </mat-form-field>
+                  </div>  
+              </mat-card-content>              
             </div>
             
             <div class="row">
@@ -105,20 +103,34 @@
             </div>
             <div class="row">
               <div class="col">
+                <label id="example-radio-group-label" >Enter your age</label>
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput placeholder="Age" formControlName="city">
+                  <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
+                    Age is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>                
+              </div>
+              <div class="col">
                 <label id="example-radio-group-label">Pick your Gender</label>
                 <mat-radio-group formControlName="gender">
-                  <mat-radio-button value="Male">Male</mat-radio-button>
-                  <mat-radio-button value="Female">Female</mat-radio-button>
-                  <mat-radio-button value="Other">Other</mat-radio-button>
+                  <div class="row">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Other">Other</mat-radio-button>
+                  </div>                  
                 </mat-radio-group>
               </div>
+              
+              
             </div>
+
             <div class="row">
               <div class="col">
                 <button mat-raised-button color="primary" type="submit">Submit</button>
               </div>
               <div class="col">
-                <button mat-raised-button color="primary" routerLink="/userDashBoard" >Go Back</button>
+                <button mat-raised-button color="warn" routerLink="/userDashBoard" >Go Back</button>
               </div>
             </div>
           </mat-card-content>
@@ -127,4 +139,3 @@
       </form>
   
   </div>  
-</div>
