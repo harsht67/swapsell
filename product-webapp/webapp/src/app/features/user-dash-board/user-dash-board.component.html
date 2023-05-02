@@ -63,29 +63,35 @@
       
 </div> -->
 <div class="container">
-    <mat-card class="col ms-2 ps-3" >              
+    <div class="row mt-2" style="border: 1px solid hotpink;">           
         <div id="name-email">
-            <img id="user-profile-image" src="../../../../../assets/SwapSelll(2).svg">
-            <h2>UserFirstName UserLastName</h2>
-            <h3>EmailId@gmail.com</h3>                                                        
-        </div>   
-        <div>
-            <button mat-stroked-button matTooltip="update your details" color="primary" routerLink="/editDetails">
-                <mat-icon >edit</mat-icon>
-            </button>
-            <button mat-stroked-button matTooltip="Your messages" color="accent">
-                <mat-icon > message</mat-icon>
-            </button>
-            <button mat-stroked-button matTooltip="Notifications" color="warn">
-                <mat-icon  >notifications</mat-icon>
-            </button>
-        </div>                              
-    </mat-card>
-    <!-- next div -->
-    <div class="add-heading">
-        <h1>Your live adds</h1>
+            <div class="user-pic">
+                <img id="user-profile-image" src="../../../../../assets/SwapSelll(2).svg">
+            </div>
+            <div class="user-name-email" style="border: 1px solid forestgreen;">
+                <h2>UserFirstName UserLastName</h2>
+                <h3>EmailId@gmail.com</h3>    
+            </div>   
+            <div class="edit-msg-notify-btn">
+                <button mat-stroked-button matTooltip="update your details" color="primary" routerLink="/editDetails">
+                    <mat-icon >edit</mat-icon>
+                </button>
+                <button mat-stroked-button matTooltip="Your messages" color="accent">
+                    <mat-icon > message</mat-icon>
+                </button>
+                <button mat-stroked-button matTooltip="Notifications" color="warn">
+                    <mat-icon  >notifications</mat-icon>
+                </button>
+            </div>                                                                 
+        </div>                               
     </div>
-    <div class="row mb-4 d-flex gap-2">
+
+    <!-- next div -->
+ 
+    <div class="row mb-4 d-flex gap-2" style="border: 1px solid firebrick;">
+        <div class="add-heading">
+            <h1>Your live adds</h1>
+        </div>
         <mat-card class="mat-card-puchase-buy ">
             <mat-card-content>
                 <img class="purchase-sell-images" src="../../../../../assets/car.jpg">
@@ -108,7 +114,7 @@
                 </div>
             </mat-card-content>
         </mat-card>
-        <mat-card class="mat-card-puchase-buy">
+        <mat-card class="mat-card-puchase-buy" style="border: 1px solid violet;">
             <mat-card-content>
                 <img class="purchase-sell-images" src="../../../../../assets/cupboard.jpg">
                     <h2 id="price">₹ 4,50,000</h2>
@@ -189,24 +195,36 @@
             </mat-card-content>
         </mat-card>
     </div>
-    <div class="add-heading">
-        <h1>Purchased </h1>
-    </div>
-    <div class="row mb-4">
+
+    <div class="row" style="border: 1px solid salmon;">
+        <div class="add-heading">
+            <h1>Purchased </h1>
+        </div>
         <mat-card class="mat-card-puchase-buy">
             <mat-card-content>
-                <img class="purchase-sell-images" src="../../../../../assets/Buy-or-Rent-Second-hand-Laptop-Dell-Latitude-E6410-Renewed-from-Snap-Tech-Mumbai.jpg">
-                    <h2>₹ 4,50,000</h2>
-                    <div>
-                        <p>Laptop</p>
-                        <p>status</p>
-                        <p>State</p>
-                        <p>purchase date</p>
+                <img class="purchase-sell-images" src="https://cdn.bigboytoyz.com/new-version/products/bbt-rubicon-3.jpg">
+                    <h2 id="price">₹ 5,000</h2>
+                    <div class="row">
+                        <div class="col">
+                            <p>Cup board</p>
+                            
+                        </div>
+                        <div class="col">
+                            <p>status : listed</p>
+                        </div>   
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>State</p>
+                        </div>
+                        <div class="col">
+                            <p>purchase date</p>
+                        </div>
                     </div>
             </mat-card-content>
         </mat-card>
-
     </div>
+    
 
 </div>
       
