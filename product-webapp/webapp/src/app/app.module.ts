@@ -9,14 +9,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
 import { HomeComponent } from './features/home/components/home/home.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-import { EditUserDetailsComponent } from './features/edit-user-details/edit-user-details.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -25,7 +24,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     RegisterComponent,
     HomeComponent,
     UserDashBoardComponent,
-    EditUserDetailsComponent,
+    UpdateUserDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatSidenavModule,
     MatListModule,
     MatRadioModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
