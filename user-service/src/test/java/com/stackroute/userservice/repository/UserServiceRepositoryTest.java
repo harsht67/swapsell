@@ -1,7 +1,6 @@
 package com.stackroute.userservice.repository;
 
 import com.stackroute.userservice.domain.User;
-import net.bytebuddy.agent.builder.AgentBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +12,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.assertj.core.api.Assertions;
+
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ExtendWith(SpringExtension.class)
 @DataMongoTest
 class UserServiceRepositoryTest {
@@ -24,7 +27,7 @@ class UserServiceRepositoryTest {
     private List<User> userList;
     @BeforeEach
     void setUp() {
-//        user = new User(1L,"user1","lname1","987456321","user1@gmail.com","address1","img1.png");
+        user = new User(1L,"user1","lname1",987456321,"user1@gmail.com","address1", (byte) 125,"user1",null);
     }
 
     @AfterEach
@@ -42,4 +45,11 @@ class UserServiceRepositoryTest {
         assertEquals(user.getEmail(),user1.getEmail());
     }
 
+    @Test
+    @DisplayName("Save user to data base")
+    public void saveUserToDataBase(){
+        userServiceRepository.save(user);
+        assertThat(user.getEmail()).isEqualTo("user1@gmail.com");
+    }
+    
 }
