@@ -21,6 +21,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-nop</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -63,21 +69,6 @@
 
 			</plugin>
 		</plugins>
-<!--		<pluginManagement>-->
-<!--			<plugins>-->
-<!--				<plugin>-->
-<!--					<groupId>org.apache.maven.plugins</groupId>-->
-<!--					<artifactId>maven-compiler-plugin</artifactId>-->
-<!--					<version>3.8.1</version>-->
-<!--					<configuration>-->
-<!--						<compilerArguments>-->
-<!--							<source>11</source>-->
-<!--							<target>11</target>-->
-<!--						</compilerArguments>-->
-<!--					</configuration>-->
-<!--				</plugin>-->
-<!--			</plugins>-->
-<!--		</pluginManagement>-->
 	</build>
 
 </project>

@@ -25,7 +25,6 @@ public class Product {
     private String  image;
     private Double price;
     private String category;
-    private User seller;
     private String condition;
     private Integer ageInDays;
 
