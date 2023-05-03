@@ -3,7 +3,6 @@ package com.stackroute.userservice.controller;
 import com.stackroute.userservice.domain.Product;
 import com.stackroute.userservice.domain.User;
 import com.stackroute.userservice.exception.ProductDoesNotExistsException;
-import com.stackroute.userservice.exception.UserAlreadyExistsException;
 import com.stackroute.userservice.exception.UserNotFoundException;
 import com.stackroute.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
