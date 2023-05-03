@@ -2,7 +2,7 @@ package com.stackroute.userservice.domain;
 
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -12,6 +12,7 @@ import java.util.Date;
 @ToString
 @EqualsAndHashCode
 public class Product {
+    private Long id;
     private String name;
     private String title;
     private String description;
@@ -21,6 +22,6 @@ public class Product {
     private String condition;
     private int ageInDays;
     private boolean exchangeable;
-    private Date dateOfAddPosted;
+    private LocalDateTime addPostedOnDate;
 
 }
