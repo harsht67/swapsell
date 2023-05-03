@@ -23,4 +23,5 @@ public class User {
     private String address;
     private byte image;
     private String password;
+    private List<Product> productAddList;
 }
