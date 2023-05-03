@@ -41,7 +41,6 @@ public class UserServiceImpl implements UserService {
     }
     @RabbitListener(queues = MessageConfiguration.queueName1)
     public void userDataFromAuthService(UserDTO userDTO) throws UserAlreadyExistsException {
-        System.out.println(userDTO);
         registerUserToApplication(userDTO);
     }
     @Override
@@ -109,16 +108,15 @@ public class UserServiceImpl implements UserService {
             user=userByEmail.get();
             List<Product> productAddList = user.getProductAddList();
             LocalDateTime localDate = LocalDateTime.now();
+            product.setAddPostedOnDate(localDate);
             if (productAddList==null){
                 // create a product list
                 //user.setProductAddList(Arrays.asList(product);
 
-                product.setAddPostedOnDate(localDate);
                 user.setProductAddList(Collections.singletonList(product));
 
             }else {
                 // product list is not empty and add the products to the list
-                product.setAddPostedOnDate(localDate);
                 productAddList.add(product);
 
                 user.setProductAddList(productAddList);
