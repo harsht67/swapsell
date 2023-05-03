@@ -15,12 +15,12 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping
+    @GetMapping("/fetch")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public Product addNewProduct(@RequestBody ProductDTO productDTO) {
         return productService.addNewProduct(productDTO);
     }
