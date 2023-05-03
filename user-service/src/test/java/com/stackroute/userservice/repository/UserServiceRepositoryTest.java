@@ -24,7 +24,7 @@ class UserServiceRepositoryTest {
     private List<User> userList;
     @BeforeEach
     void setUp() {
-        user = new User(1L,"user1","lname1","987456321","user1@gmail.com","address1","img1.png");
+//        user = new User(1L,"user1","lname1","987456321","user1@gmail.com","address1","img1.png");
     }
 
     @AfterEach
