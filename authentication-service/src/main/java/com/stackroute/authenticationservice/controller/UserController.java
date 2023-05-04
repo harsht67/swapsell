@@ -24,6 +24,9 @@ public class UserController {
     @Autowired
     private JWTSecurityTokenGenerator tokenGenerator;
 
+    public UserController(UserService userService, JWTSecurityTokenGenerator tokenGenerator) {
+    }
+
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) throws UserAlreadyExistException {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);

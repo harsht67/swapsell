@@ -4,7 +4,7 @@ import { LoginComponent } from './features/login/components/login/login.componen
 import { RegisterComponent } from './features/register/components/register/register.component';
 import { HomeComponent } from './features/home/components/home/home.component';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
-import { EditUserDetailsComponent } from './features/edit-user-details/edit-user-details.component';
+import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path:"editDetails",
-    component:EditUserDetailsComponent
+    component:UpdateUserDataComponent
   }
   
 ];
