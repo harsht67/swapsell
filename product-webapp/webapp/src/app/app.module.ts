@@ -16,7 +16,6 @@ import { UserDashBoardComponent } from './features/user-dash-board/user-dash-boa
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-import { EditUserDetailsComponent } from './features/edit-user-details/edit-user-details.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -43,7 +42,6 @@ import { PostAnAddComponent } from './post-an-add/post-an-add.component';
     UserDashBoardComponent,
     UpdateUserDataComponent,
     PostAnAddComponent,
-    EditUserDetailsComponent,
   ],
   imports: [
     BrowserModule,
