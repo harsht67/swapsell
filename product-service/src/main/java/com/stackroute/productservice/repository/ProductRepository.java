@@ -12,15 +12,20 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "Product", path = "Product")
 public interface ProductRepository extends Neo4jRepository<Product, Long> {
 
-    @Query(value = "MATCH (a:User),(b:Product)\n" +
-            "WHERE a.firstName = :#{#firstName} AND ID(b) = :#{#productId}\n" +
+    // create a relationship user->product
+    @Query(value = "MATCH (a:User {email: $email}), (b:Product)\n" +
+            "WHERE ID(b) = $productId\n" +
             "CREATE (a)-[r:OWNS]->(b)")
     @Transactional
-    void createOwnsRelationship(@Param("firstName") String firstName, @Param("productId") Long productId);
+    void createOwnsRelationship(@Param("email") String email, @Param("productId") Long productId);
 
-
+    // search a product by name
     @Query(value = "MATCH (p:Product)\n" +
             "WHERE toLower(p.name) CONTAINS toLower($keyword)\n" +
             "RETURN p")
     List<Product> searchProduct(@Param("keyword") String keyword);
+
+    // delete a product by id
+    @Query("MATCH (p:Product) WHERE id(p) = $productId DETACH DELETE p")
+    Product deleteProductById(@Param("productId") Long productId);
 }

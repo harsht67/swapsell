@@ -26,6 +26,9 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HeaderComponent } from './features/header/header.component';
 import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
+import { ProductResultComponent } from './features/product-result/product-result.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 
 
@@ -41,6 +44,9 @@ import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
     UserDashBoardComponent,
     UpdateUserDataComponent,
     PostAnAdComponent,
+    ProductResultComponent,
+    ProductCardComponent,
+    FilterComponent,
 
 
   ],
