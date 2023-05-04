@@ -25,6 +25,7 @@ import { UpdateUserDataComponent } from './features/update-user-data/update-user
 import { MatSelectModule } from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HeaderComponent } from './features/header/header.component';
+import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
 
 
 
@@ -39,6 +40,7 @@ import { HeaderComponent } from './features/header/header.component';
     HomeComponent,
     UserDashBoardComponent,
     UpdateUserDataComponent,
+    PostAnAdComponent,
 
 
   ],
