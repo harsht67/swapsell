@@ -26,14 +26,6 @@
   margin-right: 0;
 }
 
-/* .use-update-div{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  border: 2px solid green;
-  justify-content: space-around;
-}
-*/
 #card1-image{
   width: 60%;
   height: 60%;
@@ -60,4 +52,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
+.buttons__option{
+  display: flex;
+  column-gap: 4vh;
+}

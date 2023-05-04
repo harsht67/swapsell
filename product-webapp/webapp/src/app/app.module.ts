@@ -27,6 +27,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { PostAnAddComponent } from './post-an-add/post-an-add.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     HomeComponent,
     UserDashBoardComponent,
     UpdateUserDataComponent,
+    PostAnAddComponent,
   ],
   imports: [
     BrowserModule,

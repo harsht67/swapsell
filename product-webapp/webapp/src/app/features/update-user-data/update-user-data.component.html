@@ -12,7 +12,7 @@
       <form class="col"   [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
         <mat-card class="shipping-card">
           <mat-card-header>
-            <mat-card-title class="p-3 mb-2 bg-info text-dark rounded-3 border border-3" >Update Your Information</mat-card-title>
+            <mat-card-title class="p-3 mb-2" >Update Your Information</mat-card-title>
           </mat-card-header>
           <mat-card-content>
             <div class="row">
@@ -103,7 +103,6 @@
             </div>
             <div class="row">
               <div class="col">
-                <label id="example-radio-group-label" >Enter your age</label>
                 <mat-form-field appearance="outline" class="full-width">
                   <input matInput placeholder="Age" formControlName="city">
                   <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
@@ -126,10 +125,8 @@
             </div>
 
             <div class="row">
-              <div class="col">
+              <div class="buttons__option">
                 <button mat-raised-button color="primary" type="submit">Submit</button>
-              </div>
-              <div class="col">
                 <button mat-raised-button color="warn" routerLink="/userDashBoard" >Go Back</button>
               </div>
             </div>
