@@ -1,13 +1,16 @@
 package com.stackroute.userservice.controller;
 
+import com.stackroute.userservice.domain.Product;
 import com.stackroute.userservice.domain.User;
-import com.stackroute.userservice.exception.UserAlreadyExistsException;
+import com.stackroute.userservice.exception.ProductDoesNotExistsException;
 import com.stackroute.userservice.exception.UserNotFoundException;
 import com.stackroute.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/swapSell")
@@ -38,11 +41,34 @@ public class UserServiceController {
     }
 
     @DeleteMapping("/user/deleteUser")
-    public ResponseEntity<?> deleteUser(@RequestBody User user){
+    public ResponseEntity<?> deleteUser(HttpServletRequest httpServletRequest ){
         try {
-            userService.deleteUser(user.getEmail());
-            return new ResponseEntity<>("User with "+user.getEmail() +" removed from database",HttpStatus.OK);
+            String emailId = httpServletRequest.getAttribute("emailId").toString();
+            userService.deleteUser(emailId);
+            return new ResponseEntity<>("User with "+emailId +" removed from database",HttpStatus.OK);
         } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+        }
+    }
+    @PostMapping("/user/productAdd")
+    public ResponseEntity<?> PostUserProductAdd(HttpServletRequest httpServletRequest , @RequestBody  Product product){
+        try {
+            String emailId = httpServletRequest.getAttribute("emailId").toString();
+            User user = userService.postAnAdd(emailId, product);
+            return new ResponseEntity<>(user,HttpStatus.CREATED);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+
+        }
+    }
+
+    @DeleteMapping("/user/deleteProduct/{productID}")
+    public ResponseEntity<?> deleteProductId(HttpServletRequest httpServletRequest, @PathVariable Long productID){
+        try {
+            String emailId = httpServletRequest.getAttribute("emailId").toString();
+            User user = userService.removeItemsFromProductList(emailId, productID);
+            return new ResponseEntity<>(user,HttpStatus.OK);
+        } catch (UserNotFoundException | ProductDoesNotExistsException e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
     }

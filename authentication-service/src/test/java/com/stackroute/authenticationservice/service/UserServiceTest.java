@@ -109,5 +109,4 @@ public class UserServiceTest {
         Assertions.assertEquals(user.getPassword(), foundUser.get().getPassword());
     }
 
-
 }

@@ -2,7 +2,9 @@ package com.stackroute.userservice.service;
 
 import com.stackroute.userservice.configuration.MessageConfiguration;
 import com.stackroute.userservice.configuration.UserDTO;
+import com.stackroute.userservice.domain.Product;
 import com.stackroute.userservice.domain.User;
+import com.stackroute.userservice.exception.ProductDoesNotExistsException;
 import com.stackroute.userservice.exception.UserAlreadyExistsException;
 import com.stackroute.userservice.exception.UserNotFoundException;
 import com.stackroute.userservice.repository.UserServiceRepository;
@@ -10,8 +12,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-import java.util.Random;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -39,7 +41,6 @@ public class UserServiceImpl implements UserService {
     }
     @RabbitListener(queues = MessageConfiguration.queueName1)
     public void userDataFromAuthService(UserDTO userDTO) throws UserAlreadyExistsException {
-        System.out.println(userDTO);
         registerUserToApplication(userDTO);
     }
     @Override
@@ -96,5 +97,56 @@ public class UserServiceImpl implements UserService {
             return true;
         }
         throw new UserNotFoundException("User not found with "+emailId);
+    }
+
+    @Override
+    public User postAnAdd(String emailId, Product product) throws UserNotFoundException {
+        Optional<User> userByEmail = userServiceRepository.findUserByEmail(emailId);
+        System.out.println(product);
+        User user ;
+        if (userByEmail.isPresent()){
+            user=userByEmail.get();
+            List<Product> productAddList = user.getProductAddList();
+            LocalDateTime localDate = LocalDateTime.now();
+            product.setAddPostedOnDate(localDate);
+            if (productAddList==null){
+                // create a product list
+                //user.setProductAddList(Arrays.asList(product);
+
+                user.setProductAddList(Collections.singletonList(product));
+
+            }else {
+                // product list is not empty and add the products to the list
+                productAddList.add(product);
+
+                user.setProductAddList(productAddList);
+            }
+        }else {
+            throw new UserNotFoundException("No user found with email id "+emailId);
+        }
+        userServiceRepository.save(user);
+        return user;
+    }
+
+    @Override
+    public User removeItemsFromProductList(String emailId, Long productId) throws UserNotFoundException, ProductDoesNotExistsException {
+        Optional<User> userByEmail = userServiceRepository.findUserByEmail(emailId);
+        User user;
+        if (userByEmail.isPresent()){
+             user = userByEmail.get();
+            List<Product> productAddList = user.getProductAddList();
+            Optional<Product> optionalProduct = productAddList.stream().filter(searchProduct -> Objects.equals(searchProduct.getId(), productId)).findAny();
+            if (optionalProduct.isPresent()){
+                productAddList.remove(optionalProduct.get());
+                user.setProductAddList(productAddList);
+            }else {
+                throw new ProductDoesNotExistsException("There is no product with id  "+ productId);
+            }
+
+        }else {
+            throw new UserNotFoundException("No user with id "+emailId);
+        }
+        userServiceRepository.save(user);
+        return user;
     }
 }

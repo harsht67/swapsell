@@ -4,18 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './features/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
 import { HomeComponent } from './features/home/components/home/home.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { EditUserDetailsComponent } from './features/edit-user-details/edit-user-details.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -29,6 +30,8 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { PostAnAddComponent } from './post-an-add/post-an-add.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +43,7 @@ import { PostAnAddComponent } from './post-an-add/post-an-add.component';
     UserDashBoardComponent,
     UpdateUserDataComponent,
     PostAnAddComponent,
+    EditUserDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,16 +55,7 @@ import { PostAnAddComponent } from './post-an-add/post-an-add.component';
     MatIconModule,
     MatCardModule,
     MatGridListModule,
-    MatTabsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatTooltipModule
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
