@@ -24,7 +24,6 @@ import {MatRadioModule} from '@angular/material/radio';
 import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { PostAnAddComponent } from './features/post-an-add/post-an-add.component';
 import { HeaderComponent } from './features/header/header.component';
 
 
@@ -40,7 +39,7 @@ import { HeaderComponent } from './features/header/header.component';
     HomeComponent,
     UserDashBoardComponent,
     UpdateUserDataComponent,
-    PostAnAddComponent,
+
 
   ],
   imports: [
