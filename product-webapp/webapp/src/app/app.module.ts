@@ -26,7 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HeaderComponent } from './features/header/header.component';
 import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -62,7 +62,8 @@ import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
     MatListModule,
     MatSelectModule,
     MatTooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule
 
 
   ],
