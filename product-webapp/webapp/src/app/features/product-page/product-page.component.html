@@ -1,0 +1,77 @@
+<div class="product-page">
+
+    <section class="product-page__img-container">
+
+        <div 
+            class="product-page__img"
+            *ngFor="let img of images"
+            [style.background-image]="'url(' + imgUrl + img + ')'"
+        ></div>
+
+    </section>
+
+    <section class="product-page__desc">
+
+        <h1 class="desc__title">
+            Samsung Galaxy S21 5G
+        </h1>
+
+        <p class="desc__price">
+            ₹19,499
+        </p>
+
+        <div class="desc__btns">
+        
+            <button class="desc__btn btn--offer">
+                Make offer
+            </button>
+
+            <button class="desc__btn btn--chat">
+                Chat with seller
+            </button>
+        
+        </div>
+
+        <div class="desc__overview">
+
+            <h3 class="desc__title">
+                overview
+            </h3>
+
+            <div>
+
+                <div>
+                    <p>Age</p>
+                    <p>5 months</p>
+                </div>
+
+                <div>
+                    <p>Condition</p>
+                    <p>Good</p>
+                </div>
+
+                <div>
+                    <p>Posting date</p>
+                    <p>5 may 2023</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="desc__desc">
+            <h3 class="desc__title">
+                description
+            </h3>
+            <p>
+                The latest Samsung smartphone with 5G connectivity. <br/>
+                6GB RAM, 128GB storage. <br/>
+                Black color. <br/>
+                With bill & box. <br/>
+            </p>
+        </div>
+
+    </section>
+
+
+</div>

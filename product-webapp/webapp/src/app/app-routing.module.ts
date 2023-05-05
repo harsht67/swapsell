@@ -6,12 +6,14 @@ import { HomeComponent } from './features/home/components/home/home.component';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
 import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
 import { ProductResultComponent } from './features/product-result/product-result.component';
+import { ProductPageComponent } from './features/product-page/product-page.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
   {path: "result", component: ProductResultComponent},
+  {path: "product", component: ProductPageComponent},
   {
     path:"userDashBoard",
     component:UserDashBoardComponent

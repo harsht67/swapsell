@@ -6,8 +6,22 @@
             9 items 
         </section>
 
-        <section>
-            sort by: price - low to high
+        <section class="dropdown">
+
+            <div class="dropdown__btn" (click)="toggleDropdown()">
+                <p>
+                    <span>sort by:</span> price - low to high
+                </p>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </div>
+
+            <div class="dropdown__data" *ngIf="dropdown">
+                <p>what's new</p>
+                <p>recommended</p>
+                <p>price - low to high</p>
+                <p>price - high to low</p>
+            </div>
+
         </section>
 
     </header>

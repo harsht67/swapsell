@@ -5,6 +5,12 @@ p {
 .product-card {
     /* width: 220px; */
     height: 300px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.product-card:hover {
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.15);
 }
 
 .product-card__img {
@@ -16,17 +22,19 @@ p {
 }
 
 .product-card__desc {
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.5rem;
     display: flex;
     flex-flow: column;
     gap: 0.25rem;
 }
 
 .product-card__price {
-    font-size: 600;
+    font-weight: 600;
 }
 
 .product-card__footer {
+    font-size: 0.9em;
+    color: #3c3c3c;
     display: flex;
     align-items: center;
     justify-content: space-between;
