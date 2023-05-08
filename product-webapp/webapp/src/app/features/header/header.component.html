@@ -8,9 +8,10 @@
     </mat-icon>
 
     <img
+        class="logo"
         src="../../../assets/logo.svg"
         alt="logo"
-        class="logo"
+        routerLink="/"
     />
 
     <div class="input">
@@ -28,6 +29,7 @@
     <div class="header__btns">
         <mat-icon>bedtime</mat-icon>
         <mat-icon>favorite_border</mat-icon>
+        <mat-icon>person</mat-icon>
     </div>
 
     <nav 
@@ -45,35 +47,37 @@
         </div>
 
         <ul>
-            <li>
+            <li routerLink="/" (click)="toggleMenu()" >
                 <img class="icon-image" src="../../../assets/home-icon.png" alt="home-icon" />
                 Home
             </li>
-            <li>
-                <img class="icon-image" src="../../../assets/user-icon.png" routerLink="/userDashBoard" alt="user-icon" />
+            <li routerLink="/userDashBoard" (click)="toggleMenu()">
+                <img class="icon-image" src="../../../assets/user-icon.png" alt="user-icon" />
                 Profile
             </li>
-            <li>
+            <li (click)="toggleMenu()">
                 <img class="icon-image" src="../../../assets/fav-icon.png" alt="fav-icon" />
                 Wishlist
             </li>
-            <li>
+            <li (click)="toggleMenu()">
                 <img class="icon-image" src="../../../assets/chat-icon.png" alt="chat-icon" />
                 Chat
             </li>
-            <li>
+            <li (click)="toggleMenu()">
                 <img class="icon-image" src="../../../assets/moon-icon.png" alt="dark theme icon" />
                 Dark theme
             </li>
         </ul>
 
-        <button class="post">
-            post an ad 
-        </button>
+        <div class="content__btns">
+            <button class="post">
+                post an ad 
+            </button>
 
-        <button class="log">
-            logout
-        </button>
+            <button class="log">
+                logout
+            </button>
+        </div>
     
     </nav>
 

@@ -31,6 +31,7 @@ header {
     transform: translateY(-45%);
     left: 2rem;
     display: none;
+    cursor: pointer;
 }
 @media screen and (min-width: 576px) {
     .logo {
@@ -78,7 +79,6 @@ input {
 }
 
 .content {
-    padding: 1rem;
     z-index: 10;
     position: fixed;
     top: 0;
@@ -105,25 +105,33 @@ input {
     box-shadow: 5px 5px 20px rgba(0,0,0, 0.25);
 }
 
+.closeBtn {
+    margin: 1rem;
+}
+
 .content ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     height: 100%;
-    margin-block-start: 1rem;
 }
 
 .content li {
-    margin-block-start: 1rem;
+    padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     gap: 2.5rem;
     font-weight: 600;
+    cursor: pointer;
 }
 @media screen and (min-width: 576px) {
     .content li {
         gap: 1.5rem;
     }
+}
+
+.content li:hover {
+    background-color: #e6e6e6;
 }
 
 .btns {
@@ -139,6 +147,10 @@ input {
     }
 }
 
+.content__btns {
+    padding: 1rem;
+}
+
 button {
     border: none;
     outline: none;
@@ -148,8 +160,8 @@ button {
     width: 100%;
     border-radius: 0.25rem;
     font-weight: 600;
-    margin-block-end: 1rem;
     padding: 0.5rem;
+    margin-block-end: 1rem;
 }
 
 button.post {
