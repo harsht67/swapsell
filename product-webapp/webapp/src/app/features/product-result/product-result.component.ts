@@ -12,6 +12,8 @@ export class ProductResultComponent {
 
   dropdown: boolean = false;
 
+  filter: boolean = true;
+
   // open/close sort-dropdown
   toggleDropdown() {
     this.dropdown = !this.dropdown;

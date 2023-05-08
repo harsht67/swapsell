@@ -4,14 +4,28 @@ p {
 
 .result {
     display: grid;
-    grid-template-columns: 300px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas: 
-        'filter header header header header'
-        'filter container container container container'
-        'filter container container container container'
-        'filter container container container container'
+        'header'
+        'filter'
+        'container'
     ;
 }
+@media screen and (min-width: 576px) {
+    .result {
+        grid-template-columns: 300px 1fr 1fr;
+        grid-template-areas: 
+            'filter header header'
+            'filter container container'
+            'filter container container'
+            'filter container container'
+        ;
+    }
+}
+
+/* 
+    header
+*/
 
 header {
     padding: 1rem;
@@ -34,10 +48,23 @@ header {
     padding: 0.5rem;
     padding-inline-end: 0;
     cursor: pointer;
+    border: 1px solid #bbbbbb;
+    border-radius: 2.5px;
+}
+@media screen and (min-width: 576px) {
+    .dropdown__btn {
+        border: none;
+    }
 }
 
 .dropdown__btn span {
     color: #4e4e4e;
+    display: none;
+}
+@media screen and (min-width: 576px) {
+    .dropdown__btn span {
+        display: inline-block;
+    }
 }
 
 .dropdown__data {
@@ -54,16 +81,45 @@ header {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
 }
 
+/* 
+    filter 
+*/
+
 aside {
     grid-area: filter;
 }
 
+.filter__btn {
+    border: 1px solid #bbbbbb;
+    border-radius: 2.5px;
+    padding: 0.5rem;
+    margin-inline: 1rem;
+    width: fit-content;
+    margin-left: auto;
+    cursor: pointer;
+    margin-block-end: 1rem;
+}
+@media screen and (min-width: 576px) {
+    .filter__btn {
+        display: none;
+    }
+}
+
+/* 
+    products - main section
+*/
+
 main {
-    overflow-y: auto;
     padding: 0.5rem 1rem;
     grid-area: container;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;    
-    gap: 1.5rem;
+    gap: 0.5rem;
+}
+@media screen and (min-width: 576px) {
+    main {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
 }

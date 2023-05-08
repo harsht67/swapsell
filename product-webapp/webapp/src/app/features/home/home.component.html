@@ -1,0 +1,65 @@
+<main class="home">
+
+    <section class="home__carousel">
+
+        <section class="carousel__img"></section>
+
+        <div class="carousel__btns">
+            <mat-icon *ngFor="let i of [1,2,3,4]">panorama_fish_eye</mat-icon>
+        </div>
+
+    </section>
+
+    <section class="home__category">
+
+        <h3 class="home__title">
+            shop by category
+        </h3>
+
+        <div class="home__container">
+            <mat-icon class="nav-btn">keyboard_arrow_left</mat-icon>
+
+            <div>
+                <app-category-card
+                    *ngFor="let category of categories"
+                    [category]="category"
+                >
+                </app-category-card>
+            </div>
+
+            <mat-icon class="nav-btn">keyboard_arrow_right</mat-icon>
+        </div>
+
+    </section>
+
+    <section class="home__products">
+
+        <h3 class="home__title">
+            recommended to you
+        </h3>
+
+        <div class="home__container">
+            <mat-icon class="nav-btn">keyboard_arrow_left</mat-icon>
+
+            <div>
+                <app-product-card
+                    *ngFor="let product of products"
+                >
+                </app-product-card>
+            </div>
+
+            <mat-icon class="nav-btn">keyboard_arrow_right</mat-icon>
+        </div>
+
+    </section>
+
+    <section class="home__reviews">
+
+        <app-review-card
+            *ngFor="let review of [1,2,3,4]"
+        >
+        </app-review-card>
+
+    </section>
+
+</main>

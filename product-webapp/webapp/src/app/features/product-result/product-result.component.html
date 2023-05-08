@@ -27,7 +27,13 @@
     </header>
 
     <aside>
-        <app-filter></app-filter>
+    
+        <p class="filter__btn">
+            Filter
+        </p>
+        
+        <app-filter *ngIf="filter"></app-filter>
+    
     </aside>
 
     <main>

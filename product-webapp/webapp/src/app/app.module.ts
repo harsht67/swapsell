@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
-import { HomeComponent } from './features/home/components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { MatInputModule } from '@angular/material/input';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
@@ -32,6 +31,9 @@ import { FilterComponent } from './components/filter/filter.component';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductPageComponent } from './features/product-page/product-page.component';
+import { HomeComponent } from './features/home/home.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { ReviewCardComponent } from './components/review-card/review-card.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,6 @@ import { ProductPageComponent } from './features/product-page/product-page.compo
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
     UserDashBoardComponent,
     UpdateUserDataComponent,
     PostAnAdComponent,
@@ -48,6 +49,9 @@ import { ProductPageComponent } from './features/product-page/product-page.compo
     ProductCardComponent,
     FilterComponent,
     ProductPageComponent,
+    HomeComponent,
+    CategoryCardComponent,
+    ReviewCardComponent,
   ],
   imports: [
     BrowserModule,
