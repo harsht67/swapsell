@@ -18,5 +18,5 @@ public class ProductDTO {
     private String category;
     private String condition;
     private Integer ageInDays;
-    private String firstName;
+    private String email;
 }

@@ -1,0 +1,41 @@
+p {
+    margin: 0;
+}
+
+.product-card {
+    /* width: 220px; */
+    height: 300px;
+}
+
+.product-card__img {
+    height: 200px;
+    width: 100%;
+    background-image: url("../../../assets/laptop.webp");
+    background-position: center;
+    background-size: cover;
+}
+
+.product-card__desc {
+    padding: 0.5rem 0;
+    display: flex;
+    flex-flow: column;
+    gap: 0.25rem;
+}
+
+.product-card__price {
+    font-size: 600;
+}
+
+.product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-card__location {
+    text-transform: capitalize;
+}
+
+.product-card__date {
+    text-transform: uppercase;
+}

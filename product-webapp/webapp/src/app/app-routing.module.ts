@@ -6,11 +6,13 @@ import { HomeComponent } from './features/home/components/home/home.component';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
 import { UpdateUserDataComponent } from './features/update-user-data/update-user-data.component';
 import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
+import { ProductResultComponent } from './features/product-result/product-result.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
+  {path: "result", component: ProductResultComponent},
   {
     path:"userDashBoard",
     component:UserDashBoardComponent

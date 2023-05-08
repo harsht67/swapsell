@@ -1,0 +1,26 @@
+<div class="result">
+
+    <header>
+        
+        <section>
+            9 items 
+        </section>
+
+        <section>
+            sort by: price - low to high
+        </section>
+
+    </header>
+
+    <aside>
+        <app-filter></app-filter>
+    </aside>
+
+    <main>
+
+        <app-product-card *ngFor="let product of products"></app-product-card>
+
+    </main>
+
+
+</div>
