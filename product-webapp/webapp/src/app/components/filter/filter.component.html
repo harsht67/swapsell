@@ -4,19 +4,45 @@
         filters
     </h1>
 
-    <section class="filter__category">
+    <section class="filter__category price">
         
         <h2 class="filter__subtitle">
             price
         </h2>
 
+        <mat-slider>
+            <input matSliderThumb>
+        </mat-slider>
+          
+        <div class="price__inputs">
+
+            <mat-form-field appearance="outline">
+                <mat-label>from</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field  appearance="outline">
+                <mat-label>to</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+        </div>
+
     </section>
     
-    <section class="filter__category">
+    <section class="filter__category condition">
         
         <h2 class="filter__subtitle">
             condition
         </h2>
+
+        <div class="condition__inputs">
+
+            <mat-checkbox>Excellent</mat-checkbox>
+            <mat-checkbox>Good</mat-checkbox>
+            <mat-checkbox>Fair</mat-checkbox>
+
+        </div>
 
     </section>
     
@@ -25,6 +51,12 @@
         <h2 class="filter__subtitle">
             age
         </h2>
+
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1">Less than 3 months</mat-radio-button>
+            <mat-radio-button value="2">Between 3-6 months</mat-radio-button>
+            <mat-radio-button value="2">More than 6 months</mat-radio-button>
+        </mat-radio-group>          
 
     </section>
 
