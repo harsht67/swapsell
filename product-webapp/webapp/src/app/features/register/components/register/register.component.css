@@ -32,10 +32,12 @@
 }
 
 .card__title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 900;
     line-height: 1.25em;
     text-align: center;
+    margin-block: 2rem 4rem;
+    text-transform: uppercase;
 }
 
 .card__img > img {
