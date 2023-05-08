@@ -10,16 +10,18 @@
 
             <div class="dropdown__btn" (click)="toggleDropdown()">
                 <p>
-                    <span>sort by:</span> price - low to high
+                    <span>sort by:</span> {{sort}}
                 </p>
                 <mat-icon>keyboard_arrow_down</mat-icon>
             </div>
 
             <div class="dropdown__data" *ngIf="dropdown">
-                <p>what's new</p>
-                <p>recommended</p>
-                <p>price - low to high</p>
-                <p>price - high to low</p>
+                <p
+                    *ngFor="let value of dropdownValues"
+                    (click)="updateSort(value)"
+                >   
+                    {{value}}
+                </p>
             </div>
 
         </section>
