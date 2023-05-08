@@ -6,7 +6,8 @@
         <mat-card-title>Post Your Ad</mat-card-title>
       </mat-card-header>
       <mat-card-content class="content">
-        <div class="detail">
+        <div class="col">
+          <!-- 1. class name wa detail -->
           <div class="detail__category_title">
               <mat-form-field class="half-width" appearance="outline">
                 <mat-select placeholder="category"  formControlName="category">
@@ -103,7 +104,8 @@
           </div>
           
         </div>
-        <div class="details__Image">
+        <div class="col">
+          <!-- class name was details__Image -->
               <input type="file" class="Image__input" (change)="onFileSelected($event)" multiple>
               <div class="image_tag">
                 <div *ngFor="let image of images; let i = index">

@@ -34,7 +34,7 @@
   border: 2px solid rgba(88,46,172,1);
   padding: 2vh;
   border-radius: 5px;
-
+  width: 100%;
 }
 .image_tag{
   display: grid;
@@ -115,3 +115,22 @@
   }
 }
 
+@media screen and (min-width:120px) and (max-width:319px)  {
+  .half-width{
+    width: 100%;
+  }
+  .content{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3vh;
+    width: fit-content;
+  }
+  .image_tag{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1vh;
+  }
+  .form-div{
+    margin: 0%;
+  }
+}
