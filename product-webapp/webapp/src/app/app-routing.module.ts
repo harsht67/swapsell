@@ -8,6 +8,7 @@ import { UpdateUserDataComponent } from './features/update-user-data/update-user
 import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
 import { ProductResultComponent } from './features/product-result/product-result.component';
 import { ProductPageComponent } from './features/product-page/product-page.component';
+import { UsersDetailsComponent } from './features/users-details/users-details.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -25,6 +26,9 @@ const routes: Routes = [
   },{
     path:"postAnAdd",
     component:PostAnAdComponent
+  },{
+    path:"userDetails",
+    component:UsersDetailsComponent
   }
   
 ];

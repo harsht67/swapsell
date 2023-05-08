@@ -32,6 +32,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { FilterComponent } from './components/filter/filter.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { ProductPageComponent } from './features/product-page/product-page.component';
+import { UsersDetailsComponent } from './features/users-details/users-details.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ProductPageComponent } from './features/product-page/product-page.compo
     ProductCardComponent,
     FilterComponent,
     ProductPageComponent,
+    UsersDetailsComponent,
   ],
   imports: [
     BrowserModule,
