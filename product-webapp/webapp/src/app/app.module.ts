@@ -25,11 +25,11 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HeaderComponent } from './features/header/header.component';
 import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductResultComponent } from './features/product-result/product-result.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { FilterComponent } from './components/filter/filter.component';
 import {MatSliderModule} from '@angular/material/slider';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductPageComponent } from './features/product-page/product-page.component';
 import { HomeComponent } from './features/home/home.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
@@ -72,8 +72,9 @@ import { ReviewCardComponent } from './components/review-card/review-card.compon
     MatSelectModule,
     MatTooltipModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
     MatSliderModule,
-    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

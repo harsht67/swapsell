@@ -1,20 +1,18 @@
 .full-width {
   width: 100%;
 }
-
+.half-width{
+  width: 49%;
+}
 .shipping-card {
-  min-width: 120px;
-  margin: 20px auto;
+  min-width: 10rem;
+  /* margin: 20px auto; */
+  /* max-width: fit-content; */
 }
 
 .mat-radio-button {
   display: block;
   margin: 5px 0;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
 }
 
 .col {
@@ -24,4 +22,115 @@
 
 .col:last-child {
   margin-right: 0;
+}
+.content{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  column-gap: 8vh;
+
+}
+.Image__input{
+  margin-bottom: 1vh;
+  border: 2px solid rgba(88,46,172,1);
+  padding: 2vh;
+  border-radius: 5px;
+  width: 100%;
+}
+.image_tag{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 5vh;
+  /* border: 2px solid green; */
+}
+.tag__image{
+  height: 20vh;
+  width: 20vh;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.tag__button{
+  position: relative;
+  bottom: 7vh;
+  right: 5vh;
+  color: grey;
+}
+.tag__size{
+  font-size:large;
+}
+.tag__button:hover{
+  color: red;
+}
+.detail__category_title{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2vh;
+}
+.detail__conditionDiv{
+  display: flex;
+  column-gap: 4vh;
+  flex-wrap: wrap;
+}
+.detail__city{
+  display: flex;
+  column-gap: 2vh;
+  flex-wrap: wrap;
+}
+
+.option__buttons{
+  display: flex;
+  column-gap: 4vh;
+  flex-wrap: wrap;
+}
+.form-div{
+  margin: 2%;
+}
+
+@media screen and (min-width : 320px) and (max-width:786px) {
+  .content{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3vh;
+    width: fit-content;
+  }
+  .detail{
+    width: fit-content;
+  }
+  .half-width{
+    width: 100%;
+  }
+  .image_tag{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1vh;
+  }
+  .form-div{
+    margin: 0%;
+  }
+
+}
+
+@media screen and (min-width:786px) and (max-width:1024px)  {
+  .half-width{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width:120px) and (max-width:319px)  {
+  .half-width{
+    width: 100%;
+  }
+  .content{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3vh;
+    width: fit-content;
+  }
+  .image_tag{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1vh;
+  }
+  .form-div{
+    margin: 0%;
+  }
 }
