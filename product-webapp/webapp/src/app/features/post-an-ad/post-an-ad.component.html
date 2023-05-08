@@ -8,28 +8,23 @@
       <mat-card-content class="content">
         <div class="detail">
           <div class="detail__category_title">
-            <div class="category_title__category">
-              <mat-form-field class="full-width" appearance="outline">
+              <mat-form-field class="half-width" appearance="outline">
                 <mat-select placeholder="category"  formControlName="category">
                   <mat-option *ngFor="let items of category" [value]="items">
                     {{ items.name }}
                   </mat-option>
                 </mat-select>
-                <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
+                <mat-error *ngIf="addressForm.controls['category'].hasError('required')">
                   Category is <strong>required</strong>
                 </mat-error>
-              </mat-form-field>
-            </div>
-            <div class="category_title__title">
-              <mat-form-field class="full-width" appearance="outline">
+              </mat-form-field>                     
+              <mat-form-field class="half-width" appearance="outline">
                 <input matInput placeholder="Title"  formControlName="title">
                 <mat-error *ngIf="addressForm.controls['title'].hasError('required')">
                   Title is <strong>required</strong>
                 </mat-error>
-              </mat-form-field>
-            </div>
-          </div>
-          
+              </mat-form-field>            
+          </div>          
           <div class="detail__productName">
             <mat-form-field class="full-width" appearance="outline">
               <input matInput placeholder="Name of your product"  formControlName="productName">
@@ -75,14 +70,14 @@
   
           
          <div class="detail__city">
-            <mat-form-field class="full-width" appearance="outline">
+            <mat-form-field class="half-width" appearance="outline">
               <input matInput placeholder="City" formControlName="city">
               <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
                 City is <strong>required</strong>
               </mat-error>
             </mat-form-field>
   
-            <mat-form-field class="full-width" appearance="outline">
+            <mat-form-field class="half-width" appearance="outline">
               <mat-select placeholder="State" formControlName="state">
                 <mat-option *ngFor="let state of states" [value]="state">
                   {{ state.name }}
@@ -106,10 +101,7 @@
               <input matInput   placeholder="Postal Code" type="number" formControlName="ageIndays">
             </mat-form-field>
           </div>
-          <div class="option__buttons">
-            <button mat-raised-button color="primary" type="submit">Submit</button>
-            <button mat-raised-button color="warn" routerLink="/userDashBoard" >Go back</button>
-          </div>
+          
         </div>
         <div class="details__Image">
               <input type="file" class="Image__input" (change)="onFileSelected($event)" multiple>
@@ -120,6 +112,12 @@
                 </div>
               </div>                      
         </div>
+
+        <div class="option__buttons">
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+          <button mat-raised-button color="warn" routerLink="/userDashBoard" >Go back</button>
+        </div>
+
       </mat-card-content>
       
     </mat-card>
