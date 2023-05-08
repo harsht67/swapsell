@@ -34,6 +34,8 @@ import { ProductPageComponent } from './features/product-page/product-page.compo
 import { HomeComponent } from './features/home/home.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { ReviewCardComponent } from './components/review-card/review-card.component';
+import { ProductService } from './services/product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { ReviewCardComponent } from './components/review-card/review-card.compon
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
@@ -76,7 +79,7 @@ import { ReviewCardComponent } from './components/review-card/review-card.compon
     ReactiveFormsModule,
     MatSliderModule,
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

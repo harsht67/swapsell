@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/modals/product';
 
 @Component({
   selector: 'app-product-card',
@@ -9,6 +10,13 @@ import { Router } from '@angular/router';
 export class ProductCardComponent {
 
   constructor(private router: Router) {}
+
+  // @Input()
+  // product: Product
+
+  // ngOnInit(): void {
+  //   console.log(this.product);
+  // }
 
   goToProductPage() {
     this.router.navigate(['/product']);

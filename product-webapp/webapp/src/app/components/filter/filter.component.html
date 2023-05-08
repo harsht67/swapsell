@@ -1,10 +1,10 @@
-<div class="filter">
+<div class="filter" *ngIf="filter">
 
     <h1 class="filter__title">
     
         <span>filters</span>
         
-        <mat-icon>clear</mat-icon>
+        <mat-icon (click)="toggleFilter()">clear</mat-icon>
     
     </h1>
 
@@ -13,10 +13,6 @@
         <h2 class="filter__subtitle">
             price
         </h2>
-
-        <!-- <mat-slider>
-            <input matSliderThumb>
-        </mat-slider> -->
           
         <div class="price__inputs">
 

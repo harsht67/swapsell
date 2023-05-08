@@ -3,7 +3,7 @@
     <header>
         
         <section>
-            9 items 
+            {{products.length}} items 
         </section>
 
         <section class="dropdown">
@@ -30,11 +30,14 @@
 
     <aside>
     
-        <p class="filter__btn">
+        <p 
+            class="filter__btn"
+            (click)="toggleFilter(true)"
+        >
             Filter
         </p>
         
-        <app-filter *ngIf="filter"></app-filter>
+        <app-filter [filter]="filter" (filterEvent)="toggleFilter($event)"></app-filter>
     
     </aside>
 
