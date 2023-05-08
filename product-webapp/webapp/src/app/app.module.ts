@@ -31,7 +31,6 @@ import { ProductResultComponent } from './features/product-result/product-result
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { FilterComponent } from './components/filter/filter.component';
 import {MatSliderModule} from '@angular/material/slider';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductPageComponent } from './features/product-page/product-page.component';
 
 @NgModule({
@@ -69,12 +68,9 @@ import { ProductPageComponent } from './features/product-page/product-page.compo
     MatSelectModule,
     MatTooltipModule,
     ReactiveFormsModule,
-    MatCheckboxModule
-
-
+    MatCheckboxModule,
     ReactiveFormsModule,
     MatSliderModule,
-    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
