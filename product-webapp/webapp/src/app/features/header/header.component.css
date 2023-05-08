@@ -123,6 +123,7 @@ input {
     gap: 2.5rem;
     font-weight: 600;
     cursor: pointer;
+    text-transform: uppercase;
 }
 @media screen and (min-width: 576px) {
     .content li {
