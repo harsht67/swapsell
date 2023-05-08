@@ -66,8 +66,50 @@ export class PostAnAdComponent {
   ]
 
   constructor(private fb: FormBuilder) {}
+  
+  // urls =[]
+  // onFileSelected(event){
+  //   if(event.target.files){
+  //     for(var i=0;i<File.length;i++){
+  //       var reader = new FileReader();
+  //       reader.readAsDataURL(event.target.files[i]);
+  //       reader.onload=(event:any)=>{
+  //         this.urls.push(event.target.result);
+  //       }
+  //     }
+  //   }
+  // }
+
+
+  images: {url: string}[] = [];
+
+  onFileSelected(event) {
+    if(this.images.length<10){
+      for(let i = 0; i < event.target.files.length; i++) {      
+        const file = event.target.files[i];
+        console.log(file);          
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.images.push({url: reader.result.toString()});
+        };
+        reader.readAsDataURL(file);
+      }
+    }else{
+      alert("You have added enough number of images")
+    }
+    
+  }
+
+  removeImage(index: number) {
+    // this.images[index].removed = true;
+    this.images.splice(index,1);
+    
+    console.log(this.images);
+    
+  }
+ 
 
   onSubmit(): void {
-    alert('Thanks!');
+    alert('submitted');
   }
 }

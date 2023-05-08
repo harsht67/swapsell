@@ -16,7 +16,7 @@
                   </mat-option>
                 </mat-select>
                 <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
-                  category is <strong>required</strong>
+                  Category is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
             </div>
@@ -106,23 +106,21 @@
               <input matInput   placeholder="Postal Code" type="number" formControlName="ageIndays">
             </mat-form-field>
           </div>
-  
+          <div class="option__buttons">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+            <button mat-raised-button color="warn" routerLink="/userDashBoard" >Go back</button>
+          </div>
         </div>
         <div class="details__Image">
-          <div class="image_tag">
-              <img class="tag__upload" src="../../../../../assets/noun-image-upload-3073402.svg"/>
-            <input matInput   placeholder="Postal Code" type="file" >
-          </div>
-          <div class="option__buttons">
-            <mat-card-actions class="buttons_group">
-              <button mat-raised-button color="primary" type="submit">Submit</button>
-              <button mat-raised-button color="warn" routerLink="/userDashBoard" >Go back</button>
-            </mat-card-actions>
-          </div>
+              <input type="file" class="Image__input" (change)="onFileSelected($event)" multiple>
+              <div class="image_tag">
+                <div *ngFor="let image of images; let i = index">
+                  <img [src]="image.url" class="tag__image" *ngIf="!image.removed">
+                  <button mat-icon-button matTooltip="Deselect this image" class="tag__button"	 (click)="removeImage(i)" *ngIf="!image.removed"><mat-icon class="tag__size">cancel</mat-icon></button>
+                </div>
+              </div>                      
         </div>
-        
       </mat-card-content>
-      
       
     </mat-card>
   </form>
