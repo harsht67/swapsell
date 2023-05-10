@@ -7,8 +7,8 @@ import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,16 +17,7 @@ import java.util.List;
 @Document
 public class Chat {
     @MongoId
-    private String chatId;
+    private String chatId = UUID.randomUUID().toString();;
     private List<String> participants;
     private List<Message> messages;
-
-    public static class Message {
-        private String messageId;
-        private String senderId;
-        private String receiverId;
-        private String content;
-        private Date timestamp;
-    }
-
 }
