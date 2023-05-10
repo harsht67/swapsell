@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @EqualsAndHashCode
 public class OrderDetail {
     @MongoId
-    private Integer orderId;
+    private Long orderId;
     private String userFullName;
     private String addressToDeliver;
     private String contactNumber;
