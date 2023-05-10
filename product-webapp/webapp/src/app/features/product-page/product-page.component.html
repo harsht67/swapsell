@@ -1,12 +1,24 @@
+<app-header></app-header>
+
 <div class="product-page">
 
     <section class="product-page__img-container">
 
-        <div 
-            class="product-page__img"
-            *ngFor="let img of images"
-            [style.background-image]="'url(' + imgUrl + img + ')'"
-        ></div>
+        <div>
+            <mat-icon class="img-btn" (click)="prevImage()">
+                keyboard_arrow_left
+            </mat-icon>
+
+            <div 
+                class="product-page__img"
+                [style.background-image]="'url(' + imgUrl + images[currentImage] + ')'"
+            ></div>
+
+            <mat-icon class="img-btn" (click)="nextImage()">
+                keyboard_arrow_right
+            </mat-icon>
+
+        </div>
 
     </section>
 
@@ -129,7 +141,17 @@
 
         <div class="related__products">
 
-            <app-product-card *ngFor="let product of products"></app-product-card>
+                <mat-icon class="related-btn">
+                    keyboard_arrow_left
+                </mat-icon>
+
+                <div>
+                    <app-product-card *ngFor="let product of products"></app-product-card>
+                </div>
+                
+                <mat-icon class="related-btn">
+                    keyboard_arrow_right
+                </mat-icon>
 
         </div>
 

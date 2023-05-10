@@ -1,7 +1,15 @@
 .filter {
-    position: relative;
     padding: 1rem;
     font-size: 0.9rem;
+    background-color: #fff;
+    position: fixed;
+    inset: 0;
+    /* display: none; */
+}
+@media screen and (min-width: 576px) {
+    .filter {
+        position: relative;
+    }
 }
 
 .filter__title {
@@ -10,6 +18,19 @@
     font-weight: 500;
     margin: 0;
     margin-block-end: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter__title mat-icon {
+    color: #f00;
+    cursor: pointer;
+}
+@media screen and (min-width: 576px) {
+    .filter__title mat-icon {
+        display: none;
+    }
 }
 
 .filter__subtitle {

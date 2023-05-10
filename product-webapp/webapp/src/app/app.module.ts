@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
-import { HomeComponent } from './features/home/components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { MatInputModule } from '@angular/material/input';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
@@ -33,6 +32,11 @@ import { FilterComponent } from './components/filter/filter.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { ProductPageComponent } from './features/product-page/product-page.component';
 import { UsersDetailsComponent } from './features/users-details/users-details.component';
+import { HomeComponent } from './features/home/home.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { ReviewCardComponent } from './components/review-card/review-card.component';
+import { ProductService } from './services/product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,6 @@ import { UsersDetailsComponent } from './features/users-details/users-details.co
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
     UserDashBoardComponent,
     UpdateUserDataComponent,
     PostAnAdComponent,
@@ -56,6 +59,7 @@ import { UsersDetailsComponent } from './features/users-details/users-details.co
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
@@ -74,7 +78,7 @@ import { UsersDetailsComponent } from './features/users-details/users-details.co
     ReactiveFormsModule,
     MatSliderModule,
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

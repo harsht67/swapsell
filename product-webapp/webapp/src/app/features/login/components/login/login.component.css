@@ -34,6 +34,7 @@
     transform: translateY(4rem);
     display: block;
     margin: auto;
+    cursor: pointer;
 }
 
 .card__title {
@@ -111,6 +112,7 @@ button {
     cursor: pointer;
     font-weight: 600;
     border-radius: 0.5rem;
+    text-transform: uppercase;
 }
 
 .loginBtn {

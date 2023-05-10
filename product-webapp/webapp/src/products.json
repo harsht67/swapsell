@@ -1,0 +1,84 @@
+{
+    "products": [
+        {
+            "name": "Dell XPS 15",
+            "title": "Dell XPS 15 Laptop",
+            "description": "A high-performance laptop for gaming and professional use",
+            "image": "https://example.com/dell-xps-15.jpg",
+            "price": 1799.0,
+            "category": "Electronics",
+            "condition": "New",
+            "ageInDays": 0
+        },
+        {
+            "name": "Nike Air Max",
+            "title": "Nike Air Max 270",
+            "description": "Stylish and comfortable sneakers for everyday wear",
+            "image": "https://example.com/nike-air-max.jpg",
+            "price": 129.0,
+            "category": "Fashion",
+            "condition": "New",
+            "ageInDays": 0
+        },
+        {
+            "name": "Dell XPS 15",
+            "title": "Dell XPS 15 Laptop",
+            "description": "A high-performance laptop for gaming and professional use",
+            "image": "https://example.com/dell-xps-15.jpg",
+            "price": 1799.0,
+            "category": "Electronics",
+            "condition": "New",
+            "ageInDays": 0
+        },
+        {
+            "name": "Sony PlayStation 5",
+            "title": "Sony PS5 Gaming Console",
+            "description": "Next-gen gaming console with powerful hardware and stunning graphics",
+            "image": "https://example.com/sony-ps5.jpg",
+            "price": 499.0,
+            "category": "Electronics",
+            "condition": "New",
+            "ageInDays": 0
+        },
+        {
+            "name": "Canon EOS R5",
+            "title": "Canon EOS R5 Mirrorless Camera",
+            "description": "A professional-grade camera with advanced features and high-resolution capabilities",
+            "image": "https://example.com/canon-eos-r5.jpg",
+            "price": 3899.0,
+            "category": "Electronics",
+            "condition": "New",
+            "ageInDays": 0
+        },
+        {
+            "name": "Samsung QLED TV",
+            "title": "Samsung Q90R 4K QLED TV",
+            "description": "A high-end QLED TV with stunning picture quality and immersive sound",
+            "image": "https://example.com/samsung-qled-tv.jpg",
+            "price": 1999.0,
+            "category": "Electronics",
+            "condition": "New",
+            "ageInDays": 0
+        },
+        {
+            "name": "Amazon Echo Dot",
+            "title": "Amazon Echo Dot (4th Gen)",
+            "description": "A compact smart speaker with Alexa voice assistant",
+            "image": "https://example.com/amazon-echo-dot.jpg",
+            "price": 49.0,
+            "category": "Electronics",
+            "condition": "New",
+            "ageInDays": 0
+        },
+        {
+            "name": "Canon EOS R5",
+            "title": "Canon EOS R5 Mirrorless Camera",
+            "description": "A professional-grade camera with advanced features and high-resolution capabilities",
+            "image": "https://example.com/canon-eos-r5.jpg",
+            "price": 3899.0,
+            "category": "Electronics",
+            "condition": "New",
+            "ageInDays": 0
+        }      
+    ]
+}
