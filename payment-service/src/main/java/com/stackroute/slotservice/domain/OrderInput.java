@@ -1,7 +1,16 @@
 package com.stackroute.slotservice.domain;
 
+import lombok.*;
+
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class OrderInput {
     // we will take all the order inputs form the user
     private String userFullName;
