@@ -22,6 +22,8 @@ public class Product {
     private String condition;
     private int ageInDays;
     private boolean exchangeable;
+    private String state;
+    private String city;
     private LocalDateTime addPostedOnDate;
 
 }
