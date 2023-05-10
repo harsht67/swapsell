@@ -31,6 +31,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { FilterComponent } from './components/filter/filter.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { ProductPageComponent } from './features/product-page/product-page.component';
+import { UsersDetailsComponent } from './features/users-details/users-details.component';
 import { HomeComponent } from './features/home/home.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { ReviewCardComponent } from './components/review-card/review-card.component';
@@ -51,9 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductCardComponent,
     FilterComponent,
     ProductPageComponent,
-    HomeComponent,
-    CategoryCardComponent,
-    ReviewCardComponent,
+    UsersDetailsComponent,
   ],
   imports: [
     BrowserModule,

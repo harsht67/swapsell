@@ -66,19 +66,6 @@ export class PostAnAdComponent {
   ]
 
   constructor(private fb: FormBuilder) {}
-  
-  // urls =[]
-  // onFileSelected(event){
-  //   if(event.target.files){
-  //     for(var i=0;i<File.length;i++){
-  //       var reader = new FileReader();
-  //       reader.readAsDataURL(event.target.files[i]);
-  //       reader.onload=(event:any)=>{
-  //         this.urls.push(event.target.result);
-  //       }
-  //     }
-  //   }
-  // }
 
 
   images: {url: string}[] = [];

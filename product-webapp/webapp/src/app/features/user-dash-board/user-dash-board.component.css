@@ -118,6 +118,9 @@
     padding: 2rem 0 ;
     height: 100%;
 }
+.info__fullname{
+    cursor: pointer;
+}
 .header__options{
     display: flex;
     flex-wrap: wrap;
