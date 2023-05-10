@@ -53,6 +53,9 @@ import { HttpClientModule } from '@angular/common/http';
     FilterComponent,
     ProductPageComponent,
     UsersDetailsComponent,
+    HomeComponent,
+    CategoryCardComponent,
+    ReviewCardComponent
   ],
   imports: [
     BrowserModule,
