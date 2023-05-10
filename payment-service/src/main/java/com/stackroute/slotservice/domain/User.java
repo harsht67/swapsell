@@ -4,24 +4,20 @@ import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.ArrayList;
 import java.util.List;
-
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
+@ToString
+@EqualsAndHashCode
 @Getter
 @Setter
-@EqualsAndHashCode
-@ToString
-@Document
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @MongoId
     private Long id;
     private String firstName;
     private String lastName;
-    private int phoneNumber;
     private String email;
-    private String address;
-    private byte image;
-    private String password;
-    private List<Product> productAddList;
+    private List<Product> products = new ArrayList<>();
 }
