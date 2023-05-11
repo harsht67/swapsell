@@ -12,13 +12,11 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 public class Order {
-    private Long orderId;
+    // we will take all the order inputs form the user
     private String userFullName;
-    private String addressToDeliver;
-    private int contactNumber;
+    private String userAddress;
+    private String contactNumber;
+    // taking list because we can add the list of items to the cart
+    private List<Long> productId;
     private int alternateContactNumber;
-    private String orderStatus;
-    private double orderAmount;
-    private List<Product> productList;
-
 }

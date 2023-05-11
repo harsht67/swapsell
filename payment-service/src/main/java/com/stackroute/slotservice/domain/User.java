@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.ArrayList;
 import java.util.List;
 @Document
 @Data
@@ -18,5 +19,5 @@ public class User {
     private String emailId;
     private String firstName;
     private String lastName;
-    private List<Order> orderList;
+    private List<OrderDetail> orderDetailList;
 }
