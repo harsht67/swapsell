@@ -10,7 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "Product", path = "Product")
-public interface ProductRepository extends Neo4jRepository<Product, Long> {
+public interface
+ProductRepository extends Neo4jRepository<Product, Long> {
 
     // create a relationship user->product
     @Query(value = "MATCH (a:User {email: $email}), (b:Product)\n" +
