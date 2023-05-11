@@ -1,12 +1,10 @@
 package com.stackroute.slotservice.domain;
 
 import lombok.*;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-@Document
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +13,6 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @ToString
 @EqualsAndHashCode
 public class OrderDetail {
-    @MongoId
     private Long orderId;
     private String userFullName;
     private String addressToDeliver;
@@ -23,5 +20,6 @@ public class OrderDetail {
     private int alternateContactNumber;
     private String orderStatus;
     private double orderAmount;
+    private List<Product> productList;
 
 }
