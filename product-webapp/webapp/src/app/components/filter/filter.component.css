@@ -1,26 +1,86 @@
 .filter {
-    position: relative;
-    padding: 1rem 2rem;
+    padding: 1rem;
     font-size: 0.9rem;
+    background-color: #fff;
+    position: fixed;
+    inset: 0;
+}
+@media screen and (min-width: 576px) {
+    .filter {
+        position: relative;
+    }
 }
 
 .filter__title {
     text-transform: uppercase;
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 400;
+    margin: 0;
     margin-block-end: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter__title mat-icon {
+    color: #f00;
+    cursor: pointer;
+}
+@media screen and (min-width: 576px) {
+    .filter__title mat-icon {
+        display: none;
+    }
 }
 
 .filter__subtitle {
     text-transform: uppercase;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 400;
+    margin: 0;
 }
 
 .filter__category {
-    border-block-start: 1px solid #444444;
+    border-block-start: 1px solid var(--border);
     padding: 1rem 0;
     color: #292929;
+}
+
+/* 
+    catgory - price 
+*/
+
+mat-slider {
+    width: 100%;
+}
+
+.price__inputs {
+    display: flex;
+    gap: 1rem;
+}
+
+mat-form-field {
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+mat-label {
+    text-transform: uppercase;
+}
+
+/* 
+    category - condition
+*/
+
+mat-checkbox {
+    width: 100%;
+}
+
+/* 
+    category - age
+*/
+
+mat-radio-button {
+    width: 100%;
 }
 
 .filter__btn {

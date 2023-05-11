@@ -1,10 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@400;500;600;700;800;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
 
 * {
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Karla', sans-serif;
 }
 
 html, body { 
@@ -30,5 +30,8 @@ a {
 a:hover {
     color: inherit;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+    --text3: #6e6e6e;
+    --border: #dfdfdf;
+}

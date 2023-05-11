@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './features/login/components/login/login.component';
 import { RegisterComponent } from './features/register/components/register/register.component';
-import { HomeComponent } from './features/home/components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { MatInputModule } from '@angular/material/input';
 import { UserDashBoardComponent } from './features/user-dash-board/user-dash-board.component';
@@ -26,12 +25,18 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HeaderComponent } from './features/header/header.component';
 import { PostAnAdComponent } from './features/post-an-ad/post-an-ad.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductResultComponent } from './features/product-result/product-result.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { FilterComponent } from './components/filter/filter.component';
-
-
-
+import {MatSliderModule} from '@angular/material/slider';
+import { ProductPageComponent } from './features/product-page/product-page.component';
+import { UsersDetailsComponent } from './features/users-details/users-details.component';
+import { HomeComponent } from './features/home/home.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { ReviewCardComponent } from './components/review-card/review-card.component';
+import { ProductService } from './services/product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,21 +45,24 @@ import { FilterComponent } from './components/filter/filter.component';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
     UserDashBoardComponent,
     UpdateUserDataComponent,
     PostAnAdComponent,
     ProductResultComponent,
     ProductCardComponent,
     FilterComponent,
-
-
+    ProductPageComponent,
+    UsersDetailsComponent,
+    HomeComponent,
+    CategoryCardComponent,
+    ReviewCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
@@ -68,11 +76,12 @@ import { FilterComponent } from './components/filter/filter.component';
     MatListModule,
     MatSelectModule,
     MatTooltipModule,
-    ReactiveFormsModule
-
-
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatSliderModule,
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
