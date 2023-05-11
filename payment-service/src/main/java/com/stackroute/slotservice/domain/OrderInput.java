@@ -18,4 +18,5 @@ public class OrderInput {
     private String contactNumber;
     // taking list because we can add the list of items to the cart
     private List<Long> productId;
+    private int alternateContactNumber;
 }
