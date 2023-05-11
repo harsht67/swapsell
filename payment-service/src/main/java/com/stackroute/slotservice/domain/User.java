@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.ArrayList;
 import java.util.List;
+@Document
 @Data
 @ToString
 @EqualsAndHashCode
@@ -15,9 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 public class User {
     @MongoId
-    private Long id;
+    private String emailId;
     private String firstName;
     private String lastName;
-    private String email;
-    private List<Product> products = new ArrayList<>();
+    private List<OrderDetail> orderDetailList;
 }
