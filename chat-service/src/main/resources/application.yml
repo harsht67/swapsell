@@ -6,4 +6,4 @@ spring:
       uri: mongodb://localhost:27017
       database: SwapSellChats
 server:
-  port: 8882
+  port: 8081
