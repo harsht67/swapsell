@@ -17,14 +17,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUserToDataBase(String emailId) throws UserAlreadyExistsException {
-        Optional<User> userByEmailId = userRepository.findUserByEmailId(emailId);
-        User user;
+    public User addUserToDataBase(User user) throws UserAlreadyExistsException {
+        Optional<User> userByEmailId = userRepository.findUserByEmailId(user.getEmailId());
         if (userByEmailId.isPresent()){
-             user = userByEmailId.get();
-            userRepository.save(user);
-            return user;
+            throw new UserAlreadyExistsException("User is already present with email id "+user.getEmailId());
         }
-        throw new UserAlreadyExistsException("User already exists with email id "+emailId);
+        return userRepository.save(user);
     }
 }

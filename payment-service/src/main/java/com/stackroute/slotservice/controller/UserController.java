@@ -23,7 +23,7 @@ public class UserController {
     @PostMapping("/userTransactionRegister")
     public ResponseEntity<?> registerUser(@RequestBody User user){
         try {
-            User addUserToDataBase = userService.addUserToDataBase(user.getEmailId());
+            User addUserToDataBase = userService.addUserToDataBase(user);
             return new ResponseEntity<>(addUserToDataBase, HttpStatus.CREATED);
         } catch (UserAlreadyExistsException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
