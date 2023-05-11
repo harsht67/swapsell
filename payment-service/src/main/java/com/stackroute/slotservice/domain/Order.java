@@ -2,7 +2,9 @@ package com.stackroute.slotservice.domain;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -13,10 +15,13 @@ import java.util.List;
 @EqualsAndHashCode
 public class Order {
     // we will take all the order inputs form the user
-    private String userFullName;
-    private String userAddress;
-    private String contactNumber;
-    // taking list because we can add the list of items to the cart
-    private List<Long> productId;
-    private int alternateContactNumber;
+    private Long id;
+    private String order;
+    private double amount;
+    private String currency;
+    private String receipt;
+    private String status;
+    private int attempts;
+    private Map<String,String> notes;
+    private LocalDateTime localDateTime;
 }
