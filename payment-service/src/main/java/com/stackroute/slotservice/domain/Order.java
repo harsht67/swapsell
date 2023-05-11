@@ -1,7 +1,6 @@
 package com.stackroute.slotservice.domain;
 
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class OrderDetail {
+public class Order {
     private Long orderId;
     private String userFullName;
     private String addressToDeliver;
