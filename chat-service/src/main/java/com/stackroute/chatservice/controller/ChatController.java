@@ -3,6 +3,7 @@ package com.stackroute.chatservice.controller;
 import com.stackroute.chatservice.domain.Chat;
 import com.stackroute.chatservice.domain.ChatDTO;
 import com.stackroute.chatservice.domain.ChatParticipants;
+import com.stackroute.chatservice.domain.Message;
 import com.stackroute.chatservice.execption.ChatNotFoundException;
 import com.stackroute.chatservice.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +45,9 @@ public class ChatController {
     }
 
     @PostMapping("/chats/messages")
-    public ResponseEntity<ApiResponse<Void>> addMessage(@RequestBody ChatDTO chatDTO) {
+    public ResponseEntity<ApiResponse<Void>> addMessage(@RequestBody Message message) {
         try {
-            chatService.addMessage(chatDTO);
+            chatService.addMessage(message);
             ApiResponse<Void> response = new ApiResponse<>(true, "Message added successfully", null);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (ChatNotFoundException e) {

@@ -1,0 +1,33 @@
+p {
+    margin: 0;
+}
+
+.chat-menu {
+    background-color: #d0d0d0;
+    height: 100%;
+}
+
+.user {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-block-end: 1px solid #fff;
+    cursor: pointer;
+}
+
+.user:hover {
+    background-color: #e8e8e8;
+}
+
+.user__img {
+    width: 2.5rem;
+}
+
+.user__name {
+    margin-block-end: 0.2rem;
+}
+
+.user__msg {
+    color: #242424;
+}

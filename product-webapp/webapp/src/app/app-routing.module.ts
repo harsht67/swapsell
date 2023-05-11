@@ -9,6 +9,7 @@ import { ProductResultComponent } from './features/product-result/product-result
 import { ProductPageComponent } from './features/product-page/product-page.component';
 import { UsersDetailsComponent } from './features/users-details/users-details.component';
 import { HomeComponent } from './features/home/home.component';
+import { ChatComponent } from './features/chat/chat.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -29,6 +30,10 @@ const routes: Routes = [
   },{
     path:"userDetails",
     component:UsersDetailsComponent
+  },
+  {
+    path: "chat",
+    component: ChatComponent
   }
   
 ];
