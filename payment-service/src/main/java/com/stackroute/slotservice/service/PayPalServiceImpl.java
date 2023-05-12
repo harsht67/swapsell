@@ -51,4 +51,12 @@ public class PayPalServiceImpl implements PayPalService {
         return payment.create(apiContext);
     }
 
+    public Payment executePayment(String paymentId,String payerId) throws PayPalRESTException {
+        Payment payment = new Payment();
+        payment.setId(payerId);
+        PaymentExecution  paymentExecution  = new PaymentExecution();
+        paymentExecution.setPayerId(payerId);
+        return payment.execute(apiContext,paymentExecution);
+    }
+
 }
