@@ -1,6 +1,7 @@
 package com.stackroute.slotservice.configuration;
 
 
+import com.paypal.base.rest.OAuthTokenCredential;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,10 +19,14 @@ public class PaypalConfiguration {
     private String mode;
 
     @Bean
-    public Map<String,String> payPalConfig(){
+    public Map<String,String> payPalSdkConfig(){
         Map<String,String> configMap = new HashMap<>();
         configMap.put("mode",mode);
         return configMap;
+    }
+
+    public OAuthTokenCredential oAuthTokenCredential(){
+        return new OAuthTokenCredential(clientId,clientSecret,payPalSdkConfig());
     }
 
 }
