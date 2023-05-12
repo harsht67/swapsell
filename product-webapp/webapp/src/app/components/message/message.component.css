@@ -4,18 +4,19 @@ p {
 
 .message {
     padding: 0.5rem;
-    background-color: #0f0;
+    background-color: #f1f5fb;
     border-radius: 0.5rem;
-    min-width: fit-content;
-    max-width: 40%;
+    width: fit-content;
+    max-width: 320px;
 }
 
 .message__content {
-    margin-block-end: 0.25rem;
+    font-size: 0.95em;
+    margin-block-end: 0.15rem;
 }
 
 .message__time {
     font-size: 0.75em;
-    color: #323232;
+    color: var(--text3);
     text-align: right;
 }

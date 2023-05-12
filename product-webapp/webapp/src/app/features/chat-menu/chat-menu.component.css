@@ -3,9 +3,16 @@ p {
 }
 
 .chat-menu {
-    background-color: #9e9e9e;
     height: 100%;
-    border-inline-end: 1px solid #000;
+    border-inline-end: 1px solid var(--border);
+}
+
+header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* text-transform: uppercase; */
+    padding: 1.5rem 1.25rem 3rem;
+    border-block-end: 1px solid var(--border);
 }
 
 .user {
@@ -13,12 +20,12 @@ p {
     display: flex;
     align-items: center;
     gap: 1rem;
-    border-block-end: 1px solid #000;
+    border-block-end: 1px solid var(--border);
     cursor: pointer;
 }
 
 .user:hover {
-    background-color: #8a8a8a;
+    background-color: #f2faf1;
 }
 
 .user__img {
@@ -27,8 +34,10 @@ p {
 
 .user__name {
     margin-block-end: 0.2rem;
+    font-weight: 500;
 }
 
 .user__msg {
-    color: #242424;
+    color: var(--text3);
+    font-size: 0.9em;
 }
