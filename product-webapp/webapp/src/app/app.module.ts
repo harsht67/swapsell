@@ -40,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChatMenuComponent } from './features/chat-menu/chat-menu.component';
 import { ChatMessageComponent } from './features/chat-message/chat-message.component';
 import { ChatComponent } from './features/chat/chat.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ChatComponent } from './features/chat/chat.component';
     ReviewCardComponent,
     ChatMenuComponent,
     ChatMessageComponent,
-    ChatComponent
+    ChatComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

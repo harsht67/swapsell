@@ -29,6 +29,14 @@
 
     <section class="chat-message__container">
 
+        <div>
+            <app-message
+                *ngFor="let message of messages"
+                [message]="message"
+            >
+            </app-message>
+        </div>
+
     </section>
 
     <footer class="chat-message__footer">
