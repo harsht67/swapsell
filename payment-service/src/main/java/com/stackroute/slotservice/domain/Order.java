@@ -11,6 +11,7 @@ import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 @ToString
 public class Order {
     private double price;
+    private String currency;
     private String method;
     private String intent;
     private String description;
