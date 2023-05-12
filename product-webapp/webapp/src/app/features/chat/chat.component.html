@@ -1,7 +1,13 @@
 <div class="chat">
 
-    <app-chat-menu></app-chat-menu>
+    <app-chat-menu
+        (id)="receiveId($event)"
+    >
+    </app-chat-menu>
 
-    <app-chat-message></app-chat-message>
+    <app-chat-message
+        [id]="id"
+    >
+    </app-chat-message>
 
 </div>

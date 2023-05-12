@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
+  
+  id: string = "5678";
+
+  receiveId(id: string) {
+    this.id = id;
+  }
 
 }
