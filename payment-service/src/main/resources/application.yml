@@ -5,6 +5,10 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017
       database: userTransactions
-
   application:
     name: userTransactionService
+paypal:
+  mode: sandbox
+  client:
+    id: AcFxM4s-ajIUTPv04DAmjtF2DFM0ISHZhRdQBzGaUjbdRaY6vRO-oqimrPTEXffCKe2VML5KZUkAX0yF
+    secret: AcFxM4s-ajIUTPv04DAmjtF2DFM0ISHZhRdQBzGaUjbdRaY6vRO-oqimrPTEXffCKe2VML5KZUkAX0yF
