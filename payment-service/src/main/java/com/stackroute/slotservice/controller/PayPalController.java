@@ -1,9 +1,13 @@
 package com.stackroute.slotservice.controller;
 
-import org.springframework.stereotype.Controller;
+import com.stackroute.slotservice.service.PayPalService;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PayPalController {
+    private final PayPalService payPalService;
 
+    public PayPalController(PayPalService payPalService) {
+        this.payPalService = payPalService;
+    }
 }
