@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 public class PayPalServiceImpl implements PayPalService {
-
+    @Autowired
     private APIContext apiContext;
 
     // method to create payments
@@ -38,10 +38,10 @@ public class PayPalServiceImpl implements PayPalService {
         transactionList.add(transaction);
 
         Payer payer = new Payer();
-        payer.setPaymentMethod(method.toString());
+        payer.setPaymentMethod(method);
 
         Payment payment = new Payment();
-        payment.setIntent(intent.toString());
+        payment.setIntent(intent);
         payment.setPayer(payer);
         payment.setTransactions(transactionList);
         RedirectUrls redirectUrls = new RedirectUrls();
