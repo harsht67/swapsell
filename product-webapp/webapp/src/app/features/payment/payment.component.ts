@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { error } from 'console';
 import { resolve } from 'dns';
 import { promise } from 'protractor';
+import { Order } from 'src/app/modals/Order';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -103,8 +104,16 @@ export class PaymentComponent  {
   // }
 
   submitForm(){
-    console.log("form submitted");
+    console.log(this.orderData);
     
   }
+
+  orderData:Order={
+    total: 0,
+    currency: '',
+    paymentMethod: '',
+    intent: '',
+    paymentDescription: ''
+  } 
  
 }
