@@ -19,7 +19,7 @@ public class PayPalController {
         this.payPalService = payPalService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home(){
         return "home";
     }
