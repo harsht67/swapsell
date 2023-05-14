@@ -8,6 +8,7 @@ import com.stackroute.slotservice.service.PayPalService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/payment")
 public class PayPalController {
     private final PayPalService payPalService;
     public  static  final  String SUCCESS_URL = "pay/success";
