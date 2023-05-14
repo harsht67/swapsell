@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>paypal payment</title>
@@ -86,7 +86,7 @@
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form method="post" action="/pay">
+      <form method="post" action="pay">
         <div class="col-50">
           <h3>Payment</h3>
           <label>Accepted Cards</label>
@@ -97,13 +97,13 @@
           </div>
           <label for="price">Total</label>
           <input type="text" id="price" name="price" value="10">
-          <label for="currency">Total</label>
+          <label for="currency">Currency</label>
           <input type="text" id="currency" name="price" placeholder="Enter currency">
-          <label for="method">Total</label>
+          <label for="method">Payment Method</label>
           <input type="text" id="method" name="price" placeholder="payment method">
-          <label for="intent">Total</label>
+          <label for="intent">Intent</label>
           <input type="text" id="intent" name="price" value="sale">
-          <label for="description">Total</label>
+          <label for="description">Payment Description</label>
           <input type="text" id="description" name="price" placeholder="Payment Description">
 
         </div>
