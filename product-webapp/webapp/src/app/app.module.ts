@@ -37,6 +37,8 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { ReviewCardComponent } from './components/review-card/review-card.component';
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PaymentComponent } from './features/payment/payment.component';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { HttpClientModule } from '@angular/common/http';
     UsersDetailsComponent,
     HomeComponent,
     CategoryCardComponent,
-    ReviewCardComponent
+    ReviewCardComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
