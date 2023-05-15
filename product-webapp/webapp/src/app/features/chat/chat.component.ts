@@ -7,10 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ChatComponent {
   
-  id: string = "5678";
+  id: string = "9012";
 
   receiveId(id: string) {
+    console.log("ID recieved in chat(parent): ", id);
     this.id = id;
+    console.log("ID after update in chat(parent): ", this.id);
   }
 
 }
