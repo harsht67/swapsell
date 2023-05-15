@@ -64,13 +64,22 @@
 
     <footer class="chat-message__footer">
 
-        <button class="offerBtn">
+        <button 
+            class="offerBtn"
+            (click)="toggleOffer()"
+        >
             <img
                 src="../../../assets/sell-icon.png"
                 alt="icon"
             />
             make offer
         </button>
+
+        <app-offer-dialog 
+            *ngIf="offer"
+            [dialog]="toggleOffer()"
+        >
+        </app-offer-dialog>
         
         <button class="paymentBtn">
             <img

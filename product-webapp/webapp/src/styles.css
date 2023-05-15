@@ -32,6 +32,7 @@ a:hover {
 }
 
 :root {
+    --accent: #582eac;
     --text3: #6e6e6e;
     --border: #dfdfdf;
 }

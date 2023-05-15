@@ -43,6 +43,7 @@ import { ChatComponent } from './features/chat/chat.component';
 import { MessageComponent } from './components/message/message.component';
 import { PaymentComponent } from './features/payment/payment.component';
 import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
+import { OfferDialogComponent } from './components/offer-dialog/offer-dialog.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { PaymentSuccessComponent } from './features/payment-success/payment-succ
     ChatMenuComponent,
     ChatMessageComponent,
     ChatComponent,
-    MessageComponent
+    MessageComponent,
+    OfferDialogComponent
   ],
   imports: [
     BrowserModule,

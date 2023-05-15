@@ -57,6 +57,7 @@ p {
 .header__row2 {
     justify-content: space-between;
     color: var(--text3);
+    padding-inline: 0.5rem;
 }
 
 /* 
@@ -176,6 +177,7 @@ button {
 }
 @media screen and (min-width: 576px) {
     .offerBtn, .paymentBtn {
+        width: fit-content;
         min-width: fit-content;
     }
 }
