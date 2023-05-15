@@ -10,5 +10,5 @@ spring:
 paypal:
   mode: sandbox
   client:
-    id: AcFxM4s-ajIUTPv04DAmjtF2DFM0ISHZhRdQBzGaUjbdRaY6vRO-oqimrPTEXffCKe2VML5KZUkAX0yF
-    secret: AcFxM4s-ajIUTPv04DAmjtF2DFM0ISHZhRdQBzGaUjbdRaY6vRO-oqimrPTEXffCKe2VML5KZUkAX0yF
+    id: "AcFxM4s-ajIUTPv04DAmjtF2DFM0ISHZhRdQBzGaUjbdRaY6vRO-oqimrPTEXffCKe2VML5KZUkAX0yF"
+    secret: "ECSAa34KuItBI3ce6DG7qQFsLe_g0F4MBQa8qQf06a1ZovKY5hrTX7z7dcHecvcyt4pSgyA0Zlm2hSv_"
