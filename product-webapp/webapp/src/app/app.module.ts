@@ -41,6 +41,9 @@ import { ChatMenuComponent } from './features/chat-menu/chat-menu.component';
 import { ChatMessageComponent } from './features/chat-message/chat-message.component';
 import { ChatComponent } from './features/chat/chat.component';
 import { MessageComponent } from './components/message/message.component';
+import { PaymentComponent } from './features/payment/payment.component';
+import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
+
 
 @NgModule({
   declarations: [
@@ -60,6 +63,8 @@ import { MessageComponent } from './components/message/message.component';
     HomeComponent,
     CategoryCardComponent,
     ReviewCardComponent,
+    PaymentComponent,
+    PaymentSuccessComponent,
     ChatMenuComponent,
     ChatMessageComponent,
     ChatComponent,
