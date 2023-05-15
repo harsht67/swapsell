@@ -29,6 +29,18 @@
             "firstName": "Michael",
             "lastName": "Brown",
             "email": "mbrown@gmail.com"
+        },
+        {
+            "id": "3456",
+            "firstName": "Emma",
+            "lastName": "Smith",
+            "email": "emma.smith@example.com"
+        },
+        {
+            "id": "7890",
+            "firstName": "Michael",
+            "lastName": "Brown",
+            "email": "mbrown@gmail.com"
         }
     ],
     "products": [
