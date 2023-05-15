@@ -16,10 +16,6 @@ public class MessageConfiguration {
     public static final String queueName1 = "swap-sell-user-service-queue";
     public static final String routingKey1 = "swap-sell-user-service-routing-key";
 
-    public static final String exchangeName2 ="swap-sell-payment-service-exchange";
-    public static final String queueName2="swap-sell-payment-service-queue";
-    public static final  String getRoutingKey2 ="swap-sell-payment-service-routing-key";
-
     @Bean
     public DirectExchange directExchange() {
         return new DirectExchange(exchangeName1);
