@@ -37,6 +37,10 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { ReviewCardComponent } from './components/review-card/review-card.component';
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatMenuComponent } from './features/chat-menu/chat-menu.component';
+import { ChatMessageComponent } from './features/chat-message/chat-message.component';
+import { ChatComponent } from './features/chat/chat.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +59,11 @@ import { HttpClientModule } from '@angular/common/http';
     UsersDetailsComponent,
     HomeComponent,
     CategoryCardComponent,
-    ReviewCardComponent
+    ReviewCardComponent,
+    ChatMenuComponent,
+    ChatMessageComponent,
+    ChatComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

@@ -41,14 +41,13 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public Chat addMessage(ChatDTO chatDTO) throws ChatNotFoundException {
+    public Chat addMessage(Message message) throws ChatNotFoundException {
 
-        String sender = chatDTO.getParticipant1();
-        String receiver = chatDTO.getParticipant2();
-
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDateTime = currentDateTime.format(formatter);
+        String sender = message.getSenderId();
+        String receiver = message.getReceiverId();
+//
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        LocalDateTime messageDateTime = LocalDateTime.parse(message.getTimestamp(), formatter);
 
         Optional<Chat> chat = chatRepository.findByParticipants(sender, receiver);
         if(chat.isPresent()) {
@@ -56,10 +55,10 @@ public class ChatServiceImpl implements ChatService {
             List<Message> messages = chatFromDb.getMessages();
 
             Message newMessage = new Message();
-            newMessage.setContent(chatDTO.getMessage());
+            newMessage.setContent(message.getContent());
             newMessage.setSenderId(sender);
             newMessage.setReceiverId(receiver);
-            newMessage.setTimestamp(formattedDateTime);
+            newMessage.setTimestamp(message.getTimestamp());
 
             messages.add(newMessage);
 
