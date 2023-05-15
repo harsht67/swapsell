@@ -17,6 +17,16 @@ p {
     padding: 0.5rem 1rem;
 }
 
+.backBtn {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+@media screen and (min-width: 576px) {
+    .backBtn {
+        display: none;
+    }
+}
+
 .header__row1, .header__row2 {
     display: flex;
     align-items: center;
@@ -45,12 +55,14 @@ p {
 
 .header__row2 {
     justify-content: space-between;
+    color: var(--text3);
 }
 
 /* 
     main
 */
 .chat-message__container {
+    min-height: 400px;
     position: relative;
     flex: 1;
 }
@@ -78,7 +90,7 @@ input {
     width: 100%;
     padding: 0.6rem;
     background: none;
-    border: 1px solid var(--border);
+    border: 1px solid var(--text3);
     outline: none;
 }
 
@@ -89,7 +101,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f2faf1;
+    background-color: #e2fbdf;
     padding: 0.5rem;
 }
 
