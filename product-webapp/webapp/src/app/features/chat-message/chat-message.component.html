@@ -23,7 +23,23 @@
                 
             </div>
 
-            <mat-icon>more_vert</mat-icon>
+
+            <section class="dropdown">
+
+                <div class="dropdown__btn" (click)="toggleDropdown()">
+                    <mat-icon>more_vert</mat-icon>
+                </div>
+    
+                <div class="dropdown__data" *ngIf="dropdown">
+                    <p
+                        *ngFor="let value of dropdownValues"
+                        (click)="updateSort(value)"
+                    >   
+                        {{value}}
+                    </p>
+                </div>
+    
+            </section>
 
         </section>
 
@@ -48,16 +64,34 @@
 
     <footer class="chat-message__footer">
 
-        <input
-            placeholder="Message..."
-        />
-
-        <button>
+        <button class="offerBtn">
             <img
-                src="../../../assets/send.png"
-                alt="send icon"
+                src="../../../assets/sell-icon.png"
+                alt="icon"
             />
+            make offer
         </button>
+        
+        <button class="paymentBtn">
+            <img
+                src="../../../assets/wallet-icon.png"
+                alt="icon"
+            />
+            make payment
+        </button>
+
+        <div class="chat-message__input">
+            <input
+                placeholder="Message..."
+            />
+
+            <button class="sendBtn">
+                <img
+                    src="../../../assets/send.png"
+                    alt="send icon"
+                />
+            </button>
+        </div>
 
     </footer>
 

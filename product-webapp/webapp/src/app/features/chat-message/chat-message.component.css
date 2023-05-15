@@ -59,6 +59,53 @@ p {
 }
 
 /* 
+    dropdown
+*/
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown__btn {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.dropdown__btn span {
+    color: var(--text3);
+    display: none;
+}
+@media screen and (min-width: 576px) {
+    .dropdown__btn span {
+        display: inline-block;
+    }
+}
+
+.dropdown__data {
+    z-index: 10;
+    background-color: #fff;
+    font-size: 0.85rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 180px;
+    display: flex;
+    flex-flow: column;
+    border-radius: 0.25rem;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+.dropdown__data p {
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.dropdown__data p:hover {
+    background-color: #e6e6e6;
+}
+
+/* 
     main
 */
 .chat-message__container {
@@ -81,9 +128,22 @@ p {
 .chat-message__footer {
     padding: 1rem;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     gap: 0.5rem;
 }  
+@media screen and (min-width: 576px) {
+    .chat-message__footer {
+        flex-wrap: nowrap;
+    }
+}
+
+.chat-message__input {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+}
 
 input {
     border-radius: 10rem;
@@ -101,8 +161,27 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e2fbdf;
     padding: 0.5rem;
+    text-transform: uppercase;
+}
+
+.offerBtn, .paymentBtn {
+    border: 1px solid var(--text3);
+    border-radius: 10rem;
+    gap: 0.35rem;
+    font-weight: 500;
+    width: 48%;
+}
+@media screen and (min-width: 576px) {
+    .offerBtn, .paymentBtn {
+        min-width: fit-content;
+        /* width: fit-content; */
+    }
+}
+
+
+.sendBtn {
+    background-color: #e2fbdf;
 }
 
 button img {

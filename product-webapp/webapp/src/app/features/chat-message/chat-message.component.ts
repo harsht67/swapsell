@@ -15,11 +15,22 @@ export class ChatMessageComponent implements OnInit {
 
   messages = []
 
+  dropdown: boolean = false;
+  dropdownValues = [
+    "Delete",
+    "Mark as important"
+  ]
+
   ngOnInit(): void {
     this.userService.getChat(this.id).subscribe(chat => {
       console.log(chat);
       this.messages = chat.messages;
     });
+  }
+
+  // open/close dropdown
+  toggleDropdown() {
+    this.dropdown = !this.dropdown;
   }
 
 }
