@@ -1,7 +1,7 @@
 export type Order ={
-    total:number,
+    price:number,
     currency:string,
-    paymentMethod:string,
+    method:string,
     intent:string,
-    paymentDescription:string
+    description:string
 }

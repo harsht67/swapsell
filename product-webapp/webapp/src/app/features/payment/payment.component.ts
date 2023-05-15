@@ -1,10 +1,12 @@
 import { style } from '@angular/animations';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { error } from 'console';
+import { error, log } from 'console';
 import { resolve } from 'dns';
+import { url } from 'inspector';
 import { promise } from 'protractor';
 import { Order } from 'src/app/modals/Order';
+import { PaymentService } from 'src/app/services/payment-service/payment.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -105,15 +107,37 @@ export class PaymentComponent  {
 
   submitForm(){
     console.log(this.orderData);
+    this.paymentCheckOut();
+    
+  }
+  constructor(private paymentService:PaymentService){
     
   }
 
   orderData:Order={
-    total: 0,
-    currency: '',
-    paymentMethod: '',
-    intent: '',
-    paymentDescription: ''
+    price: 100,
+    currency: 'USD',
+    method: 'SALE',
+    intent: 'PAYPAL',
+    description: 'sell me'
   } 
+
+  paymentCheckOut(){
+    this.paymentService.createOrder(this.orderData).subscribe(data=>{
+      // const redirectUrl = data.redirectUrl;
+      const redirectUrl = data;
+      console.log(JSON.stringify(redirectUrl));
+      const redirectUrlObjToString = JSON.stringify(redirectUrl); 
+      const parseObje = JSON.parse(redirectUrlObjToString);
+      const theUrl = parseObje.redirectUrl;
+      console.log(theUrl);
+      window.location.href = theUrl;
+    },error=>{
+      console.error(error);  
+    });
+    
+  }
+
+  
  
 }

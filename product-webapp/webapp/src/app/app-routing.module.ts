@@ -10,6 +10,7 @@ import { ProductPageComponent } from './features/product-page/product-page.compo
 import { UsersDetailsComponent } from './features/users-details/users-details.component';
 import { HomeComponent } from './features/home/home.component';
 import { PaymentComponent } from './features/payment/payment.component';
+import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -33,6 +34,9 @@ const routes: Routes = [
   },{
     path:"payment",
     component:PaymentComponent
+  },{
+    path:"pay/success",
+    component:PaymentSuccessComponent
   }
   
 ];
