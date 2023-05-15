@@ -37,6 +37,10 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { ReviewCardComponent } from './components/review-card/review-card.component';
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatMenuComponent } from './features/chat-menu/chat-menu.component';
+import { ChatMessageComponent } from './features/chat-message/chat-message.component';
+import { ChatComponent } from './features/chat/chat.component';
+import { MessageComponent } from './components/message/message.component';
 import { PaymentComponent } from './features/payment/payment.component';
 import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
 
@@ -60,7 +64,11 @@ import { PaymentSuccessComponent } from './features/payment-success/payment-succ
     CategoryCardComponent,
     ReviewCardComponent,
     PaymentComponent,
-    PaymentSuccessComponent
+    PaymentSuccessComponent,
+    ChatMenuComponent,
+    ChatMessageComponent,
+    ChatComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

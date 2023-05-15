@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: chatService
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: SwapSellChats
+server:
+  port: 8081

@@ -1,0 +1,22 @@
+p {
+    margin: 0;
+}
+
+.message {
+    padding: 0.5rem;
+    background-color: #f1f5fb;
+    border-radius: 0.5rem;
+    width: fit-content;
+    max-width: 320px;
+}
+
+.message__content {
+    font-size: 0.95em;
+    margin-block-end: 0.15rem;
+}
+
+.message__time {
+    font-size: 0.75em;
+    color: var(--text3);
+    text-align: right;
+}
