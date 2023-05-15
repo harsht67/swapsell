@@ -5,6 +5,7 @@ import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
 import com.stackroute.slotservice.domain.Order;
 import com.stackroute.slotservice.service.PayPalService;
+import com.stackroute.slotservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +16,14 @@ import org.springframework.web.bind.annotation.*;
 public class PayPalController {
 
     private final PayPalService payPalService;
+    private final UserService userService;
     public  static  final  String SUCCESS_URL = "pay/success";
     public  static  final  String CANCEL_URL = "cancel";
 
     @Autowired
-    public PayPalController(PayPalService payPalService) {
+    public PayPalController(PayPalService payPalService, UserService userService) {
         this.payPalService = payPalService;
+        this.userService = userService;
     }
 
     @GetMapping("/home")
@@ -61,7 +64,12 @@ public class PayPalController {
             Payment payment = payPalService.executePayment(paymentId, payerId);
             System.out.println("In the controller -- 2");
             System.out.println(payment.toJSON());
+            System.out.println("**********************************************************************************");
+            String email = payment.getPayer().getPayerInfo().getEmail();
+            System.out.println("**********************************************************************************");
+
             if (payment.getState().equals("approved")){
+                userService.UpdateUserTransaction(email,payment);
                 return  new ResponseEntity<>("success", HttpStatus.ACCEPTED);
             }else{
 //                return  new ResponseEntity<>("not success working on this ", HttpStatus.CONFLICT);
