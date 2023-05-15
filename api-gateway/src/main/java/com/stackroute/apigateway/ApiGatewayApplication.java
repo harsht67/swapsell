@@ -16,7 +16,6 @@ public class ApiGatewayApplication {
 	public RouteLocator routeLocator(RouteLocatorBuilder routeLocatorBuilder){
 		return routeLocatorBuilder.routes()
 				.route(p->p.path("/pay/**").uri("http://localhost:8084/"))
-				.route(p->p.path(("/userPayment/**")).uri("http://locahost:8084/"))
 				.build();
 	}
 }
