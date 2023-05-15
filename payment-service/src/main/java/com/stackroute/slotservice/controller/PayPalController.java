@@ -5,16 +5,20 @@ import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
 import com.stackroute.slotservice.domain.Order;
 import com.stackroute.slotservice.service.PayPalService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/payment")
+@RequestMapping("/pay")
 public class PayPalController {
+
     private final PayPalService payPalService;
     public  static  final  String SUCCESS_URL = "pay/success";
-    public  static  final  String CANCEL_URL = "pay/cancel";
+    public  static  final  String CANCEL_URL = "cancel";
 
-
+    @Autowired
     public PayPalController(PayPalService payPalService) {
         this.payPalService = payPalService;
     }
@@ -24,20 +28,25 @@ public class PayPalController {
         return "home";
     }
 
-    @PostMapping("/pay")
-    public String payment(Order order){
+    @PostMapping("/payment")
+    public ResponseEntity<String> payment(@RequestBody Order order){
         try {
             Payment payment = payPalService.createPayment(order.getPrice(), order.getCurrency(), order.getIntent(), order.getMethod(), order.getDescription(), "http://localhost:8084/" + CANCEL_URL, "http://localhost:8084/" + SUCCESS_URL);
-            System.out.println(payment);
             for (Links link : payment.getLinks()){
+                System.out.println(link);
                 if (link.getRel().equals("approval_url")){
-                    return "redirect:"+link.getHref();
+                    System.out.println("in if of the controller");
+//                    return "redirect: "+link.getHref();
+                    String redirectUrl = link.getHref();
+                    System.out.println(redirectUrl);
+                    return ResponseEntity.ok().body("{\"redirectUrl\": \"" + redirectUrl + "\"}");
                 }
+
             }
         } catch (PayPalRESTException e) {
             System.out.println(e.getMessage());
         }
-        return "redirect:/";
+        return ResponseEntity.ok().body("{\"redirectUrl\": \"}");
     }
 
     @GetMapping(value = CANCEL_URL)
@@ -45,18 +54,19 @@ public class PayPalController {
         return "cancel";
     }
 
-    @GetMapping(value = SUCCESS_URL)
-    public String successPay(@RequestParam("paymentId") String paymentId,@RequestParam("PayerID") String payerId){
-        try {
+    @GetMapping("/success")
+    public ResponseEntity<?> successPay(@RequestParam("paymentId") String paymentId,@RequestParam("PayerID") String payerId) throws PayPalRESTException {
+
+            System.out.println("in the success pay method");
             Payment payment = payPalService.executePayment(paymentId, payerId);
+            System.out.println("In the controller -- 2");
             System.out.println(payment.toJSON());
             if (payment.getState().equals("approved")){
-                return "success";
+                return  new ResponseEntity<>("success", HttpStatus.ACCEPTED);
+            }else{
+//                return  new ResponseEntity<>("not success working on this ", HttpStatus.CONFLICT);
             }
-        } catch (PayPalRESTException e) {
-            System.out.println(e.getMessage());
-        }
-        return "redirect:/";
-
+            return new ResponseEntity<>(payment,HttpStatus.ACCEPTED);
     }
 }
+//http://localhost:8084/pay/success?paymentId=PAYID-MRQ35SA3ML81454R6588811T&token=EC-3UG99674EB373210Y&PayerID=PPUHLD9R6ADME
