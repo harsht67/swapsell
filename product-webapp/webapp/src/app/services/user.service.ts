@@ -8,16 +8,17 @@ import { map, tap } from 'rxjs/operators';
 })
 export class UserService {
 
-  URL = "http://localhost:3000";
+  URL1 = "http://localhost:3000/users";
+  URL = "http://localhost:8081/swapsell/api/chats";
 
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<any> {
-    return this.http.get(this.URL+"/users");
+    return this.http.get(this.URL1);
   }
 
   getChats(): Observable<any> {
-    return this.http.get(this.URL+"/chats");
+    return this.http.get(this.URL);
   }
 
   getChat(participantId: string): Observable<any> {
