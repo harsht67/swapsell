@@ -11,9 +11,7 @@ export class ChatMessageComponent implements OnChanges {
   constructor(private userService: UserService) {}
 
   @Input()
-  participantId1: string
-  @Input()
-  participantId2: string
+  participantId: string
 
   messages = []
 
@@ -27,10 +25,11 @@ export class ChatMessageComponent implements OnChanges {
 
   ngOnChanges(): void {
 
-    this.userService.getChat(this.participantId1, this.participantId2).subscribe(chat => {
-      console.log(chat.data);
-      this.messages = chat.data.messages;
-    });
+    this.participantId && 
+      this.userService.getChat(this.participantId).subscribe(chat => {
+        console.log(chat.data);
+        this.messages = chat.data.messages;
+      });
 
   }
 
@@ -44,7 +43,7 @@ export class ChatMessageComponent implements OnChanges {
   }
 
   closeMessage() {
-
+    this.participantId = "";
   }
 
 }

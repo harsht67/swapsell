@@ -2,11 +2,11 @@
 
     <article 
         class="chat-message__empty"
-        *ngIf="!participantId1 && !participantId2"
+        *ngIf="!participantId"
     >
     </article>
 
-    <div *ngIf="participantId1 && participantId2">
+    <div *ngIf="participantId">
 
         <header class="chat-message__header">
 
@@ -70,11 +70,6 @@
         </header>
 
         <section class="chat-message__container">
-
-            <div>
-                <p>1 -> {{participantId1}}</p>
-                <p>2 -> {{participantId2}}</p>
-            </div>
 
             <div>
                 <app-message

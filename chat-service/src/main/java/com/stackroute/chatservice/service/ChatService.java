@@ -8,7 +8,7 @@ import com.stackroute.chatservice.execption.ChatNotFoundException;
 import java.util.Optional;
 
 public interface ChatService {
-    Optional<Chat> getChat(String id1, String id2);
+    Optional<Chat> getChat(String id);
     Chat saveChat(ChatDTO chatDTO);
     Chat addMessage(Message message) throws ChatNotFoundException;
 }

@@ -7,15 +7,13 @@ import { Component } from '@angular/core';
 })
 export class ChatComponent {
   
-  // id: string = "9012";
-
-  participantId1: string = "1234"; // get this from logged user 
-  participantId2: string = ""; // id of other user 
+  // participantId1: string = "1234"; // get this from logged user 
+  participantId: string = ""; // id of other user 
 
   receiveId(id: string) {
     console.log("ID recieved in chat(parent): ", id);
-    this.participantId2 = id;
-    console.log("ID after update in chat(parent): ", this.participantId2);
+    this.participantId = id;
+    console.log("ID after update in chat(parent): ", this.participantId);
   }
 
 }

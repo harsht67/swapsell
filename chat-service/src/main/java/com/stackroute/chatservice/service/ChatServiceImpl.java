@@ -21,8 +21,8 @@ public class ChatServiceImpl implements ChatService {
     private ChatRepository chatRepository;
 
     @Override
-    public Optional<Chat> getChat(String id1, String id2) {
-        return chatRepository.findByParticipants(id1, id2);
+    public Optional<Chat> getChat(String id) {
+        return chatRepository.findByParticipants(id);
     }
 
     @Override
@@ -45,13 +45,17 @@ public class ChatServiceImpl implements ChatService {
 
         String sender = message.getSenderId();
         String receiver = message.getReceiverId();
-//
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//        LocalDateTime messageDateTime = LocalDateTime.parse(message.getTimestamp(), formatter);
 
-        Optional<Chat> chat = chatRepository.findByParticipants(sender, receiver);
-        if(chat.isPresent()) {
-            Chat chatFromDb = chat.get();
+//        Optional<Chat> chat = chatRepository.findByParticipants(sender, receiver);
+
+        List<Chat> chats = chatRepository.findByParticipants(sender, receiver);
+        Optional<Chat> matchingChat = chats.stream()
+                .filter(chat -> chat.getParticipants().contains(sender) && chat.getParticipants().contains(receiver))
+                .findFirst();
+
+        if(matchingChat.isPresent()) {
+
+            Chat chatFromDb = matchingChat.get();
             List<Message> messages = chatFromDb.getMessages();
 
             Message newMessage = new Message();

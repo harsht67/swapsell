@@ -19,10 +19,8 @@ export class UserService {
     return this.http.get(this.URL1);
   }
 
-  getChat(participantId1: string, participantId2: string): Observable<any> {
-    const params = new HttpParams()
-      .set('participant1', participantId1)
-      .set('participant2', participantId2);
+  getChat(participantId: string): Observable<any> {
+    const params = new HttpParams().set('participantId', participantId)
 
     return this.http.get(`${this.URL}/chats`, { params });
   }

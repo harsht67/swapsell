@@ -21,8 +21,8 @@ public class ChatController {
     private ChatService chatService;
 
     @GetMapping("/chats")
-    public ResponseEntity<ApiResponse<Chat>> fetchChat(@RequestParam("participant1") String participantId1, @RequestParam("participant2") String participantId2) {
-        Optional<Chat> chatOptional = chatService.getChat(participantId1, participantId2);
+    public ResponseEntity<ApiResponse<Chat>> fetchChat(@RequestParam("participantId") String participantId) {
+        Optional<Chat> chatOptional = chatService.getChat(participantId);
         if (chatOptional.isPresent()) {
             ApiResponse<Chat> response = new ApiResponse<>(true, "Chat retrieved successfully", chatOptional.get());
             return ResponseEntity.ok(response);
