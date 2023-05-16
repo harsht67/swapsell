@@ -19,29 +19,10 @@ export class ChatMenuComponent implements OnInit {
   }
 
   @Output()
-  id = new EventEmitter<string>();
+  participantId = new EventEmitter<string>();
 
   goToMessage(id: string) {
-    this.id.emit(id);
+    this.participantId.emit(id);
   }
 
 }
-
-// users = [
-  //   {
-  //     name: "Mob",
-  //     lastMsg: "Hello, is it available?"
-  //   },
-  //   {
-  //     name: "John Doe",
-  //     lastMsg: "What's your last price?"
-  //   },
-  //   {
-  //     name: "Mob",
-  //     lastMsg: "Is it still available?"
-  //   },
-  //   {
-  //     name: "Mob",
-  //     lastMsg: "Okay"
-  //   }
-  // ];

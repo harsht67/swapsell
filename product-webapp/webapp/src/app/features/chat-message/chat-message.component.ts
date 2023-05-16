@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -6,12 +6,14 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './chat-message.component.html',
   styleUrls: ['./chat-message.component.css']
 })
-export class ChatMessageComponent implements OnInit {
+export class ChatMessageComponent implements OnChanges {
 
   constructor(private userService: UserService) {}
 
   @Input()
-  id: string
+  participantId1: string
+  @Input()
+  participantId2: string
 
   messages = []
 
@@ -23,11 +25,13 @@ export class ChatMessageComponent implements OnInit {
     "Mark as important"
   ]
 
-  ngOnInit(): void {
-    this.userService.getChat(this.id).subscribe(chat => {
-      console.log(chat);
-      this.messages = chat.messages;
+  ngOnChanges(): void {
+
+    this.userService.getChat(this.participantId1, this.participantId2).subscribe(chat => {
+      console.log(chat.data);
+      this.messages = chat.data.messages;
     });
+
   }
 
   // open/close dropdown
@@ -37,6 +41,10 @@ export class ChatMessageComponent implements OnInit {
 
   toggleOffer() {
     this.offer = !this.offer;
+  }
+
+  closeMessage() {
+
   }
 
 }

@@ -3,15 +3,18 @@
     <app-header></app-header>
 
     <div class="chat__content">
+        
         <app-chat-menu
-            (id)="receiveId($event)"
+            (participantId)="receiveId($event)"
         >
         </app-chat-menu>
 
         <app-chat-message
-            [id]="id"
+            [participantId1]="participantId1"
+            [participantId2]="participantId2"
         >
         </app-chat-message>
+
     </div>
     
 </div>

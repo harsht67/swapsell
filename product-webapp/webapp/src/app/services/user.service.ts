@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -9,7 +9,9 @@ import { map, tap } from 'rxjs/operators';
 export class UserService {
 
   URL1 = "http://localhost:3000/users";
-  URL = "http://localhost:8081/swapsell/api/chats";
+
+  // url to fetch a chat between 2 participants 
+  URL = "http://localhost:8081/swapsell/api";
 
   constructor(private http: HttpClient) {}
 
@@ -17,21 +19,12 @@ export class UserService {
     return this.http.get(this.URL1);
   }
 
-  getChats(): Observable<any> {
-    return this.http.get(this.URL);
-  }
+  getChat(participantId1: string, participantId2: string): Observable<any> {
+    const params = new HttpParams()
+      .set('participant1', participantId1)
+      .set('participant2', participantId2);
 
-  getChat(participantId: string): Observable<any> {
-    console.log("ID in user service: ", participantId);
-    return this.getChats().pipe(
-      tap((chats: any[]) => {
-        console.log(chats);
-      }),
-      map((chats: any[]) => {
-        return chats.find((chat) => chat.participants.includes(participantId));
-      })
-    );
+    return this.http.get(`${this.URL}/chats`, { params });
   }
-  
 
 }

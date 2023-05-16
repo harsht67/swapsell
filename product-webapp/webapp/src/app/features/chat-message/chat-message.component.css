@@ -107,6 +107,11 @@ p {
     background-color: #e6e6e6;
 }
 
+.closeBtn {
+    cursor: pointer;
+    color: #f00;
+}
+
 /* 
     main
 */
