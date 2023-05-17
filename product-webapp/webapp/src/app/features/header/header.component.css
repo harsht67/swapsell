@@ -78,6 +78,17 @@ input {
     }
 }
 
+.user {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.user > span {
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
 .content {
     z-index: 10;
     position: fixed;

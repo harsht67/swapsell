@@ -29,7 +29,13 @@
     <div class="header__btns">
         <mat-icon>bedtime</mat-icon>
         <mat-icon>favorite_border</mat-icon>
-        <mat-icon>person</mat-icon>
+        <div class="user">
+        
+            <mat-icon>person</mat-icon>
+
+            <span>{{userInitials}}</span>
+        
+        </div>
     </div>
 
     <nav 
@@ -74,8 +80,21 @@
                 post an ad 
             </button>
 
-            <button class="log">
+            <button 
+                class="log" 
+                (click)="logout()"
+                routerLink="/login" 
+                *ngIf="isLoggedIn"
+            >
                 logout
+            </button>
+
+            <button 
+                class="log" 
+                routerLink="/login"
+                *ngIf="!isLoggedIn"
+            >
+                login
             </button>
         </div>
     
