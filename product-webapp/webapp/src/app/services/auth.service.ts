@@ -3,13 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../modals/user';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private userService: UserService
+  ) { }
 
   URL = "http://localhost:8080/login";
   isLoggedIn: boolean = false;
@@ -29,6 +33,7 @@ export class AuthService {
 
       this.jwt = JSON.parse(json).token;
       this.message = JSON.parse(json).message;
+      let email = JSON.parse(json).email;
 
       console.log(this.jwt, this.message);
 
@@ -37,11 +42,12 @@ export class AuthService {
       
       if(this.message === "Login Successful") {
         this.isLoggedIn = true;
-        console.log("here", this.isLoggedIn);
+
+        // fetching user data on successful login
+        this.userService.fetchUser(email);
       }
       else {
         this.isLoggedIn = false;
-        console.log("here 2", this.isLoggedIn);
       }
 
       return this.isLoggedIn;

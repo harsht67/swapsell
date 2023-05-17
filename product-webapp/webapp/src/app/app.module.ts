@@ -44,7 +44,7 @@ import { MessageComponent } from './components/message/message.component';
 import { PaymentComponent } from './features/payment/payment.component';
 import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
 import { OfferDialogComponent } from './components/offer-dialog/offer-dialog.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -95,6 +95,7 @@ import { OfferDialogComponent } from './components/offer-dialog/offer-dialog.com
     MatCheckboxModule,
     ReactiveFormsModule,
     MatSliderModule,
+    MatSnackBarModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

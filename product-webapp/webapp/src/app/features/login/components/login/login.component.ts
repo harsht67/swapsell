@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/modals/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { PopupService } from 'src/app/services/popup.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +12,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private popup: PopupService
+  ) { }
 
   user: User = {
     email: "",
@@ -21,9 +28,11 @@ export class LoginComponent {
       console.log('login comp', isLoggedIn);
   
       if (isLoggedIn) {
-        alert('Welcome');
-      } else {
-        alert('No');
+        this.popup.open("Welcome", 2000);
+        this.router.navigate(['/']);
+      } 
+      else {
+        this.popup.open("Invalid Credentials!", 2000);
       }
     });
   }

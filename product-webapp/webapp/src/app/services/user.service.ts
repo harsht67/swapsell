@@ -8,14 +8,18 @@ import { map, tap } from 'rxjs/operators';
 })
 export class UserService {
 
-  // URL = "http://localhost:3000/users";
+  constructor(private http: HttpClient) {}
 
   // url to fetch a chat between 2 participants 
   URL = "http://localhost:8081/swapsell/api";
-
-  constructor(private http: HttpClient) {}
-
   participantId1 = "1234"; // get this from auth service later (logged user id) 
+  user = {};
+
+  fetchUser(email: string) {
+    this.http.get("http://localhost:8080/user/"+email).subscribe(data => {
+      console.log("user data", data);
+    })
+  }
 
   getUsers(): Observable<any> {
     const params = new HttpParams()

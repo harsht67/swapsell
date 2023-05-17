@@ -2,18 +2,18 @@ package com.stackroute.authenticationservice.controller;
 
 import com.stackroute.authenticationservice.domain.User;
 import com.stackroute.authenticationservice.domain.UserLogin;
+import com.stackroute.authenticationservice.domain.UserResponse;
 import com.stackroute.authenticationservice.exception.UserAlreadyExistException;
 import com.stackroute.authenticationservice.security.JWTSecurityTokenGenerator;
 import com.stackroute.authenticationservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -48,6 +48,21 @@ public class UserController {
 
         token = tokenGenerator.createToken(user);
         return new ResponseEntity<>(token, HttpStatus.OK);
+    }
+
+    @GetMapping("/user/{email}")
+    public ResponseEntity<?> getUser(@PathVariable("email") String email) {
+        Optional<User> userFromDb = userService.findByEmail(email);
+
+        if(userFromDb.isPresent()) {
+            User user = userFromDb.get();
+            UserResponse userResponse = new UserResponse(user.getFirstName(), user.getLastName(), user.getEmail());
+
+            return new ResponseEntity<>(userResponse, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>("No user found", HttpStatus.NOT_FOUND);
+        }
     }
 
 }
