@@ -3,6 +3,7 @@ package com.stackroute.chatservice.service;
 import com.stackroute.chatservice.domain.Chat;
 import com.stackroute.chatservice.domain.ChatDTO;
 import com.stackroute.chatservice.domain.Message;
+import com.stackroute.chatservice.domain.User;
 import com.stackroute.chatservice.execption.ChatNotFoundException;
 import com.stackroute.chatservice.repository.ChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,14 @@ public class ChatServiceImpl implements ChatService {
     private ChatRepository chatRepository;
 
     @Override
-    public Optional<Chat> getChat(String id) {
-        return chatRepository.findByParticipants(id);
+    public Optional<Chat> getChat(String id1, String id2) {
+
+        List<Chat> chats = chatRepository.findByParticipants(id1, id2);
+        Optional<Chat> matchingChat = chats.stream()
+                .filter(chat -> chat.getParticipants().contains(id1) && chat.getParticipants().contains(id2))
+                .findFirst();
+
+        return matchingChat;
     }
 
     @Override
@@ -45,8 +52,6 @@ public class ChatServiceImpl implements ChatService {
 
         String sender = message.getSenderId();
         String receiver = message.getReceiverId();
-
-//        Optional<Chat> chat = chatRepository.findByParticipants(sender, receiver);
 
         List<Chat> chats = chatRepository.findByParticipants(sender, receiver);
         Optional<Chat> matchingChat = chats.stream()
@@ -73,6 +78,34 @@ public class ChatServiceImpl implements ChatService {
         else {
             throw new ChatNotFoundException("Chat not found between the participants: " + sender + " and " + receiver);
         }
+    }
+
+    // return list of users in logged user inbox
+    @Override
+    public List<User> getUsers(String id) {
+        // id -> id of logged user
+
+        List<Chat> chats = chatRepository.findByParticipants(id);
+        List<User> users = new ArrayList<>();
+
+        for(Chat chat: chats) {
+            List<String> participants = chat.getParticipants();
+            List<Message> messages = chat.getMessages();
+            Message lastMessage = messages.get(messages.size() - 1);
+
+            User user = new User();
+            for (String participant : participants) {
+                if (!participant.equals(id)) {
+                    user.setUserId(participant);
+                }
+            }
+            user.setMessage(lastMessage.getContent());
+            user.setTimestamp(lastMessage.getTimestamp());
+
+            users.add(user);
+        }
+
+        return users;
     }
 
 }

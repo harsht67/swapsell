@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/modals/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  user = {
+  user: User = {
     email: "",
     password: "",
   }
 
   login() {
-
+    this.authService.login(this.user).subscribe(isLoggedIn => {
+      console.log('login comp', isLoggedIn);
+  
+      if (isLoggedIn) {
+        alert('Welcome');
+      } else {
+        alert('No');
+      }
+    });
   }
 
 }

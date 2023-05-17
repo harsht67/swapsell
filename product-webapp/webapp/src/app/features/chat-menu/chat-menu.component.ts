@@ -13,9 +13,10 @@ export class ChatMenuComponent implements OnInit {
   users = [];
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(
-      data => this.users = data
-    )
+    this.userService.getUsers().subscribe(res => {
+      console.log(res.data);
+      this.users = res.data;
+    })
   }
 
   @Output()

@@ -8,19 +8,26 @@ import { map, tap } from 'rxjs/operators';
 })
 export class UserService {
 
-  URL1 = "http://localhost:3000/users";
+  // URL = "http://localhost:3000/users";
 
   // url to fetch a chat between 2 participants 
   URL = "http://localhost:8081/swapsell/api";
 
   constructor(private http: HttpClient) {}
 
+  participantId1 = "1234"; // get this from auth service later (logged user id) 
+
   getUsers(): Observable<any> {
-    return this.http.get(this.URL1);
+    const params = new HttpParams()
+      .set('participantId', this.participantId1)
+
+    return this.http.get(`${this.URL}/chats/users`, { params });
   }
 
-  getChat(participantId: string): Observable<any> {
-    const params = new HttpParams().set('participantId', participantId)
+  getChat(participantId2: string): Observable<any> {
+    const params = new HttpParams()
+      .set('participantId1', this.participantId1)
+      .set('participantId2', participantId2)
 
     return this.http.get(`${this.URL}/chats`, { params });
   }
