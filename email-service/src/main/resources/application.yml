@@ -1,1 +1,14 @@
-
+spring:
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: vishal88@gmail.com
+    password: Ivishal88vishal
+    port: 587
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          auth: true
+        starttls:
+          enable: true
