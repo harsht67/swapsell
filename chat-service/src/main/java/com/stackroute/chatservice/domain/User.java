@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User {                 // for chat menu
     private String userId;
     private String message;
     private String timestamp;

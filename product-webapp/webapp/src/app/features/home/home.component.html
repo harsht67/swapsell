@@ -2,15 +2,31 @@
 
 <main class="home">
 
-    <section class="home__carousel">
+    <div id="carouselExampleAutoplaying" class="carousel slide home__carousel" data-bs-ride="carousel">
 
-        <section class="carousel__img"></section>
-
-        <div class="carousel__btns">
-            <mat-icon *ngFor="let i of [1,2,3,4]">panorama_fish_eye</mat-icon>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="../../../assets/laptop.webp" class="d-block w-100" alt="carousel image">
+            </div>
+            <div class="carousel-item">
+            <img src="../../../assets/laptop.webp" class="d-block w-100" alt="carousel image">
+            </div>
+            <div class="carousel-item">
+            <img src="../../../assets/laptop.webp" class="d-block w-100" alt="carousel image">
+            </div>
         </div>
 
-    </section>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+    </div>
 
     <section class="home__category">
 

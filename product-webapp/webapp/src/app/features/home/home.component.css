@@ -1,36 +1,36 @@
-.home {
-}
-
 .home__carousel {
-    margin: 1rem 0 2rem;
+    margin-block-end: 2rem;
+    height: 400px;
+    overflow: hidden;
 }
 
-.carousel__img {
-    height: 250px;
-    background-color: teal;
-    margin-block-end: 0.5rem;
-}
-@media screen and (min-width: 576px) {
-    .carousel__img {
-        height: 300px;
-    }
+.home__carousel .carousel-inner {
+    height: 100%;
 }
 
-.carousel__btns {
+.home__carousel .carousel-item {
+    height: 100%;
+}
+  
+.home__carousel .carousel-item img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+  
+/* .home__carousel .carousel-item {
+    height: 100%;
     display: flex;
     justify-content: center;
-    gap: 0.25rem;
+    align-items: center;
 }
 
-.carousel__btns mat-icon {
-    font-size: 0.75rem;
-    cursor: pointer;
-    color: #696969;
-}
+.home__carousel .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+} */
 
-.carousel__btns mat-icon:hover {
-    color: #000;
-}
 
 .home__container, .home__container {
     display: flex;
