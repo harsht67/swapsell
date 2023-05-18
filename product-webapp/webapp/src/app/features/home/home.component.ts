@@ -7,22 +7,20 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  categories = [
+  categories1 = [
     "Vehicles",
     "Real Estate",
-    // "Electronics & Appliances",
-    // "Jobs",
-    // "Services",
-    // "Home & Furniture",
-    // "Fashion & Beauty",
-    // "Kids",
-    // "Pets",
-    // "Books, Sports & Hobbies",
-    // "Business & Industrial",
-    // "Mobiles",
-    // "Computers & Laptops"
+    "Electronics & Appliances",
+    "Home & Furniture"
   ];
+
+  categories2 = [
+    "Books, Sports & Hobbies",
+    "Mobiles",
+    "Computers & Laptops",
+    "Office"
+  ]
   
-  products = [1,2];
+  products = [1,2,3,4];
 
 }

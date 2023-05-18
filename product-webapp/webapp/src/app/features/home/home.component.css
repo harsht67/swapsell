@@ -1,23 +1,23 @@
 .home__carousel {
-    margin-block-end: 2rem;
-    height: 400px;
-    overflow: hidden;
+  margin-block-end: 2rem;
+  height: 400px;
+  overflow: hidden;
 }
 
 .home__carousel .carousel-inner {
-    height: 100%;
+  height: 100%;
 }
 
 .home__carousel .carousel-item {
-    height: 100%;
+  height: 100%;
 }
-  
+
 .home__carousel .carousel-item img {
-    object-fit: contain;
-    height: 100%;
-    width: 100%;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
-  
+
 /* .home__carousel .carousel-item {
     height: 100%;
     display: flex;
@@ -31,39 +31,60 @@
     height: auto;
 } */
 
+/* 
+    product cards 
+*/
 
-.home__container, .home__container {
-    display: flex;
-    align-items: center;
-    gap: 0.215rem;
-    margin-block-end: 1rem;
+.carousel-container {
+  width: 100%;
+  padding: 20px;
 }
 
-.home__container > div, .home__container > div {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+.product-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#productCardCarousel button {
+  width: 5%;
+}
+
+.home__container,
+.home__container {
+  display: flex;
+  align-items: center;
+  gap: 0.215rem;
+  margin-block-end: 1rem;
+}
+
+.home__container > div,
+.home__container > div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
 }
 @media screen and (min-width: 576px) {
-    .home__container > div, .home__container > div {
-        grid-template-columns: repeat(6, 1fr);
-    }
+  .home__container > div,
+  .home__container > div {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
 .home__title {
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #454545;
-    padding-inline: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #454545;
+  padding-inline: 1rem;
 }
 
 .nav-btn {
-    font-size: 2rem;
-    cursor: pointer;
-    transform: translateX(-0.25rem);
+  font-size: 2rem;
+  cursor: pointer;
+  transform: translateX(-0.25rem);
 }
 
 /* 
@@ -71,14 +92,14 @@
 */
 
 .home__reviews {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
 }
 @media screen and (min-width: 576px) {
-    .home__reviews {
-        padding: 2rem 4rem;
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .home__reviews {
+    padding: 2rem 4rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
