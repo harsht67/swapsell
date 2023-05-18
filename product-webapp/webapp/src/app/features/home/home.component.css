@@ -1,3 +1,7 @@
+h3 {
+  margin: 0;
+}
+
 .home__carousel {
   margin-block-end: 2rem;
   height: 400px;
@@ -31,9 +35,10 @@
     height: auto;
 } */
 
-/* 
-    product cards 
-*/
+#productCardCarousel,
+#categoryCardCarousel {
+  padding: 0 2rem;
+}
 
 .carousel-container {
   width: 100%;
@@ -46,10 +51,12 @@
   margin: 0 auto;
 }
 
-#productCardCarousel button {
+#productCardCarousel button,
+#categoryCardCarousel button {
   width: 5%;
+  filter: invert(1);
 }
-
+/* 
 .home__container,
 .home__container {
   display: flex;
@@ -70,9 +77,14 @@
   .home__container > div {
     grid-template-columns: repeat(6, 1fr);
   }
+} */
+
+section {
+    margin-block-end: 2rem;
 }
 
 .home__title {
+  text-align: center;
   font-weight: 600;
   font-size: 0.95rem;
   text-transform: uppercase;
@@ -80,12 +92,12 @@
   color: #454545;
   padding-inline: 1rem;
 }
-
+/* 
 .nav-btn {
   font-size: 2rem;
   cursor: pointer;
   transform: translateX(-0.25rem);
-}
+} */
 
 /* 
     review section
@@ -94,8 +106,8 @@
 .home__reviews {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 2rem;
+  padding: 0 1rem;
 }
 @media screen and (min-width: 576px) {
   .home__reviews {

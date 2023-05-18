@@ -1,9 +1,11 @@
 /* .category-card {} */
 
 .category-card__img {
-    height: 150px;
-    background-size: cover;
+    height: 200px;
+    width: 100%;
+    background-image: url("../../../assets/laptop.webp");
     background-position: center;
+    background-size: cover;
 }
 
 .category-card__desc {
