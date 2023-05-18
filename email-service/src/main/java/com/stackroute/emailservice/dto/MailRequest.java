@@ -1,6 +1,6 @@
 package com.stackroute.emailservice.dto;
 
-public class MainRequest {
+public class MailRequest {
     private String name;
     private String to;
     private  String from;
