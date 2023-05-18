@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, OnChanges, ElementRef, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Message } from 'src/app/modals/message';
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './chat-message.component.html',
   styleUrls: ['./chat-message.component.css']
 })
-export class ChatMessageComponent implements OnInit, OnDestroy {
+export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
 
   constructor(private userService: UserService) {}
 
@@ -38,24 +38,20 @@ export class ChatMessageComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnChanges(): void {
+    this.fetchChat();
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
 
-  // ngOnChanges(): void {
-  //   if(this.participantId1 && this.participantId2) {
-  //     this.userService.getChat(this.participantId1, this.participantId2).subscribe(chat => {
-  //       console.log(chat.data);
-  //       this.messages = chat?.data.messages;
-  //     });
-  //   }
-  // }
-
   fetchChat(): void {
     if (this.participantId1 && this.participantId2) {
       this.userService.getChat(this.participantId1, this.participantId2).subscribe(chat => {
         this.messages = chat?.data.messages;
+        this.scrollChatToBottom();
       });
     }
   }
@@ -111,6 +107,15 @@ export class ChatMessageComponent implements OnInit, OnDestroy {
 
   closeMessage() {
     this.participantId2 = "";
+  }
+
+  @ViewChild('chatContainer') chatContainer: ElementRef;
+
+  private scrollChatToBottom() {
+    setTimeout(() => {
+      const container = this.chatContainer.nativeElement;
+      container.scrollTop = container.scrollHeight;
+    }, 0);
   }
 
 }

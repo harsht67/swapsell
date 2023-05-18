@@ -18,11 +18,6 @@ export class MessageComponent {
   userId: string;
 
   ngOnInit(): void {
-    console.log(">>",this.userId,this.message.senderId);
-    // this.userService.user$.subscribe(data => {
-    //   console.log(">>", data.id, this.message.senderId);
-    //   this.userId = data.id;
-    // });
   }
 
 }
