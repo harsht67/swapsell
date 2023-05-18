@@ -2,11 +2,11 @@
 
     <article 
         class="chat-message__empty"
-        *ngIf="!participantId"
+        *ngIf="!participantId2"
     >
     </article>
 
-    <div *ngIf="participantId">
+    <div *ngIf="participantId2">
 
         <header class="chat-message__header">
 
@@ -75,6 +75,7 @@
                 <app-message
                     *ngFor="let message of messages"
                     [message]="message"
+                    [userId]="participantId1"
                 >
                 </app-message>
             </div>
@@ -109,16 +110,22 @@
             </button>
 
             <div class="chat-message__input">
+
                 <input
                     placeholder="Message..."
+                    [(ngModel)]="newMessage"
                 />
 
-                <button class="sendBtn">
+                <button 
+                    class="sendBtn"
+                    (click)="sendMessage()"
+                >
                     <img
                         src="../../../assets/send.png"
                         alt="send icon"
                     />
                 </button>
+
             </div>
 
         </footer>

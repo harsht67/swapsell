@@ -5,12 +5,14 @@
     <div class="chat__content">
         
         <app-chat-menu
-            (participantId)="receiveId($event)"
+            [participantId1]="participantId1"
+            (participantId2)="receiveId($event)"
         >
         </app-chat-menu>
 
         <app-chat-message
-            [participantId]="participantId"
+            [participantId1]="participantId1"
+            [participantId2]="participantId2"
         >
         </app-chat-message>
 

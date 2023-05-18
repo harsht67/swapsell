@@ -56,7 +56,7 @@ public class UserController {
 
         if(userFromDb.isPresent()) {
             User user = userFromDb.get();
-            UserResponse userResponse = new UserResponse(user.getFirstName(), user.getLastName(), user.getEmail());
+            UserResponse userResponse = new UserResponse(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail());
 
             return new ResponseEntity<>(userResponse, HttpStatus.OK);
         }
