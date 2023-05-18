@@ -2,10 +2,10 @@ package com.stackroute.slotservice.service;
 
 import com.paypal.api.payments.*;
 import com.paypal.base.rest.APIContext;
+
 import com.paypal.base.rest.PayPalRESTException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -27,6 +27,8 @@ public class PayPalServiceImpl implements PayPalService {
             String successUrl) throws PayPalRESTException {
         System.out.println("In payment service");
         Amount amount = new Amount();
+
+
         amount.setCurrency(currency);
         total = new BigDecimal(total).setScale(2, RoundingMode.HALF_UP).doubleValue();
         amount.setTotal(String.format("%.2f",total));
@@ -59,6 +61,7 @@ public class PayPalServiceImpl implements PayPalService {
         System.out.println("we are here"+payment.create(apiContext));
         return payment.create(apiContext);
     }
+
 
     public Payment executePayment(String paymentId,String payerId) throws PayPalRESTException {
         Payment payment = new Payment();

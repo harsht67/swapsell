@@ -35,6 +35,7 @@ public class PayPalController {
     public ResponseEntity<String> payment(@RequestBody Order order){
         try {
             Payment payment = payPalService.createPayment(order.getPrice(), order.getCurrency(), order.getIntent(), order.getMethod(), order.getDescription(), "http://localhost:8084/" + CANCEL_URL, "http://localhost:8084/" + SUCCESS_URL);
+
             for (Links link : payment.getLinks()){
                 System.out.println(link);
                 if (link.getRel().equals("approval_url")){
@@ -62,19 +63,13 @@ public class PayPalController {
 
             System.out.println("in the success pay method");
             Payment payment = payPalService.executePayment(paymentId, payerId);
-            System.out.println("In the controller -- 2");
             System.out.println(payment.toJSON());
-            System.out.println("**********************************************************************************");
             String email = payment.getPayer().getPayerInfo().getEmail();
-            System.out.println("**********************************************************************************");
 
             if (payment.getState().equals("approved")){
                 userService.UpdateUserTransaction(email,payment);
                 return  new ResponseEntity<>("success", HttpStatus.ACCEPTED);
-            }else{
-//                return  new ResponseEntity<>("not success working on this ", HttpStatus.CONFLICT);
             }
             return new ResponseEntity<>(payment,HttpStatus.ACCEPTED);
     }
 }
-//http://localhost:8084/pay/success?paymentId=PAYID-MRQ35SA3ML81454R6588811T&token=EC-3UG99674EB373210Y&PayerID=PPUHLD9R6ADME
