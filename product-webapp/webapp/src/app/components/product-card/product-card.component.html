@@ -1,10 +1,10 @@
-<article class="product-card" (click)="goToProductPage()">
+<article class="product-card" (click)="goToProductPage(product.id)">
   <section class="product-card__img"></section>
 
   <section class="product-card__desc">
-    <p class="product-card__title">iPhone 13 mini</p>
+    <p class="product-card__title">{{product.name}}</p>
 
-    <p class="product-card__price">₹34,990</p>
+    <p class="product-card__price">₹{{product.price}}</p>
 
     <div class="product-card__footer">
       <p class="product-card__location">
