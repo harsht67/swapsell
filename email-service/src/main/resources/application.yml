@@ -13,3 +13,5 @@ spring:
         starttls:
           enable: true
     protocol: smtp
+server:
+  port: 8086
