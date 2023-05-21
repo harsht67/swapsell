@@ -92,8 +92,7 @@ public class UserServiceImpl implements UserService {
     public User getUserInformation(User userinfo) throws UserNotFoundException {
         Optional<User> userByEmail = userServiceRepository.findUserByEmail(userinfo.getEmail());
         if (userByEmail.isPresent()){
-            User user = userByEmail.get();
-            return user;
+            return userByEmail.get();
         }
         throw new UserNotFoundException("User not exists with mail id "+userinfo.getEmail());
     }
