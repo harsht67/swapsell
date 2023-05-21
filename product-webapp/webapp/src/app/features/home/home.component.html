@@ -156,7 +156,10 @@
   </section>
 
   <section class="home__reviews">
-    <app-review-card *ngFor="let review of [1, 2, 3, 4]"> </app-review-card>
+    <h3 class="home__title">Customer reviews</h3>
+
+    <div>
+      <app-review-card *ngFor="let review of [1, 2, 3, 4]"> </app-review-card>
+    </div>
   </section>
-  
 </main>

@@ -62,14 +62,14 @@ section {
     review section
 */
 
-.home__reviews {
+.home__reviews > div {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
   padding: 0 1rem;
 }
 @media screen and (min-width: 576px) {
-  .home__reviews {
+  .home__reviews > div {
     padding: 2rem 4rem;
     grid-template-columns: repeat(4, 1fr);
   }

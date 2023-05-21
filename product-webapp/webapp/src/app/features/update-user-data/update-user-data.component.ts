@@ -76,6 +76,6 @@ export class UpdateUserDataComponent implements OnInit {
 
   onSubmit(): void {
     console.log("inside update component", this.addressForm.value);
-    this.userService.updateUser(this.user);
+    this.userService.updateUser(this.addressForm.value);
   }
 }

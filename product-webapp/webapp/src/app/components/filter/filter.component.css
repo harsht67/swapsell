@@ -87,11 +87,7 @@ mat-radio-button {
     width: 100%;
 }
 
-.filter__btn {
-    /* position: absolute;
-    bottom: 1rem;
-    left: 2rem;
-    right: 2rem; */
+button {
     border: none;
     outline: none;
     background: none;
@@ -102,6 +98,14 @@ mat-radio-button {
     font-weight: 600;
     margin-block-end: 1rem;
     padding: 0.5rem;
-    border: 2px solid rgba(88,46,172,1);
-    color: rgba(88,46,172,1);
+}
+
+.filter__btn {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.cancel__btn {
+    background-color: var(--accent);
+    color: #fff;
 }

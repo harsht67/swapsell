@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../modals/user';
 import { UserService } from './user.service';
+import { UserRegister } from '../modals/userRegister';
+import { PopupService } from './popup.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class AuthService {
     private userService: UserService
   ) { }
 
-  URL = "http://localhost:8080/login";
+  URL = "http://localhost:8080";
   isLoggedIn: boolean = false;
   jwt: string = "";
   message: string = "";
@@ -25,7 +27,7 @@ export class AuthService {
   }
 
   login(user: User): Observable<boolean> {
-    return this.http.post(this.URL, user).pipe(map(data => {
+    return this.http.post(this.URL+"/login", user).pipe(map(data => {
 
       console.log(data);
 
@@ -59,5 +61,9 @@ export class AuthService {
     this.isLoggedIn = false;
     this.userService.removeUser();
   } 
+
+  register(user: UserRegister): Observable<any> {
+    return this.http.post(this.URL+"/register", user);
+  }
 
 }
