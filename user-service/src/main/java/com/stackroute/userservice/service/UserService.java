@@ -10,6 +10,7 @@ import com.stackroute.userservice.exception.UserNotFoundException;
 public interface UserService {
     User registerUserToApplication(UserDTO userDTO) throws UserAlreadyExistsException;
     User updateUserDetails(User userDetails) throws UserNotFoundException;
+    User getUserInformation(User userinfo) throws UserNotFoundException;
 
     boolean deleteUser(String emailId) throws UserNotFoundException;
     User postAnAdd(String emailId, Product product) throws UserNotFoundException;
