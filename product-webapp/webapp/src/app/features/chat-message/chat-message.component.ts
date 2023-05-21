@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, OnChanges, ElementRef, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Message } from 'src/app/modals/message';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -6,71 +9,113 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './chat-message.component.html',
   styleUrls: ['./chat-message.component.css']
 })
-export class ChatMessageComponent implements OnInit {
+export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
 
   constructor(private userService: UserService) {}
 
   @Input()
-  id: string
+  participantId1: string;
 
-  messages = []
+  @Input()
+  participantId2: string;
+
+  messages = [];
+  newMessage = "";
+  currentDate: string;
+  offer: boolean = false;
+  dropdown: boolean = false;
+  dropdownValues = ["Delete", "Mark as important"]
+
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   ngOnInit(): void {
-    this.userService.getChat(this.id).subscribe(chat => {
-      console.log(chat);
-      this.messages = chat.messages;
+    this.fetchChat();
+
+    this.userService.getMessageAddedObservable().pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(() => {
+      this.fetchChat();
     });
   }
 
-}
+  ngOnChanges(): void {
+    this.fetchChat();
+  }
 
-// messages = [
-//   {  
-//     senderId: "5678",
-//     receiverId: "1234",
-//     content: "Hello, how are you?",
-//     timestamp: "11 May 2023"
-//   },
-//   {
-//     senderId: "1234",
-//     receiverId: "5678",
-//     content: "Hey there! I'm doing great, thanks. How about you?",
-//     timestamp: "11 May 2023"
-//   },
-//   {
-//     senderId: "5678",
-//     receiverId: "1234",
-//     content: "I'm doing well too. Just enjoying the day.",
-//     timestamp: "11 May 2023"
-//   },
-//   {
-//     senderId: "1234",
-//     receiverId: "5678",
-//     content: "That's wonderful to hear! It's always nice to enjoy the day.",
-//     timestamp: "11 May 2023"
-//   },
-//   {
-//     senderId: "5678",
-//     receiverId: "1234",
-//     content: "Indeed! Do you have any plans for the evening?",
-//     timestamp: "11 May 2023"
-//   },
-//   {
-//     senderId: "1234",
-//     receiverId: "5678",
-//     content: "Not really. Just thinking of relaxing at home. How about you?",
-//     timestamp: "11 May 2023"
-//   },
-//   {
-//     senderId: "5678",
-//     receiverId: "1234",
-//     content: "Indeed! Do you have any plans for the evening?",
-//     timestamp: "11 May 2023"
-//   },
-//   {
-//     senderId: "1234",
-//     receiverId: "5678",
-//     content: "Not really. Just thinking of relaxing at home. How about you?",
-//     timestamp: "11 May 2023"
-//   }
-// ]
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
+  fetchChat(): void {
+    if (this.participantId1 && this.participantId2) {
+      this.userService.getChat(this.participantId1, this.participantId2).subscribe(chat => {
+        this.messages = chat?.data.messages;
+        this.scrollChatToBottom();
+      });
+    }
+  }
+
+  sendMessage() {
+    this.calculateCurrentDate();
+
+    const newMessageObj: Message = {
+      "senderId": this.participantId1,
+      "receiverId": this.participantId2,
+      "content": this.newMessage,
+      "timestamp": this.currentDate
+    }
+    console.log(newMessageObj);
+
+    this.userService.addMessage(newMessageObj).subscribe((response: any) => {
+      if (response.success) {
+        console.log("Added message successfully");
+        this.newMessage = "";
+        this.userService.notifyMessageAdded();
+      }
+      else {
+        console.log("Error adding message")
+      }
+    });
+  }
+
+  calculateCurrentDate() {
+    const dateObj = new Date();
+    const day = dateObj.getDate();
+    const month = this.getMonthName(dateObj.getMonth());
+    const year = dateObj.getFullYear();
+
+    this.currentDate = `${day} ${month} ${year}`;
+  }
+
+  getMonthName(month: number): string {
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June', 
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return monthNames[month];
+  }
+
+  // open/close dropdown
+  toggleDropdown() {
+    this.dropdown = !this.dropdown;
+  }
+
+  toggleOffer() {
+    this.offer = !this.offer;
+  }
+
+  closeMessage() {
+    this.participantId2 = "";
+  }
+
+  @ViewChild('chatContainer') chatContainer: ElementRef;
+
+  private scrollChatToBottom() {
+    setTimeout(() => {
+      const container = this.chatContainer.nativeElement;
+      container.scrollTop = container.scrollHeight;
+    }, 0);
+  }
+
+}

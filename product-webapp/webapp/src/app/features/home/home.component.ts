@@ -1,28 +1,39 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { Product } from "src/app/modals/product";
+import { ProductService } from "src/app/services/product.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"],
 })
 export class HomeComponent {
+  products: Product[] = [];
+  products1: Product[] = [];
+  products2: Product[] = [];
 
-  categories = [
-    "Vehicles",
+  constructor(private productService: ProductService) {}
+
+  ngOnInit(): void {
+    this.productService.fetchProducts();
+    this.productService.products$.subscribe(products => {
+      this.products = products;
+      this.products1 = products?.slice(0,4);
+      this.products2 = products?.slice(4,8);
+    });
+  }
+
+  categories1 = [
+    "Automotive",
     "Real Estate",
-    // "Electronics & Appliances",
-    // "Jobs",
-    // "Services",
-    // "Home & Furniture",
-    // "Fashion & Beauty",
-    // "Kids",
-    // "Pets",
-    // "Books, Sports & Hobbies",
-    // "Business & Industrial",
-    // "Mobiles",
-    // "Computers & Laptops"
+    "Electronics",
+    "Home & Furniture",
+  ];
+  categories2 = [
+    "Books, Sports & Hobbies",
+    "Mobiles",
+    "Computers & Laptops",
+    "Office",
   ];
   
-  products = [1,2];
-
 }

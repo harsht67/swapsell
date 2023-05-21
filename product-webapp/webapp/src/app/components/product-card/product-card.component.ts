@@ -11,15 +11,15 @@ export class ProductCardComponent {
 
   constructor(private router: Router) {}
 
-  // @Input()
-  // product: Product
+  @Input()
+  product: Product;
 
   // ngOnInit(): void {
   //   console.log(this.product);
   // }
 
-  goToProductPage() {
-    this.router.navigate(['/product']);
+  goToProductPage(productId: string) {
+    this.router.navigate(['/product'], { queryParams: { id: productId } });
   }
 
 }

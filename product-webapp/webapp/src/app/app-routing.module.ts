@@ -9,6 +9,8 @@ import { ProductResultComponent } from './features/product-result/product-result
 import { ProductPageComponent } from './features/product-page/product-page.component';
 import { UsersDetailsComponent } from './features/users-details/users-details.component';
 import { HomeComponent } from './features/home/home.component';
+import { PaymentComponent } from './features/payment/payment.component';
+import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
 import { ChatComponent } from './features/chat/chat.component';
 
 const routes: Routes = [
@@ -30,6 +32,12 @@ const routes: Routes = [
   },{
     path:"userDetails",
     component:UsersDetailsComponent
+  },{
+    path:"payment",
+    component:PaymentComponent
+  },{
+    path:"pay/success",
+    component:PaymentSuccessComponent
   },
   {
     path: "chat",

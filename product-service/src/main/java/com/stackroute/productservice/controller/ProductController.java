@@ -18,12 +18,23 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<Product> getAllProducts() {
+        return productService.getAllProductsWithSeller();
+    }
+
+    // temp
+    @GetMapping("/products2")
+    public List<Product> getAllProducts2() {
         return productService.getAllProducts();
     }
 
     @PostMapping("/product")
     public Product addNewProduct(@RequestBody ProductDTO productDTO) {
         return productService.addNewProduct(productDTO);
+    }
+
+    @PostMapping("/products")
+    public List<Product> addNewProducts(@RequestBody List<ProductDTO> productDTOList) {
+        return productService.addNewProducts(productDTOList);
     }
 
     @PostMapping("/user")

@@ -1,69 +1,61 @@
-.home {
+h3 {
+  margin: 0;
 }
 
 .home__carousel {
-    margin: 1rem 0 2rem;
+  margin-block-end: 2rem;
+  height: 400px;
+  overflow: hidden;
 }
 
-.carousel__img {
-    height: 250px;
-    background-color: teal;
-    margin-block-end: 0.5rem;
-}
-@media screen and (min-width: 576px) {
-    .carousel__img {
-        height: 300px;
-    }
+.home__carousel .carousel-inner {
+  height: 100%;
 }
 
-.carousel__btns {
-    display: flex;
-    justify-content: center;
-    gap: 0.25rem;
+.home__carousel .carousel-item {
+  height: 100%;
 }
 
-.carousel__btns mat-icon {
-    font-size: 0.75rem;
-    cursor: pointer;
-    color: #696969;
+.home__carousel .carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
-.carousel__btns mat-icon:hover {
-    color: #000;
+#productCardCarousel,
+#categoryCardCarousel {
+  padding: 0 2rem;
 }
 
-.home__container, .home__container {
-    display: flex;
-    align-items: center;
-    gap: 0.215rem;
-    margin-block-end: 1rem;
+.carousel-container {
+  width: 100%;
+  padding: 20px;
 }
 
-.home__container > div, .home__container > div {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+.product-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
-@media screen and (min-width: 576px) {
-    .home__container > div, .home__container > div {
-        grid-template-columns: repeat(6, 1fr);
-    }
+
+#productCardCarousel button,
+#categoryCardCarousel button {
+  width: 5%;
+  filter: invert(1);
+}
+
+section {
+    margin-block-end: 2rem;
 }
 
 .home__title {
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #454545;
-    padding-inline: 1rem;
-}
-
-.nav-btn {
-    font-size: 2rem;
-    cursor: pointer;
-    transform: translateX(-0.25rem);
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #454545;
+  padding-inline: 1rem;
 }
 
 /* 
@@ -71,14 +63,14 @@
 */
 
 .home__reviews {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 0 1rem;
 }
 @media screen and (min-width: 576px) {
-    .home__reviews {
-        padding: 2rem 4rem;
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .home__reviews {
+    padding: 2rem 4rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

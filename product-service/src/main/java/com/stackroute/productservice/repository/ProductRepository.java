@@ -1,6 +1,7 @@
 package com.stackroute.productservice.repository;
 
 import com.stackroute.productservice.domain.Product;
+import com.stackroute.productservice.domain.ProductWithSellerDTO;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.data.repository.query.Param;
@@ -8,6 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @RepositoryRestResource(collectionResourceRel = "Product", path = "Product")
 public interface
@@ -19,6 +21,10 @@ ProductRepository extends Neo4jRepository<Product, Long> {
             "CREATE (a)-[r:OWNS]->(b)")
     @Transactional
     void createOwnsRelationship(@Param("email") String email, @Param("productId") Long productId);
+
+    // fetch products with seller/owner
+    @Query("MATCH (u:User)-[:OWNS]->(p:Product) RETURN p, u")
+    List<ProductWithSellerDTO> findAllWithSeller();
 
     // search a product by name
     @Query(value = "MATCH (p:Product)\n" +

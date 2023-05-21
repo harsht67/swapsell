@@ -1,31 +1,21 @@
-<article class="product-card" (click)="goToProductPage()">
+<article class="product-card" (click)="goToProductPage(product.id)">
+  <section class="product-card__img"></section>
 
-    <section class="product-card__img"></section>
+  <section class="product-card__desc">
+    <p class="product-card__title">{{product.title}}</p>
 
-    <section class="product-card__desc">
+    <p class="product-card__price">₹{{product.price.toLocaleString('en-IN')}}</p>
 
-        <p class="product-card__title">
-            iPhone 13 mini
-        </p>
-        
-        <p class="product-card__price">
-            ₹34,990
-        </p>
+    <div class="product-card__footer">
+      <p class="product-card__location">
+        <mat-icon>location_on</mat-icon>
+        <span>new delhi</span>
+      </p>
 
-        <div class="product-card__footer">
-            
-            <p class="product-card__location">
-                <mat-icon>location_on</mat-icon>
-                <span>new delhi</span>
-            </p>
-
-            <p class="product-card__date">
-                <mat-icon>date_range</mat-icon>
-                <span>apr 15</span>
-            </p>
-        
-        </div>
-
-    </section>
-
+      <p class="product-card__date">
+        <mat-icon>date_range</mat-icon>
+        <span>apr 15</span>
+      </p>
+    </div>
+  </section>
 </article>

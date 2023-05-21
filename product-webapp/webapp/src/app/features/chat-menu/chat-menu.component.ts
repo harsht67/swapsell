@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,38 +10,25 @@ export class ChatMenuComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
+  @Input()
+  participantId1: string = "";
+
   users = [];
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(
-      data => this.users = data
-    )
+
+    this.userService.getUsers(this.participantId1).subscribe(res => {
+      console.log(res.data);
+      this.users = res?.data;
+    })
+
   }
 
   @Output()
-  id = new EventEmitter<string>();
+  participantId2 = new EventEmitter<string>();
 
   goToMessage(id: string) {
-    this.id.emit(id);
+    this.participantId2.emit(id);
   }
 
 }
-
-// users = [
-  //   {
-  //     name: "Mob",
-  //     lastMsg: "Hello, is it available?"
-  //   },
-  //   {
-  //     name: "John Doe",
-  //     lastMsg: "What's your last price?"
-  //   },
-  //   {
-  //     name: "Mob",
-  //     lastMsg: "Is it still available?"
-  //   },
-  //   {
-  //     name: "Mob",
-  //     lastMsg: "Okay"
-  //   }
-  // ];
