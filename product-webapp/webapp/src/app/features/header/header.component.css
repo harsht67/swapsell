@@ -65,6 +65,7 @@ input {
     transform: translateY(-50%);
     right: 1rem;
     color: #474747;
+    cursor: pointer;
 }
 
 .header__btns {

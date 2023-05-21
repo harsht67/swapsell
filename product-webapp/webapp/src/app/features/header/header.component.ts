@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserObj } from 'src/app/modals/userObj';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -12,9 +13,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private route: Router
   ) {}
 
+  keyword: string = "";
   isMenuOpen: boolean = false;
   isLoggedIn: boolean = false;
   user: UserObj = {}
@@ -29,6 +32,12 @@ export class HeaderComponent implements OnInit {
     this.authService.getStatus().subscribe(data => {
       this.isLoggedIn = data;
     })
+  }
+
+  search() {
+    console.log(this.keyword);
+
+    this.route.navigate(['/result'], { queryParams: { keyword: this.keyword }});
   }
 
   logout() {

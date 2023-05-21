@@ -36,4 +36,14 @@ export class ProductService {
     );
   }
 
+  // returns products which include the keyword in the title 
+  getProductsByKeyword(keyword: string): Observable<Product[]> {
+    console.log(keyword);
+    return this.products$.pipe(
+      map(products => {
+        return products.filter(product => product.title.toLowerCase().includes(keyword.toLowerCase()));
+      })
+    );
+  }
+
 }
