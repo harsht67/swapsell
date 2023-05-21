@@ -68,7 +68,8 @@ import { PaymentSuccessComponent } from './features/payment-success/payment-succ
     ChatMenuComponent,
     ChatMessageComponent,
     ChatComponent,
-    MessageComponent
+    MessageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -93,6 +94,7 @@ import { PaymentSuccessComponent } from './features/payment-success/payment-succ
     MatCheckboxModule,
     ReactiveFormsModule,
     MatSliderModule,
+    
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
