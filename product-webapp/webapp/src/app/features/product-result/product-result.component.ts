@@ -1,38 +1,55 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { ProductService } from 'src/app/services/product.service';
+import { Component, OnInit, HostListener } from "@angular/core";
+import { ActivatedRoute, Route } from "@angular/router";
+import { Subscription } from "rxjs";
+import { Product } from "src/app/modals/product";
+import { ProductService } from "src/app/services/product.service";
 
 @Component({
-  selector: 'app-product-result',
-  templateUrl: './product-result.component.html',
-  styleUrls: ['./product-result.component.css']
+  selector: "app-product-result",
+  templateUrl: "./product-result.component.html",
+  styleUrls: ["./product-result.component.css"],
 })
 export class ProductResultComponent implements OnInit {
 
-  products = [1,2,3,4,5,6,7,8];
-
+  products: Product[] = [];
   dropdown: boolean = false;
   dropdownValues = [
     "what's new",
     "recommended",
     "price - low to high",
-    "price - high to low"
-  ]
-  sort: string = "recommended"; 
+    "price - high to low",
+  ];
+  sort: string = "recommended";
 
-  filter: boolean = false; 
+  filter: boolean = false;
 
-  // constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute
+  ) {}
 
+  routeSubscription: Subscription;
   ngOnInit(): void {
-    // this.productService.getProducts().subscribe(
-    //   data => this.products = data
-    // )
     this.filter = window.innerWidth > 576;
+
+    this.routeSubscription = this.route.queryParams.subscribe(params => {
+      const keyword = params['keyword'];
+      console.log(keyword);
+
+      this.productService.getProductsByKeyword(keyword).subscribe(products => {
+        console.log(products);
+        this.products = products;
+      })
+    });
   }
 
-  @HostListener('window:resize', ['$event'])
+  ngOnDestroy() {
+    this.routeSubscription.unsubscribe();
+  }
+  
+  @HostListener("window:resize", ["$event"])
   onResize(event: any) {
-    if(event.target.innerWidth > 576) {
+    if (event.target.innerWidth > 576) {
       this.filter = true;
     }
   }
@@ -51,5 +68,4 @@ export class ProductResultComponent implements OnInit {
   toggleDropdown() {
     this.dropdown = !this.dropdown;
   }
-
 }

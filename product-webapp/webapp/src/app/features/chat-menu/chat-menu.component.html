@@ -1,30 +1,40 @@
 <aside class="chat-menu">
     
     <header>
-        Messages
-    </header>
-
-    <article 
-        class="user"
-        *ngFor="let user of users"
-        (click)="goToMessage(user.id)"
-    >
 
         <img
-            src="../../../assets/user-icon.png"
-            alt="user image"
-            class="user__img"
+            src="../../../assets/message-icon.png"
+            alt="message icon"
         />
 
-        <div class="user__desc">
-            <p class="user__name">
-                {{user.firstName}}
-            </p>
-            <p class="user__msg">
-                <!-- {{user.content}} -->Hello
-            </p>
-        </div>
+        <span>Messages</span>
 
-    </article>
+    </header>
+
+    <div class="users">
+        <article 
+            class="user"
+            *ngFor="let user of users"
+            (click)="goToMessage(user.userId)"
+        >
+
+            <img
+                src="../../../assets/user-icon.png"
+                alt="user image"
+                class="user__img"
+            />
+
+            <div class="user__desc">
+                <p class="user__title">
+                    <span>{{user.userId}}</span>
+                    <span class="user__time">{{user.timestamp}}</span>
+                </p>
+                <p class="user__msg">
+                    {{user.message}}
+                </p>
+            </div>
+
+        </article>
+    </div>
 
 </aside>

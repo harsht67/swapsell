@@ -2,6 +2,7 @@ package com.stackroute.productservice.service;
 
 import com.stackroute.productservice.domain.Product;
 import com.stackroute.productservice.domain.ProductDTO;
+import com.stackroute.productservice.domain.ProductWithSellerDTO;
 import com.stackroute.productservice.domain.User;
 import com.stackroute.productservice.repository.ProductRepository;
 import com.stackroute.productservice.repository.UserRepository;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -21,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-
+    // save a product
     @Override
     public Product addNewProduct(ProductDTO productDTO) {
         Product product1 = new Product();
@@ -41,6 +44,33 @@ public class ProductServiceImpl implements ProductService {
         return newProduct;
     }
 
+    // save an array of products
+    @Override
+    public List<Product> addNewProducts(List<ProductDTO> productDTOList) {
+        List<Product> newProducts = new ArrayList<>();
+
+        for (ProductDTO productDTO : productDTOList) {
+            Product product = new Product();
+            product.setName(productDTO.getName());
+            product.setTitle(productDTO.getTitle());
+            product.setDescription(productDTO.getDescription());
+            product.setImage(productDTO.getImage());
+            product.setCategory(productDTO.getCategory());
+            product.setPrice(productDTO.getPrice());
+            product.setAgeInDays(productDTO.getAgeInDays());
+            product.setCondition(productDTO.getCondition());
+
+            Product newProduct = productRepository.save(product);
+
+            userRepository.createOwnsRelationship(productDTO.getEmail(), newProduct.getId());
+
+            newProducts.add(newProduct);
+        }
+
+        return newProducts;
+    }
+
+
     @Override
     public User addNewUser(User user) {
         User user1 = userRepository.save(user);
@@ -51,6 +81,27 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllProducts() {
         List<Product> products = productRepository.findAll();
+
+        return products;
+    }
+
+    @Override
+    public List<Product> getAllProductsWithSeller() {
+        List<ProductWithSellerDTO> result = productRepository.findAllWithSeller();
+        List<Product> products = new ArrayList<>();
+
+        System.out.println(result);
+        System.out.println(productRepository.findAllWithSeller());
+
+        for (ProductWithSellerDTO dto : result) {
+            Product product = dto.getProduct();
+            User seller = dto.getSeller();
+
+            if (product != null) {
+                product.setSeller(seller);
+                products.add(product);
+            }
+        }
 
         return products;
     }

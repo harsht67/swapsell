@@ -1,4 +1,5 @@
 export type Product = {
+    id?: string,
     name?: string,
     title?: string,
     description?: string,
@@ -6,5 +7,6 @@ export type Product = {
     price?: number,
     category?: string,
     condition?: string,
-    ageInDays?: number
+    ageInDays?: number,
+    ownsRelationship?: null
 }

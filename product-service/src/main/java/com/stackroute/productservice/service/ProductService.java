@@ -8,8 +8,10 @@ import java.util.List;
 
 public interface ProductService {
     public Product addNewProduct(ProductDTO productDTO);
+    public List<Product> addNewProducts(List<ProductDTO> productDTOList);
     public User addNewUser(User user);
     public List<Product> getAllProducts();
+    public List<Product> getAllProductsWithSeller();
     public List<Product> getProductsByName(String name);
     public Product deleteProductById(Long id);
     public User deleteUserByEmail(String email);

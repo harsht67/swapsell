@@ -65,6 +65,7 @@ input {
     transform: translateY(-50%);
     right: 1rem;
     color: #474747;
+    cursor: pointer;
 }
 
 .header__btns {
@@ -76,6 +77,17 @@ input {
         align-items: center;
         gap: 1rem;
     }
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.user > span {
+    text-transform: uppercase;
+    font-size: 1rem;
 }
 
 .content {

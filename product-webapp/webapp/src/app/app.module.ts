@@ -43,7 +43,8 @@ import { ChatComponent } from './features/chat/chat.component';
 import { MessageComponent } from './components/message/message.component';
 import { PaymentComponent } from './features/payment/payment.component';
 import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
-
+import { OfferDialogComponent } from './components/offer-dialog/offer-dialog.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,8 @@ import { PaymentSuccessComponent } from './features/payment-success/payment-succ
     ChatMenuComponent,
     ChatMessageComponent,
     ChatComponent,
+    MessageComponent,
+    OfferDialogComponent
     MessageComponent,
     
   ],
@@ -94,7 +97,7 @@ import { PaymentSuccessComponent } from './features/payment-success/payment-succ
     MatCheckboxModule,
     ReactiveFormsModule,
     MatSliderModule,
-    
+    MatSnackBarModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

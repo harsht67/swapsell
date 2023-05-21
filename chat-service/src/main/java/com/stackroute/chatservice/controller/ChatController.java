@@ -1,9 +1,6 @@
 package com.stackroute.chatservice.controller;
 
-import com.stackroute.chatservice.domain.Chat;
-import com.stackroute.chatservice.domain.ChatDTO;
-import com.stackroute.chatservice.domain.ChatParticipants;
-import com.stackroute.chatservice.domain.Message;
+import com.stackroute.chatservice.domain.*;
 import com.stackroute.chatservice.execption.ChatNotFoundException;
 import com.stackroute.chatservice.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,8 +19,8 @@ public class ChatController {
     private ChatService chatService;
 
     @GetMapping("/chats")
-    public ResponseEntity<ApiResponse<Chat>> fetchChat(@RequestBody ChatParticipants participants) {
-        Optional<Chat> chatOptional = chatService.getChat(participants.getParticipant1(), participants.getParticipant2());
+    public ResponseEntity<ApiResponse<Chat>> fetchChat(@RequestParam("participantId1") String participantId1, @RequestParam("participantId2") String participantId2) {
+        Optional<Chat> chatOptional = chatService.getChat(participantId1, participantId2);
         if (chatOptional.isPresent()) {
             ApiResponse<Chat> response = new ApiResponse<>(true, "Chat retrieved successfully", chatOptional.get());
             return ResponseEntity.ok(response);
@@ -54,6 +52,15 @@ public class ChatController {
             ApiResponse<Void> response = new ApiResponse<>(false, "No chat found", null);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
+    }
+
+    @GetMapping("chats/users")
+    public ResponseEntity<ApiResponse<List<User>>> fetchUser(@RequestParam("participantId") String participantId) {
+        List<User> users = chatService.getUsers(participantId);
+
+        ApiResponse<List<User>> response = new ApiResponse<>(true, "Users retrieved successfully", users);
+
+        return ResponseEntity.ok(response);
     }
 
 }

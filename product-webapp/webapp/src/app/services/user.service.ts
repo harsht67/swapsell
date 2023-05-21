@@ -1,36 +1,62 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
+import { Message } from '../modals/message';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  URL = "http://localhost:3000";
-
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<any> {
-    return this.http.get(this.URL+"/users");
+  // url to fetch a chat between 2 participants 
+  URL = "http://localhost:8081/swapsell/api";
+
+  private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  public user$ = this.userSubject.asObservable();
+  private messageAddedSubject: Subject<void> = new Subject<void>();
+
+  // fetch user data 
+  fetchUser(email: string) {
+    this.http.get("http://localhost:8080/user/"+email).subscribe(data => {
+      console.log("user data", data);
+      this.userSubject.next(data);
+    })
   }
 
-  getChats(): Observable<any> {
-    return this.http.get(this.URL+"/chats");
+  removeUser() {
+    this.userSubject.next({});
   }
 
-  getChat(participantId: string): Observable<any> {
-    console.log("ID in user service: ", participantId);
-    return this.getChats().pipe(
-      tap((chats: any[]) => {
-        console.log(chats);
-      }),
-      map((chats: any[]) => {
-        return chats.find((chat) => chat.participants.includes(participantId));
-      })
-    );
+  // fetch all users who have contacted logged in user  
+  getUsers(participantId: string): Observable<any> {
+    const params = new HttpParams()
+      .set('participantId', participantId)
+
+    return this.http.get(`${this.URL}/chats/users`, { params });
   }
-  
+
+  getMessageAddedObservable(): Observable<void> {
+    return this.messageAddedSubject.asObservable();
+  }
+
+  notifyMessageAdded(): void {
+    this.messageAddedSubject.next();
+  }
+
+  // fetch chat between 2 users
+  getChat(participantId1: string, participantId2: string): Observable<any> {
+    const params = new HttpParams()
+      .set('participantId1', participantId1)
+      .set('participantId2', participantId2)
+
+    return this.http.get(`${this.URL}/chats`, { params });
+  }
+
+  addMessage(message: Message) {
+    return this.http.post(`${this.URL}/chats/messages`, message);
+  }
 
 }
