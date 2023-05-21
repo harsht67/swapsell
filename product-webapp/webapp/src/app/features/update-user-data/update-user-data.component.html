@@ -20,7 +20,7 @@
                   <img mat-card-image  id="profile-image" src="../../../../../assets/SwapSelll(2).svg" alt="Photo of a Shiba Inu">
                   <div class="col  mt-2">
                     <mat-form-field  appearance="outline" >
-k                      <input  type="file" formControlName="image" matInput>
+                      <input  type="file" formControlName="image" matInput>
                       <mat-error *ngIf="addressForm.controls['image'].hasError('required')">
                     First name is <strong>required</strong>
                   </mat-error>    
@@ -50,8 +50,8 @@ k                      <input  type="file" formControlName="image" matInput>
             <div class="row">
               <div class="col">
                 <mat-form-field appearance="outline" class="full-width">
-                  <input matInput placeholder="phone number" formControlName="phoneNumber">
-                  <mat-error *ngIf="addressForm.controls['phoneNumber'].hasError('required')">
+                  <input matInput placeholder="phone number" formControlName="phone">
+                  <mat-error *ngIf="addressForm.controls['phone'].hasError('required')">
                     phone number is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>
@@ -108,14 +108,14 @@ k                      <input  type="file" formControlName="image" matInput>
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <!-- <div class="col">
                 <mat-form-field appearance="outline" class="full-width">
                   <input matInput placeholder="Age of your product" formControlName="productAge">
                   <mat-error *ngIf="addressForm.controls['productAge'].hasError('required')">
                     Age is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>                
-              </div>          
+              </div>           -->
               <div class="col">
                 <label id="example-radio-group-label">Pick your Gender</label>
                 <mat-radio-group formControlName="gender">

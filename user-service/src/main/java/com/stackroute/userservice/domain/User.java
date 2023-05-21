@@ -23,7 +23,6 @@ public class User {
     private String address;
     private String city;
     private String state;
-<<<<<<< HEAD
     private String pincode;
     private String gender;
 =======

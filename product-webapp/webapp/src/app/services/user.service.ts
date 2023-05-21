@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { Message } from '../modals/message';
+import { UserObj } from '../modals/userObj';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,10 @@ export class UserService {
       .set('participantId', participantId)
 
     return this.http.get(`${this.URL}/chats/users`, { params });
+  }
+
+  updateUser(user: UserObj) {
+    
   }
 
   getMessageAddedObservable(): Observable<void> {
