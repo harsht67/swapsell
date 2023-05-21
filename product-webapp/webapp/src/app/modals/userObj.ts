@@ -1,5 +1,15 @@
+import { Product } from "./product";
+
 export type UserObj = {
-    firstName?: string,
-    lastName?: string,
-    email?: string
-}
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  pincode?: string;
+  gender?: string;
+  phone?: number;
+  image?: number;
+  productList?: Product[]
+};

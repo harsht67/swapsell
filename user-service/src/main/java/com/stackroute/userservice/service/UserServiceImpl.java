@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> userByEmail = userServiceRepository.findUserByEmail(user.getEmail());
         return userByEmail.isPresent();
     }
+
     public static long generateId() {
         long id = random.nextLong();
         if (id == Long.MIN_VALUE) {
@@ -39,10 +40,21 @@ public class UserServiceImpl implements UserService {
         }
         return id;
     }
+
     @RabbitListener(queues = MessageConfiguration.queueName1)
     public void userDataFromAuthService(UserDTO userDTO) throws UserAlreadyExistsException {
         registerUserToApplication(userDTO);
     }
+
+    @Override
+    public User getUserInformation(String emailId) throws UserNotFoundException {
+        Optional<User> userByEmail = userServiceRepository.findUserByEmail(emailId);
+        if (userByEmail.isPresent()){
+            return userByEmail.get();
+        }
+        throw new UserNotFoundException("User not exists with mail id "+emailId);
+    }
+
     @Override
     public User registerUserToApplication(UserDTO userDTO) throws UserAlreadyExistsException {
         User user = new User();

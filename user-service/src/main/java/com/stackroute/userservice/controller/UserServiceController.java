@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("/swapSell")
+//@RequestMapping("/swapSell")
 public class UserServiceController {
     private final UserService userService;
     @Autowired
@@ -30,6 +30,18 @@ public class UserServiceController {
 //            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 //        }
 //    }
+
+    @GetMapping("/user/{email}")
+    public ResponseEntity<?> getUser(@PathVariable("email") String email) {
+        try {
+            User userInformation = userService.getUserInformation(email);
+            return new ResponseEntity<>(userInformation,HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+
+        }
+    }
+
     @PutMapping("/user/updateDetails")
     public ResponseEntity<?> updateUserDetails(@RequestBody User user){
         try {
@@ -50,6 +62,7 @@ public class UserServiceController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
     }
+
     @PostMapping("/user/productAdd")
     public ResponseEntity<?> PostUserProductAdd(HttpServletRequest httpServletRequest , @RequestBody  Product product){
         try {

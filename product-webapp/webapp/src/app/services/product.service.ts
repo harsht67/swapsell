@@ -46,4 +46,14 @@ export class ProductService {
     );
   }
 
+  // returns products based on category 
+  getProductsByCategory(category: string): Observable<Product[]> {
+    console.log(category);
+    return this.products$.pipe(
+      map(products => {
+        return products.filter(product => product.category.toLowerCase().includes(category.toLowerCase()));
+      })
+    );
+  }
+
 }

@@ -13,13 +13,14 @@ p {
 }
 @media screen and (min-width: 576px) {
     .result {
-        grid-template-columns: 300px 1fr 1fr;
+        grid-template-columns: 280px 1fr 1fr;
         grid-template-areas: 
             'filter header header'
             'filter container container'
             'filter container container'
             'filter container container'
         ;
+        grid-template-rows: 60px 1fr 1fr 1fr;
     }
 }
 
@@ -32,9 +33,11 @@ header {
     grid-area: header;
     display: flex;
     justify-content: space-between;
-    text-transform: uppercase;
     align-items: center;
-    font-size: 0.95em;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--text3);
 }
 
 .dropdown {

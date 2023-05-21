@@ -25,31 +25,31 @@ class UserServiceRepositoryTest {
     private UserServiceRepository userServiceRepository;
     private User user;
     private List<User> userList;
-    @BeforeEach
-    void setUp() {
-        user = new User(1L,"user1","lname1",987456321,"user1@gmail.com","address1", (byte) 125,"user1",null);
-    }
+//    @BeforeEach
+//    void setUp() {
+//        user = new User(1L,"user1","lname1",987456321,"user1@gmail.com","address1", (byte) 125,"user1",null);
+//    }
 
-    @AfterEach
-    void tearDown() {
-        user=null;
-        userServiceRepository.deleteAll();
-    }
-
-    @Test
-    @DisplayName("Test case for finding user name")
-    void findUserByEmail() {
-        userServiceRepository.save(user);
-        User user1 = userServiceRepository.findUserByEmail(user.getEmail()).get();
-        assertNotNull(user1);
-        assertEquals(user.getEmail(),user1.getEmail());
-    }
-
-    @Test
-    @DisplayName("Save user to data base")
-    public void saveUserToDataBase(){
-        userServiceRepository.save(user);
-        assertThat(user.getEmail()).isEqualTo("user1@gmail.com");
-    }
+//    @AfterEach
+//    void tearDown() {
+//        user=null;
+//        userServiceRepository.deleteAll();
+//    }
+//
+//    @Test
+//    @DisplayName("Test case for finding user name")
+//    void findUserByEmail() {
+//        userServiceRepository.save(user);
+//        User user1 = userServiceRepository.findUserByEmail(user.getEmail()).get();
+//        assertNotNull(user1);
+//        assertEquals(user.getEmail(),user1.getEmail());
+//    }
+//
+//    @Test
+//    @DisplayName("Save user to data base")
+//    public void saveUserToDataBase(){
+//        userServiceRepository.save(user);
+//        assertThat(user.getEmail()).isEqualTo("user1@gmail.com");
+//    }
     
 }

@@ -35,9 +35,10 @@ export class HeaderComponent implements OnInit {
   }
 
   search() {
-    console.log(this.keyword);
+    const type = "search";
+    const keyword = this.keyword;
 
-    this.route.navigate(['/result'], { queryParams: { keyword: this.keyword }});
+    this.route.navigate(['/result'], { queryParams: { type, keyword }});
   }
 
   logout() {

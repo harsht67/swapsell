@@ -20,10 +20,15 @@ export class UserService {
 
   // fetch user data 
   fetchUser(email: string) {
-    this.http.get("http://localhost:8080/user/"+email).subscribe(data => {
-      console.log("user data", data);
+    this.http.get("http://localhost:8082/user/"+email).subscribe(data => {
+      console.log("user data in service", data);
       this.userSubject.next(data);
     })
+
+    // this.http.get("http://localhost:8080/user/"+email).subscribe(data => {
+    //   console.log("user data", data);
+    //   this.userSubject.next(data);
+    // })
   }
 
   removeUser() {

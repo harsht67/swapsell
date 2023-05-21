@@ -34,12 +34,23 @@ export class ProductResultComponent implements OnInit {
 
     this.routeSubscription = this.route.queryParams.subscribe(params => {
       const keyword = params['keyword'];
+      const type = params['type'];
       console.log(keyword);
 
-      this.productService.getProductsByKeyword(keyword).subscribe(products => {
-        console.log(products);
-        this.products = products;
-      })
+      if(type == 'search') {
+        this.productService.getProductsByKeyword(keyword).subscribe(products => {
+          console.log(products);
+          this.products = products;
+        })
+      }
+
+      if(type == 'category') {
+        this.productService.getProductsByCategory(keyword).subscribe(products => {
+          console.log(products);
+          this.products = products;
+        })
+      }
+
     });
   }
 
