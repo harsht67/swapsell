@@ -20,7 +20,10 @@
                   <img mat-card-image  id="profile-image" src="../../../../../assets/SwapSelll(2).svg" alt="Photo of a Shiba Inu">
                   <div class="col  mt-2">
                     <mat-form-field  appearance="outline" >
-                      <input  type="file" matInput>
+                      <input  type="file" formControlName="image" matInput>
+                      <mat-error *ngIf="addressForm.controls['image'].hasError('required')">
+                    First name is <strong>required</strong>
+                  </mat-error>    
                     </mat-form-field>
                   </div>  
               </mat-card-content>              
@@ -47,8 +50,8 @@
             <div class="row">
               <div class="col">
                 <mat-form-field appearance="outline" class="full-width">
-                  <input matInput placeholder="phone number" formControlName="contact">
-                  <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <input matInput placeholder="phone number" formControlName="phoneNumber">
+                  <mat-error *ngIf="addressForm.controls['phoneNumber'].hasError('required')">
                     phone number is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>
@@ -83,7 +86,7 @@
               <div class="col">
                 <mat-form-field appearance="outline" class="full-width">
                   <mat-select placeholder="State" formControlName="state">
-                    <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                    <mat-option *ngFor="let state of states" [value]="state.name">
                       {{ state.name }}
                     </mat-option>
                   </mat-select>
@@ -96,16 +99,19 @@
             <div class="row">
               <div class="col">
                 <mat-form-field appearance="outline" class="full-width">
-                  <input matInput #postalCode maxlength="5" placeholder="Postal Code" type="number" formControlName="postalCode">
+                  <input matInput #postalCode maxlength="5" placeholder="pin code" type="number" formControlName="pincode">
                   <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                  <mat-error *ngIf="addressForm.controls['pincode'].hasError('required')">
+                    Pin code is <strong>required</strong>
+                  </mat-error>
                 </mat-form-field>
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <mat-form-field appearance="outline" class="full-width">
-                  <input matInput placeholder="Age" formControlName="city">
-                  <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
+                  <input matInput placeholder="Age of your product" formControlName="productAge">
+                  <mat-error *ngIf="addressForm.controls['productAge'].hasError('required')">
                     Age is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>                
@@ -126,7 +132,7 @@
 
             <div class="row">
               <div class="buttons__option">
-                <button mat-raised-button color="primary" type="submit">Submit</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="addressForm.invalid">Submit</button>
                 <button mat-raised-button color="warn" routerLink="/userDashBoard" >Go Back</button>
               </div>
             </div>
