@@ -26,6 +26,7 @@ public class EmailService {
     private JavaMailSender sender;
 
     public MailResponse sendEmail(MailRequest request, Map<String, Object> model){
+        System.out.println("In Service layer ");
         MailResponse response = new MailResponse();
         MimeMessage message  = sender.createMimeMessage();
         try {
