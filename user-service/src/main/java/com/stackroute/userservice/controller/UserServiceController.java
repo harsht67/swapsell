@@ -30,6 +30,7 @@ public class UserServiceController {
 //            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 //        }
 //    }
+<<<<<<< HEAD
 
     @GetMapping("/user/{email}")
     public ResponseEntity<?> getUser(@PathVariable("email") String email) {
@@ -42,6 +43,18 @@ public class UserServiceController {
         }
     }
 
+=======
+    @GetMapping("/getUsersData")
+    public ResponseEntity<?> getUserData(HttpServletRequest httpServletRequest){
+        String emailId = httpServletRequest.getAttribute("emailId").toString();
+        try {
+            User userInformation = userService.getUserInformation(emailId);
+            return new ResponseEntity<>(userInformation,HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+        }
+    }
+>>>>>>> 146b2dc2dc12deab21768c15b339d88d9fbbab96
     @PutMapping("/user/updateDetails")
     public ResponseEntity<?> updateUserDetails(@RequestBody User user){
         try {

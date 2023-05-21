@@ -70,7 +70,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ChatMessageComponent,
     ChatComponent,
     MessageComponent,
-    OfferDialogComponent
+    OfferDialogComponent,
+    MessageComponent,
+    
   ],
   imports: [
     BrowserModule,

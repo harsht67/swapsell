@@ -1,23 +1,22 @@
 package com.stackroute.slotservice.domain;
 
+import com.paypal.api.payments.Payment;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.util.ArrayList;
 import java.util.List;
-@Document
+
 @Data
-@ToString
-@EqualsAndHashCode
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+@Document
 public class User {
     @MongoId
     private String emailId;
-    private String firstName;
-    private String lastName;
-    private List<OrderDetail> orderDetailList;
+    List<Payment> paymentList;
 }

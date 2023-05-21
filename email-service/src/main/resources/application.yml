@@ -1,0 +1,20 @@
+spring:
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    username: swapsellteam@gmail.com
+    password: swapsellniit2023
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+mail:
+  smtp:
+    debug: true
+server:
+  port: 8086
