@@ -9,6 +9,8 @@ import { ProductService } from "src/app/services/product.service";
 })
 export class HomeComponent {
   products: Product[] = [];
+  products1: Product[] = [];
+  products2: Product[] = [];
 
   constructor(private productService: ProductService) {}
 
@@ -16,13 +18,15 @@ export class HomeComponent {
     this.productService.fetchProducts();
     this.productService.products$.subscribe(products => {
       this.products = products;
+      this.products1 = products?.slice(0,4);
+      this.products2 = products?.slice(4,8);
     });
   }
 
   categories1 = [
-    "Vehicles",
+    "Automotive",
     "Real Estate",
-    "Electronics & Appliances",
+    "Electronics",
     "Home & Furniture",
   ];
   categories2 = [
@@ -31,6 +35,5 @@ export class HomeComponent {
     "Computers & Laptops",
     "Office",
   ];
-
-  // products = [1, 2, 3, 4];
+  
 }

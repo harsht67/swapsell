@@ -21,13 +21,13 @@
 
   <section class="product-page__desc">
     <h1 class="desc__name">
-      Samsung
+      {{product.name}}
       <mat-icon class="wishlistBtn">favorite</mat-icon>
     </h1>
 
-    <h2 class="desc__title">{{product.name}}</h2>
+    <h2 class="desc__title">{{product.title}}</h2>
 
-    <p class="desc__price">₹{{product.price}}</p>
+    <p class="desc__price">₹{{product.price.toLocaleString('en-IN')}}</p>
 
     <div class="desc__btns">
       <button routerLink="/chat" class="desc__btn btn--offer">
@@ -110,7 +110,7 @@
         <div class="carousel-item active">
           <div class="carousel-container">
             <div class="row">
-              <div class="col-md-3" *ngFor="let product of products">
+              <div class="col-md-3" *ngFor="let product of products1">
                 <div class="product-card">
                   <app-product-card [product]="product"> </app-product-card>
                 </div>
@@ -122,7 +122,7 @@
         <div class="carousel-item">
           <div class="carousel-container">
             <div class="row">
-              <div class="col-md-3" *ngFor="let product of products">
+              <div class="col-md-3" *ngFor="let product of products2">
                 <div class="product-card">
                   <app-product-card [product]="product"> </app-product-card>
                 </div>

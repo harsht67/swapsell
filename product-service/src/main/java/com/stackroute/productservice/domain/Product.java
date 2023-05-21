@@ -4,13 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Transient;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
-//@NodeEntity
-@Node("Product")
+@NodeEntity
+//@Node("Product")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -27,6 +28,10 @@ public class Product {
     private String category;
     private String condition;
     private Integer ageInDays;
+
+//    @Transient
+    @Relationship(type = "SELLER")
+    private User seller;
 
     @Relationship(type = "OWNS", direction = Relationship.Direction.INCOMING)
     private OwnsRelationship ownsRelationship;

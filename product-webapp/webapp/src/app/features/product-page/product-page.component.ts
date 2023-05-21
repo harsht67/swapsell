@@ -21,11 +21,13 @@ export class ProductPageComponent {
   images = ["phone1.jpg", "phone2.jpg", "phone3.jpg", "phone4.jpg"];
   productId: string;
   product: Product;
-  products: Product[] = [];
+  products1: Product[] = [];
+  products2: Product[] = [];
 
   ngOnInit(): void {
     this.productService.products$.subscribe(products => {
-      this.products = products;
+      this.products1 = products?.slice(0,4);
+      this.products2 = products?.slice(4,8);
     });
     this.route.queryParams.subscribe(params => {
       this.productId = params['id'];

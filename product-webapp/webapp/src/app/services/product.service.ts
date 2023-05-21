@@ -12,7 +12,7 @@ export class ProductService {
   private productsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
   public products$: Observable<Product[]> = this.productsSubject.asObservable();
 
-  URL = "http://localhost:9090/products";
+  URL = "http://localhost:9090/products2";
 
   constructor(private http: HttpClient) { }
 
