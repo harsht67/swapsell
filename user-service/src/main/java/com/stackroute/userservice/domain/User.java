@@ -25,10 +25,6 @@ public class User {
     private String state;
     private String pincode;
     private String gender;
-=======
-    private String pinCode;
->>>>>>> 146b2dc2dc12deab21768c15b339d88d9fbbab96
     private byte image;
-    private String password;
     private List<Product> productAddList;
 }

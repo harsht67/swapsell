@@ -45,7 +45,12 @@ export class UserService {
   }
 
   updateUser(user: UserObj) {
-    
+    console.log("inside user service", user);
+
+    this.http.put("http://localhost:8082/user/updateDetails", user).subscribe(data => {
+      console.log(data);
+      this.fetchUser(user.email);
+    })
   }
 
   getMessageAddedObservable(): Observable<void> {

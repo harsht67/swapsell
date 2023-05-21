@@ -47,22 +47,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserInformation(String emailId) throws UserNotFoundException {
-        Optional<User> userByEmail = userServiceRepository.findUserByEmail(emailId);
-        if (userByEmail.isPresent()){
-            return userByEmail.get();
-        }
-        throw new UserNotFoundException("User not exists with mail id "+emailId);
-    }
-
-    @Override
     public User registerUserToApplication(UserDTO userDTO) throws UserAlreadyExistsException {
         User user = new User();
         user.setId(generateId());
         user.setEmail(userDTO.getEmail());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
-        user.setPassword(userDTO.getPassword());
         System.out.println(user);
         if (checkExistingUser(user)){
             throw new UserAlreadyExistsException("This email id is already taken other");
@@ -72,33 +62,29 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUserDetails(User userDetails) throws UserNotFoundException{
+    public User updateUserDetails(User userDetails) throws UserNotFoundException {
         Optional<User> userByEmail = userServiceRepository.findUserByEmail(userDetails.getEmail());
-        if (userByEmail.isPresent()){
+        if (userByEmail.isPresent()) {
             User userFromDb = userByEmail.get();
-            if (userDetails.getEmail()!=null){
-                userFromDb.setEmail(userDetails.getEmail());
-            }
-            if (userDetails.getAddress()!=null){
-                userFromDb.setAddress(userDetails.getAddress());
-            }
-            if (userDetails.getImage()!=0){
-                userFromDb.setImage(userDetails.getImage());
-            }
-            if (userDetails.getLastName()!=null){
-                userFromDb.setLastName(userDetails.getLastName());
-            }
-            if (userDetails.getFirstName()!=null){
-                userFromDb.setFirstName(userDetails.getFirstName());
-            }
-            if (userDetails.getPhoneNumber()!=0){
-                userFromDb.setPhoneNumber(userDetails.getPhoneNumber());
-            }
-            return  userServiceRepository.save(userFromDb);
-        }
-        throw new UserNotFoundException("No user exist with email id "+ userDetails.getEmail());
+            // Update user details with new values
+            userFromDb.setFirstName(userDetails.getFirstName());
+            userFromDb.setLastName(userDetails.getLastName());
+            userFromDb.setPhoneNumber(userDetails.getPhoneNumber());
+            userFromDb.setAddress(userDetails.getAddress());
+            userFromDb.setCity(userDetails.getCity());
+            userFromDb.setState(userDetails.getState());
+            userFromDb.setPincode(userDetails.getPincode());
+            userFromDb.setGender(userDetails.getGender());
+            userFromDb.setImage(userDetails.getImage());
+            userFromDb.setProductAddList(userDetails.getProductAddList());
 
+            // Save the updated user to the database
+            return userServiceRepository.save(userFromDb);
+        }
+
+        throw new UserNotFoundException("No user exists with email id " + userDetails.getEmail());
     }
+
 
     @Override
     public User getUserInformation(String emailId) throws UserNotFoundException {

@@ -4,7 +4,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017
-      database: SwapSellUsers
+      database: SwapSellUser
 server:
   port: 8082
 eureka:

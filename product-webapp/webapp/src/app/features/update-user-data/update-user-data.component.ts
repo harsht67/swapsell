@@ -28,7 +28,7 @@ export class UpdateUserDataComponent implements OnInit {
       image: [this.user.image, Validators.required],
       firstName: [this.user.firstName, Validators.required],
       lastName: [this.user.lastName, Validators.required],
-      phone: [this.user.phone, Validators.required],
+      phoneNumber: [this.user.phoneNumber, Validators.required],
       address: [this.user.address, Validators.required],
       city: [this.user.city, Validators.required],
       state: [this.user.state, Validators.required],
@@ -75,7 +75,7 @@ export class UpdateUserDataComponent implements OnInit {
   ];
 
   onSubmit(): void {
-    console.log(this.addressForm.value);
-    this.userService.updateUser(this.addressForm.value);
+    console.log("inside update component", this.addressForm.value);
+    this.userService.updateUser(this.user);
   }
 }

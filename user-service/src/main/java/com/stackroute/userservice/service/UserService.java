@@ -11,10 +11,6 @@ public interface UserService {
     User registerUserToApplication(UserDTO userDTO) throws UserAlreadyExistsException;
     User updateUserDetails(User userDetails) throws UserNotFoundException;
     User getUserInformation(String emailId) throws UserNotFoundException;
-<<<<<<< HEAD
-=======
-
->>>>>>> 146b2dc2dc12deab21768c15b339d88d9fbbab96
     boolean deleteUser(String emailId) throws UserNotFoundException;
     User postAnAdd(String emailId, Product product) throws UserNotFoundException;
     User removeItemsFromProductList(String emailId,Long productId) throws UserNotFoundException, ProductDoesNotExistsException;

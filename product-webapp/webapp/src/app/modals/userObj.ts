@@ -9,7 +9,7 @@ export type UserObj = {
   state?: string;
   pincode?: string;
   gender?: string;
-  phone?: number;
+  phoneNumber?: number;
   image?: number;
   productList?: Product[]
 };
