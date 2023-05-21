@@ -89,12 +89,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserInformation(User userinfo) throws UserNotFoundException {
-        Optional<User> userByEmail = userServiceRepository.findUserByEmail(userinfo.getEmail());
+    public User getUserInformation(String emailId) throws UserNotFoundException {
+        Optional<User> userByEmail = userServiceRepository.findUserByEmail(emailId);
         if (userByEmail.isPresent()){
             return userByEmail.get();
         }
-        throw new UserNotFoundException("User not exists with mail id "+userinfo.getEmail());
+        throw new UserNotFoundException("User not exists with mail id "+emailId);
     }
 
     @Override

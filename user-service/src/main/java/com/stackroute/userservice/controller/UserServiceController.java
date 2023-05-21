@@ -30,6 +30,16 @@ public class UserServiceController {
 //            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 //        }
 //    }
+    @GetMapping("/getUsersData")
+    public ResponseEntity<?> getUserData(HttpServletRequest httpServletRequest){
+        String emailId = httpServletRequest.getAttribute("emailId").toString();
+        try {
+            User userInformation = userService.getUserInformation(emailId);
+            return new ResponseEntity<>(userInformation,HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+        }
+    }
     @PutMapping("/user/updateDetails")
     public ResponseEntity<?> updateUserDetails(@RequestBody User user){
         try {

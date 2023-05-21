@@ -21,6 +21,9 @@ public class User {
     private int phoneNumber;
     private String email;
     private String address;
+    private String city;
+    private String state;
+    private String pinCode;
     private byte image;
     private String password;
     private List<Product> productAddList;
