@@ -3,13 +3,13 @@ import { Product } from "./product";
 export type UserObj = {
   firstName?: string;
   lastName?: string;
-  email?: string;
-  address?: string;
-  city?: string;
-  state?: string;
-  pincode?: string;
-  gender?: string;
-  phoneNumber?: number;
-  image?: number;
-  productList?: Product[]
+  phoneNumber?:number;
+  email?:string;
+  address?:string;
+  city?:string;
+  state?:string;
+  pinCode?:number;
+  gender?:string;
+  image?:string;
+  productAddList?: Product[]
 };
