@@ -38,6 +38,7 @@ h3 {
   margin: 0 auto;
 }
 
+#carouselExampleAutoplaying button,
 #productCardCarousel button,
 #categoryCardCarousel button {
   width: 5%;
