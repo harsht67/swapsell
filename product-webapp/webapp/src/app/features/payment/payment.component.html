@@ -16,15 +16,15 @@
               <img width="48" height="48" src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard"/>
             </div>
             <label for="price">Total</label>
-            <input type="text" id="price" name="price" [(ngModel)]="orderData.price" value="10">
+            <input type="text" id="price" name="price" [(ngModel)]="orderData.price" value="10" [disabled]="true">
             <label for="currency">Currency</label>
-            <input type="text" id="currency" name="currency" [(ngModel)]="orderData.currency" placeholder="Enter currency">
+            <input type="text" id="currency" name="currency" [(ngModel)]="orderData.currency" placeholder="Enter currency" [disabled]="true">
             <label for="method">Payment Method</label>
-            <input type="text" id="method" name="paymentMethod" [(ngModel)]="orderData.method" placeholder="payment method">
+            <input type="text" id="method" name="paymentMethod" [(ngModel)]="orderData.method" placeholder="payment method" [disabled]="true">
             <label for="intent">Intent</label>
-            <input type="text" id="intent" name="intent" [(ngModel)]="orderData.intent" value="sale">
+            <input type="text" id="intent" name="intent" [(ngModel)]="orderData.intent" value="sale" [disabled]="true">
             <label for="description">Payment Description</label>
-            <input type="text" id="description" name="paymentDescription" [(ngModel)]="orderData.description" placeholder="Payment Description">
+            <input type="text" id="description" name="paymentDescription" [(ngModel)]="orderData.description" placeholder="Payment Description" >
           </div>
           <input type="submit" value="continue to checkout" class="btn">
   

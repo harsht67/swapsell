@@ -31,9 +31,6 @@ public class EmailService {
         MimeMessage message  = sender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message,MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,StandardCharsets.UTF_8.name());
-            // add attachment
-            helper.addAttachment("logo.png,",new ClassPathResource("logo.png"));
-
             Template t = configuration.getTemplate("successfulPayment.ftl");
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, model);
             helper.setTo(request.getTo());

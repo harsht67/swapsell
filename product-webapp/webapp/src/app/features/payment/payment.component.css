@@ -51,16 +51,30 @@ body{
     padding: 7px 0;
     font-size: 24px;
   }
+  button {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.05rem;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+}
+
+
   .btn{
-    background-color: #4caf50;
-    color: white;
+    background-color: #582eac;
+    color: #fff;
     padding: 12px;
     margin: 10px 0;
     border: none;
     width: 100%;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 17px; 
   }
   .btn:hover{
     background-color: #45a049;
