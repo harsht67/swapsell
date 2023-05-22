@@ -32,6 +32,7 @@ export class ProductPageComponent {
 
     this.route.queryParams.subscribe(params => {
       this.scrollToTop();
+      this.currentImage = 0;
       this.productId = params['id'];
       console.log("Product page - product id: ", this.productId);
       this.getProduct();

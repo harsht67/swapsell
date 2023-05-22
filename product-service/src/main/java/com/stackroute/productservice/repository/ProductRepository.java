@@ -26,6 +26,10 @@ ProductRepository extends Neo4jRepository<Product, Long> {
     @Query("MATCH (u:User)-[:OWNS]->(p:Product) RETURN p, u")
     List<ProductWithSellerDTO> findAllWithSeller();
 
+    // fetch products for a user
+    @Query("MATCH (u:User)-[:OWNS]->(p:Product) WHERE u.email = $email RETURN p")
+    List<Product> findAllProductsForUser(@Param("email") String email);
+
     // search a product by name
     @Query(value = "MATCH (p:Product)\n" +
             "WHERE toLower(p.name) CONTAINS toLower($keyword)\n" +

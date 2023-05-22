@@ -12,13 +12,13 @@ export class ProductService {
   private productsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
   public products$: Observable<Product[]> = this.productsSubject.asObservable();
 
-  URL = "http://localhost:9090/products2";
+  URL = "http://localhost:9090";
 
   constructor(private http: HttpClient) { }
 
   // fetch all products
   fetchProducts(): void {
-    this.http.get<Product[]>(this.URL).subscribe(
+    this.http.get<Product[]>(this.URL+"/products2").subscribe(
       (products: Product[]) => {
         this.productsSubject.next(products);
       },
@@ -26,6 +26,10 @@ export class ProductService {
         console.error('Error fetching products:', error);
       }
     );
+  }
+
+  fetchProductsForUser(email: string): Observable<Product[]> {
+    return this.http.get<Product[]>(this.URL+"/products/"+email);
   }
 
   // returns a single product by id 

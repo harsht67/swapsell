@@ -13,6 +13,7 @@ public interface ProductService {
     public List<Product> getAllProducts();
     public List<Product> getAllProductsWithSeller();
     public List<Product> getProductsByName(String name);
+    public List<Product> getProductsForUser(String email);
     public Product deleteProductById(Long id);
     public User deleteUserByEmail(String email);
 }

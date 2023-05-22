@@ -1,22 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { UserObj } from 'src/app/modals/userObj';
-import { UserService } from 'src/app/services/user.service';
+import { Component, OnInit } from "@angular/core";
+import { Product } from "src/app/modals/product";
+import { UserObj } from "src/app/modals/userObj";
+import { ProductService } from "src/app/services/product.service";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
-  selector: 'app-user-dash-board',
-  templateUrl: './user-dash-board.component.html',
-  styleUrls: ['./user-dash-board.component.css']
+  selector: "app-user-dash-board",
+  templateUrl: "./user-dash-board.component.html",
+  styleUrls: ["./user-dash-board.component.css"],
 })
 export class UserDashBoardComponent implements OnInit {
-  
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private productService: ProductService
+  ) {}
 
   user: UserObj = {};
+  products: Product[] = [];
 
   ngOnInit(): void {
     this.userService.user$.subscribe(user => {
-      console.log(user);
+      console.log("userdashboard user: ", user);
       this.user = user;
-    })
+
+      this.productService.fetchProductsForUser(this.user.email).subscribe(data => {
+        console.log("userdashboard products: ", data);
+        this.products = data;
+        console.log("userdashboard products 2: ", this.products);
+      })
+
+    });
   }
 }

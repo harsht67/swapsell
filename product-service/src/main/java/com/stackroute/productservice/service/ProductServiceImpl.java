@@ -114,6 +114,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> getProductsForUser(String email) {
+        return productRepository.findAllProductsForUser(email);
+    }
+
+    @Override
     public Product deleteProductById(Long id) {
         return productRepository.deleteProductById(id);
     }

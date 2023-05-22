@@ -27,6 +27,11 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @GetMapping("/products/{email}")
+    public List<Product> getAllProductsForUser(@PathVariable String email) {
+        return productService.getProductsForUser(email);
+    }
+
     @PostMapping("/product")
     public Product addNewProduct(@RequestBody ProductDTO productDTO) {
         return productService.addNewProduct(productDTO);

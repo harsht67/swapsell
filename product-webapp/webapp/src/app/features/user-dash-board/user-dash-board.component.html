@@ -1,77 +1,18 @@
-<!-- <header>
-    <div class="header-div">
-        <div class="user-icon-umage">
-            <div class="example-button-container">
-                <button mat-icon-button  aria-label="Example icon button with a filter list icon">
-                    <mat-icon>person</mat-icon>
-                </button>
-            </div>
-            <h3>User name</h3>
-        </div>    
-        <div class="user-options">
-            <div class="example-button-container">
-                <button mat-icon-button routerLink="/editDetails" aria-label="Example icon button with a filter list icon">
-                    <mat-icon  >edit</mat-icon>
-                </button>
-            </div>
-            <div class="example-button-container">
-                <button mat-icon-button  aria-label="Example icon button with a filter list icon">
-                    <mat-icon> message</mat-icon>
-                </button>
-            </div>
-            <div class="example-button-container">
-                <button mat-icon-button  aria-label="Example icon button with a filter list icon">
-                    <mat-icon>notifications</mat-icon>
-                </button>
-            </div>
-        </div>
-          
-    </div>
-</header>
-<div class="live-adds">
-    <h1>Your live ads</h1>
-    <mat-card class="example-card">
-        <img mat-card-image class="card-image"  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-title>4,50,000</mat-card-title>
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          </p>
-        </mat-card-content>
-        <div class="place-day">
-            <mat-card-subtitle>PUNJAb</mat-card-subtitle>
-            <mat-card-subtitle>APRIL 16</mat-card-subtitle>
-        </div>
-    </mat-card>
-      
-</div>
-<div class="purchsed-products">
-    <h1>past purchase</h1>
-    <mat-card class="example-card">
-        <img mat-card-image class="card-image"  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-title>4,50,000</mat-card-title>
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          </p>
-        </mat-card-content>
-        <div class="place-day">
-            <mat-card-subtitle>PUNJAb</mat-card-subtitle>
-            <mat-card-subtitle>APRIL 16</mat-card-subtitle>
-        </div>
-    </mat-card>
-      
-</div> -->
+<app-header></app-header>
 
 <div class="container">   
-    <div class="container__header" >           
+
+    <div class="container__header" >     
+
         <div class="header__img">
             <img  src="../../../../../assets/SwapSelll(2).svg">
         </div>
+
         <div class="header__info" >            
             <h2 class="info__fullname">John Doe <mat-icon routerLink="/userDetails">open_in_new</mat-icon></h2> 
             <h3>JohnDoe@gmail.com</h3>    
         </div>   
+
         <div class="header__options">
             <button  matTooltip="update your details"  routerLink="/editDetails">
                 <mat-icon >edit</mat-icon>
@@ -85,146 +26,24 @@
             <button class="post" routerLink="../postAnAdd">
                 post an ad 
             </button>
-        </div>                                                                                              
+        </div>        
+                                                                                              
     </div>
-
-    <!-- next div -->
  
-    <div class="ads" >
+    <section class="user__ads">
 
-        <div class="ads__title">
-            <h1>Your live adds</h1>
-        </div>
-        <div class="ads__container">
-            <mat-card class="mat-card-puchase-buy">
-                <mat-card-content>
-                    <img class="purchase-sell-images" src="../../../../../assets/car.jpg">
-                    <h2 id="price">₹ 4,50,000</h2>
-                    <div class="row d-flex">
-                        <div class="col">
-                            <p>2nd hand Car </p> 
-                        </div>
-                        <div class="col">
-                            <p>status : sold</p>
-                        </div>   
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>PUNJAB</p>
-                        </div>
-                        <div class="col">
-                            <p>JAN 10</p>
-                        </div>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-            <mat-card class="mat-card-puchase-buy">
-                <mat-card-content>
-                    <img class="purchase-sell-images" src="../../../../../assets/cupboard.jpg">
-                        <h2 id="price">₹ 4,50,000</h2>
-                        <div class="row">
-                            <div class="col">
-                                <p>Cup board</p>
-                                
-                            </div>
-                            <div class="col">
-                                <p>status : sold</p>
-                            </div>   
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>State</p>
-                            </div>
-                            <div class="col">
-                                <p>purchase date</p>
-                            </div>
-                        </div>
-                </mat-card-content>
-            </mat-card>
+        <h1 class="ads__title">Your live adds</h1>
 
-            <mat-card class="mat-card-puchase-buy">
-                <mat-card-content>
-                    <img class="purchase-sell-images" src="https://5.imimg.com/data5/ANDROID/Default/2021/9/MF/BD/ZX/13691803/product-jpeg-500x500.jpg">
-                        <h2 id="price">₹ 4,50,000</h2>
-                        <div class="row">
-                            <div class="col">
-                                <p>Cup board</p>
-                                
-                            </div>
-                            <div class="col">
-                                <p>status : sold</p>
-                            </div>   
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>State</p>
-                            </div>
-                            <div class="col">
-                                <p>purchase date</p>
-                            </div>
-                        </div>
-                </mat-card-content>
-            </mat-card>
+        <div class="ads__ads">
 
-            <mat-card class="mat-card-puchase-buy">
-                <mat-card-content>
-                    <img class="purchase-sell-images" src="https://cdn.bigboytoyz.com/new-version/products/bbt-rubicon-3.jpg">
-                        <h2 id="price">₹ 4,50,000</h2>
-                        <div class="row">
-                            <div class="col">
-                                <p>Cup board</p>
-                                
-                            </div>
-                            <div class="col">
-                                <p>status : sold</p>
-                            </div>   
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>State</p>
-                            </div>
-                            <div class="col">
-                                <p>purchase date</p>
-                            </div>
-                        </div>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
+            <app-product-card
+                *ngFor="let product of products"
+                [product]="product"
+            >
+            </app-product-card>
 
-    <div class="ads" >
-        <div class="ads__title">
-            <h1>Purchased </h1>
         </div>
-        <div class="ads_container">
-            <mat-card class="mat-card-puchase-buy">
-                <mat-card-content>
-                    <img class="purchase-sell-images" src="https://cdn.bigboytoyz.com/new-version/products/bbt-rubicon-3.jpg">
-                        <h2 id="price">₹ 5,000</h2>
-                        <div class="row">
-                            <div class="col">
-                                <p>Cup board</p>
-                                
-                            </div>
-                            <div class="col">
-                                <p>status : listed</p>
-                            </div>   
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>State</p>
-                            </div>
-                            <div class="col">
-                                <p>purchase date</p>
-                            </div>
-                        </div>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        
-    </div>
-    
+
+    </section>
 
 </div>
-      
-            
