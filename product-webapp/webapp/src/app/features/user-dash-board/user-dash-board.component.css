@@ -10,9 +10,8 @@ p, h1, h2, h3 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   height: 150px;
-  margin-block-end: 1rem;
 }
 
 .header__img {
@@ -36,7 +35,7 @@ img {
 }
 
 .header__info > *:nth-child(2) {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
@@ -77,7 +76,7 @@ button {
 
 .user__ads {
   margin-block-end: 2rem;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 .ads__title {

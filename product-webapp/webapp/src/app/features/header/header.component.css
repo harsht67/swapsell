@@ -178,8 +178,8 @@ button {
 }
 
 button.post {
-    border: 2px solid rgba(88,46,172,1);
-    color: rgba(88,46,172,1);
+    border: 2px solid var(--accent);
+    color: var(--accent);
 }
 
 button.log {

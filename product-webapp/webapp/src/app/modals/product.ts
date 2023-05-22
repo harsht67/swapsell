@@ -8,5 +8,10 @@ export type Product = {
     category?: string,
     condition?: string,
     ageInDays?: number,
+    state?: string,
+    city?: string,
+    address?: string,
+    pinCode?: number,
+    date?: string,
     ownsRelationship?: null
 }

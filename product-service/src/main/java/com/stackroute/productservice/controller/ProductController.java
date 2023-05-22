@@ -32,6 +32,11 @@ public class ProductController {
         return productService.getProductsForUser(email);
     }
 
+    @GetMapping("/user/{productId}")
+    public User getSeller(@PathVariable Long productId) {
+        return productService.getSeller(productId);
+    }
+
     @PostMapping("/product")
     public Product addNewProduct(@RequestBody ProductDTO productDTO) {
         return productService.addNewProduct(productDTO);

@@ -1,6 +1,7 @@
 import { Component, HostListener } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Product } from "src/app/modals/product";
+import { Seller } from "src/app/modals/seller";
 import { ProductService } from "src/app/services/product.service";
 
 @Component({
@@ -23,6 +24,7 @@ export class ProductPageComponent {
   product: Product;
   products1: Product[] = [];
   products2: Product[] = [];
+  seller: Seller = {};
 
   ngOnInit(): void {
     this.productService.products$.subscribe(products => {
@@ -36,11 +38,21 @@ export class ProductPageComponent {
       this.productId = params['id'];
       console.log("Product page - product id: ", this.productId);
       this.getProduct();
+      this.getSeller();
     });
   }
 
   scrollToTop() {
     window.scrollTo(0, 0);
+  }
+
+  getSeller(): void {
+    this.productService.fetchSellerForProduct(this.productId).subscribe(
+      data => {
+        console.log(data);
+        this.seller = data;
+      }
+    )
   }
 
   getProduct(): void {

@@ -25,15 +25,17 @@ export class UserService {
       console.log("user data in service", data);
       this.userSubject.next(data);
     })
-
-    // this.http.get("http://localhost:8080/user/"+email).subscribe(data => {
-    //   console.log("user data", data);
-    //   this.userSubject.next(data);
-    // })
   }
 
   removeUser() {
     this.userSubject.next({});
+  }
+
+  // Extract email from already fetched user data
+  getUserEmail(): Observable<string> {
+    return this.user$.pipe(
+      map(user => user?.email || '')
+    );
   }
 
   // fetch all users who have contacted logged in user  

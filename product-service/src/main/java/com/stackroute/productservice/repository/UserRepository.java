@@ -17,6 +17,9 @@ public interface UserRepository extends Neo4jRepository<User, Long> {
     @Transactional
     void createOwnsRelationship(@Param("email") String firstName, @Param("productId") Long productId);
 
+    @Query("MATCH (u:User)-[:OWNS]->(p:Product) WHERE ID(p) = $productId RETURN u")
+    User findSellerByProductId(@Param("productId") Long productId);
+
     // delete a user
     @Query(value = "MATCH (u:User {email: $email}) DETACH DELETE u")
     @Transactional

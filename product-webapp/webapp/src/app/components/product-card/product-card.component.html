@@ -14,12 +14,12 @@
     <div class="product-card__footer">
       <p class="product-card__location">
         <mat-icon>location_on</mat-icon>
-        <span>new delhi</span>
+        <span>{{product.state}}</span>
       </p>
 
       <p class="product-card__date">
         <mat-icon>date_range</mat-icon>
-        <span>apr 15</span>
+        <span>{{product.date.slice(0,5)}}</span>
       </p>
     </div>
   </section>
