@@ -4,7 +4,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: swapsellteam@gmail.com
-    password: swapsellniit2023
+    password: uewaxvidehmxlbzu
     properties:
       mail:
         smtp:

@@ -17,28 +17,21 @@
             margin: 5% 25%;
             font-family: 'Laila', sans-serif;;
         }
-        .header,.orderConfirm,.puchase,.paymentDetails,.OrderTotal{
+        .header,.orderConfirm,.purchase,.paymentDetails,.OrderTotal{
             border-bottom: 2px solid grey;
         }
         .log_image{
             width: 25vh;
             height: 25vh;
         }
-        .puchase{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .purchase__image{
-            height: 30vh;
-            width: 30vh;   
+        .purchase{
+            margin-left: 7px;
         }
         .paymentDetails{
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
-        .OrderTotal,.keepInTouch,.header,.orderConfirm,.puchase,.paymentDetails{
+        .OrderTotal,.keepInTouch,.header,.orderConfirm,.paymentDetails{
             text-align: center;
         }
     </style>
@@ -46,41 +39,45 @@
 <body>
     <div class="mainDiv">
         <div class="header">
-            <h3>Swap sell Order summury email</h3>
-            <img class="log_image" src="logo.svg">
+            <h3>Swap sell Order summary email</h3>
+            <img class="log_image" src="../logo.jpg">
         </div>
         <div class="orderConfirm">
             <h1>Payment Confirmation</h1>
-            <h3>your puchase has been palced for shipping </h3>
+            <h3>your purchase has been placed for shipping </h3>
         </div>
-        <h3>Your Order</h3>
-        <div class="puchase">
-            
-            <img class="purchase__image" src="phone2.jpg">
-            <p>Samsung Galaxy S23F23LM</p>
-            <p>₹ 12,000</p>
+
+        <div class="purchase">
+            <h3>Your Product Order Details</h3>
+            <h4>Name</h4>
+            <p>${productName}</p>
+            <h4>Title</h4>
+            <p>${productTitle}</p>
+            <h4>Description</h4>
+            <p>${productDescription}</p>
+            <h4>Category</h4>
+            <p>${productCategory}</p>
+            <h4>Condition</h4>
+            <p>${productCondition}</p>
         </div>
         <div class="paymentDetails">
             <div class="ShippingAddress">
                 <p>Payee Email</p>
-                <p>Amount paid</p>
+                <p>${payeeEmail}</p>
             </div>
             <div class="Details">
-                <p>sdduibdf-scsd@gmail.com</p>
-                <p>₹ 12,000</p>
+                <p>Amount paid</p>
+                <p>	${amountPaid}</p>
             </div>
         </div>
         <div class="OrderTotal">
-            <h3>Totol amount paid</h3>
-            <h1>₹ 12,000</h1>
+            <h3>Total amount paid</h3>
+            <h1>${totalAmountPaid}</h1>
         </div>
         <div class="keepInTouch">
-            <p>Keep In Touch</p>
+            <h3>Keep In Touch</h3>
             <p>If you have any questions, concerns, or suggestions,please email us:<a href="#">Support@swapsell.com</a></p>
         </div>
-        
-
     </div>
-    
 </body>
 </html>
