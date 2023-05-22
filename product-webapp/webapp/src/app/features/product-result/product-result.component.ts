@@ -38,11 +38,16 @@ export class ProductResultComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
   routeSubscription: Subscription;
   ngOnInit(): void {
     this.filter = window.innerWidth > 576;
 
     this.routeSubscription = this.route.queryParams.subscribe((params) => {
+      this.scrollToTop();
       const keyword = params["keyword"];
       const type = params["type"];
       console.log(keyword);
@@ -99,6 +104,7 @@ export class ProductResultComponent implements OnInit {
   // filter result
   handleFilterEvent(filterData: any) {
     console.log(filterData);
+    this.scrollToTop();
 
     const { filters } = filterData;
     const { fromPrice, toPrice, isNew, isGood, isUsed, age } = filters;

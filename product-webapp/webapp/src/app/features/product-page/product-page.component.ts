@@ -29,11 +29,17 @@ export class ProductPageComponent {
       this.products1 = products?.slice(0,4);
       this.products2 = products?.slice(4,8);
     });
+
     this.route.queryParams.subscribe(params => {
+      this.scrollToTop();
       this.productId = params['id'];
       console.log("Product page - product id: ", this.productId);
       this.getProduct();
     });
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 
   getProduct(): void {
