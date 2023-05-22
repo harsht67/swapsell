@@ -1,49 +1,38 @@
 <app-header></app-header>
 
-<div class="container">   
-
-    <div class="container__header" >     
-
-        <div class="header__img">
-            <img  src="../../../../../assets/SwapSelll(2).svg">
-        </div>
-
-        <div class="header__info" >            
-            <h2 class="info__fullname">John Doe</h2> 
-            <h3>JohnDoe@gmail.com</h3>    
-        </div>   
-
-        <div class="header__options">
-            <button  matTooltip="update your details"  routerLink="/editDetails">
-                <mat-icon >edit</mat-icon>
-            </button>
-            <button  matTooltip="Your messages" >
-                <mat-icon > message</mat-icon>
-            </button>
-            <button  matTooltip="Notifications" >
-                <mat-icon   >notifications</mat-icon>
-            </button>
-            <button class="post" routerLink="../postAnAdd">
-                post an ad 
-            </button>
-        </div>        
-                                                                                              
+<div class="dashboard">
+  <header class="dashboard__header">
+    <div class="header__img">
+      <img src="../../../../../assets/SwapSelll(2).svg" alt="user pic" />
     </div>
- 
-    <section class="user__ads">
 
-        <h1 class="ads__title">Your live adds</h1>
+    <div class="header__info">
+      <h2>John Doe</h2>
+      <h3>JohnDoe@gmail.com</h3>
+      <!-- <h2>{{user.firstName}} {{user.lastName}}</h2>
+      <h3>{{user.email}}</h3> -->
+    </div>
 
-        <div class="ads__ads">
+    <div class="header__options">
+      <button matTooltip="update your details" routerLink="/editDetails">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button matTooltip="Your messages">
+        <mat-icon> message</mat-icon>
+      </button>
+      <!-- <button  matTooltip="Notifications" >
+                <mat-icon   >notifications</mat-icon>
+            </button> -->
+      <button class="postBtn" routerLink="../postAnAdd">post an ad</button>
+    </div>
+  </header>
 
-            <app-product-card
-                *ngFor="let product of products"
-                [product]="product"
-            >
-            </app-product-card>
+  <section class="user__ads">
+    <h1 class="ads__title">Your live ads</h1>
 
-        </div>
-
-    </section>
-
+    <div class="ads__ads">
+      <app-product-card *ngFor="let product of products" [product]="product">
+      </app-product-card>
+    </div>
+  </section>
 </div>
