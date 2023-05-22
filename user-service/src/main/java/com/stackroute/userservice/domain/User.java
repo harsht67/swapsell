@@ -23,8 +23,8 @@ public class User {
     private String address;
     private String city;
     private String state;
-    private String pincode;
+    private String pinCode;
     private String gender;
-    private byte image;
+    private String  image;
     private List<Product> productAddList;
 }

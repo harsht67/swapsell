@@ -12,8 +12,13 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -65,6 +70,23 @@ public class UserServiceImpl implements UserService {
     public User updateUserDetails(User userDetails) throws UserNotFoundException {
         Optional<User> userByEmail = userServiceRepository.findUserByEmail(userDetails.getEmail());
         if (userByEmail.isPresent()) {
+            Image image;
+            try {
+                // Load the image from a file
+                String userImage = userDetails.getImage();
+                File imageFile = new File(userImage);
+                 image = ImageIO.read(imageFile);
+
+                // Get the width and height of the image
+                int width = image.getWidth(null);
+                int height = image.getHeight(null);
+
+                System.out.println("Image Width: " + width);
+                System.out.println("Image Height: " + height);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("In service of update user");
             User userFromDb = userByEmail.get();
             // Update user details with new values
             userFromDb.setFirstName(userDetails.getFirstName());
@@ -73,7 +95,7 @@ public class UserServiceImpl implements UserService {
             userFromDb.setAddress(userDetails.getAddress());
             userFromDb.setCity(userDetails.getCity());
             userFromDb.setState(userDetails.getState());
-            userFromDb.setPincode(userDetails.getPincode());
+            userFromDb.setPinCode(userDetails.getPinCode());
             userFromDb.setGender(userDetails.getGender());
             userFromDb.setImage(userDetails.getImage());
             userFromDb.setProductAddList(userDetails.getProductAddList());

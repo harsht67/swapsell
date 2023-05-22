@@ -18,6 +18,8 @@ export class UpdateUserDataComponent implements OnInit {
       console.log(user);
       this.user = user;
       this.initializeForm();
+  
+      
     });
   }
 
@@ -28,12 +30,13 @@ export class UpdateUserDataComponent implements OnInit {
       image: [this.user.image, Validators.required],
       firstName: [this.user.firstName, Validators.required],
       lastName: [this.user.lastName, Validators.required],
+      email:[this.user.email],
       phoneNumber: [this.user.phoneNumber, Validators.required],
       address: [this.user.address, Validators.required],
       city: [this.user.city, Validators.required],
       state: [this.user.state, Validators.required],
-      pincode: [
-        this.user.pincode,
+      pinCode: [
+        this.user.pinCode,
         Validators.compose([
           Validators.required,
           Validators.minLength(5),
@@ -45,6 +48,16 @@ export class UpdateUserDataComponent implements OnInit {
   }
  
   hasUnitNumber = false;
+  imageUrl: string;
+
+  handleFileInput(event: any) {
+    const file: File = event.target.files[0];
+    console.log(file);
+    this.imageUrl = URL.createObjectURL(file);
+    console.log(this.imageUrl);
+    
+    
+  }
 
   states = [
     { name: "Andhra Pradesh" },
@@ -75,6 +88,8 @@ export class UpdateUserDataComponent implements OnInit {
   ];
 
   onSubmit(): void {
+    console.log(this.states);
+    this.handleFileInput(this.addressForm.value.image)
     console.log("inside update component", this.addressForm.value);
     this.userService.updateUser(this.addressForm.value);
   }

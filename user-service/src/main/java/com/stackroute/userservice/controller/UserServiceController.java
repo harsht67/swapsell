@@ -57,6 +57,7 @@ public class UserServiceController {
     public ResponseEntity<?> updateUserDetails(@RequestBody User user){
         try {
             User updateUserDetails = userService.updateUserDetails(user);
+            System.out.println("Data is saved ");
             return new ResponseEntity<>(updateUserDetails,HttpStatus.OK);
         } catch (UserNotFoundException e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
