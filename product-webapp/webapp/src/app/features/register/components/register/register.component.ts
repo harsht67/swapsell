@@ -8,7 +8,7 @@ import { PopupService } from "src/app/services/popup.service";
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.css"],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   constructor(
     private authService: AuthService, 
     private popup: PopupService,
@@ -22,6 +22,14 @@ export class RegisterComponent {
     password: "",
     confirmPassword: "",
   };
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
 
   isPasswordDiff: boolean = true;
   checkPassword() {
@@ -48,4 +56,5 @@ export class RegisterComponent {
       this.router.navigate(['/login']);
     });
   }
+  
 }

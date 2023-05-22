@@ -3,7 +3,6 @@ p {
 }
 
 .product-card {
-  /* width: 250px; */
   height: 300px;
   cursor: pointer;
   transition: all 0.15s;
@@ -17,7 +16,7 @@ p {
 .product-card__img {
   height: 200px;
   width: 100%;
-  background-image: url("../../../assets/laptop.webp");
+  /* background-image: url("../../../assets/laptop.webp"); */
   background-position: center;
   background-size: cover;
 }

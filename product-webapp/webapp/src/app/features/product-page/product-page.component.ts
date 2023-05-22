@@ -18,7 +18,7 @@ export class ProductPageComponent {
   // for image gallery
   imgUrl = "../../../assets/";
   currentImage = 0;
-  images = ["phone1.jpg", "phone2.jpg", "phone3.jpg", "phone4.jpg"];
+  images = ["", "-1", "-2", "-3"];
   productId: string;
   product: Product;
   products1: Product[] = [];
@@ -29,11 +29,17 @@ export class ProductPageComponent {
       this.products1 = products?.slice(0,4);
       this.products2 = products?.slice(4,8);
     });
+
     this.route.queryParams.subscribe(params => {
+      this.scrollToTop();
       this.productId = params['id'];
       console.log("Product page - product id: ", this.productId);
       this.getProduct();
     });
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 
   getProduct(): void {
