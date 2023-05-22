@@ -18,7 +18,7 @@ export class ProductPageComponent {
   // for image gallery
   imgUrl = "../../../assets/";
   currentImage = 0;
-  images = ["phone1.jpg", "phone2.jpg", "phone3.jpg", "phone4.jpg"];
+  images = ["", "-1", "-2", "-3"];
   productId: string;
   product: Product;
   products1: Product[] = [];

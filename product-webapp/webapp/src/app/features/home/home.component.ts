@@ -16,24 +16,25 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.productService.fetchProducts();
-    this.productService.products$.subscribe(products => {
+    this.productService.products$.subscribe((products) => {
       this.products = products;
-      this.products1 = products?.slice(0,4);
-      this.products2 = products?.slice(4,8);
+      this.products1 = products?.slice(0, 4);
+      this.products2 = products?.slice(4, 8);
     });
   }
 
   categories1 = [
-    "Automotive",
-    "Real Estate",
-    "Electronics",
-    "Home & Furniture",
+    { name: "Automotive", image: "Automotive.jpg" },
+    { name: "Real Estate", image: "RealEstate.jpg" },
+    { name: "Electronics", image: "Electronics.jpg" },
+    { name: "Home & Furniture", image: "HomeFurniture.jpg" },
   ];
+
   categories2 = [
-    "Books, Sports & Hobbies",
-    "Mobiles",
-    "Computers & Laptops",
-    "Office",
+    { name: "Automotive", image: "Automotive.jpg" },
+    { name: "Real Estate", image: "RealEstate.jpg" },
+    { name: "Electronics", image: "Electronics.jpg" },
+    { name: "Home & Furniture", image: "HomeFurniture.jpg" },
   ];
-  
+
 }

@@ -29,9 +29,9 @@ public class Product {
     private String condition;
     private Integer ageInDays;
 
-//    @Transient
-    @Relationship(type = "SELLER")
+    @Transient
     private User seller;
+//    @Relationship(type = "SELLER")
 
     @Relationship(type = "OWNS", direction = Relationship.Direction.INCOMING)
     private OwnsRelationship ownsRelationship;

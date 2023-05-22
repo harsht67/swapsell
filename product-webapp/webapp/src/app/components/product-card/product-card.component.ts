@@ -14,10 +14,6 @@ export class ProductCardComponent {
   @Input()
   product: Product;
 
-  // ngOnInit(): void {
-  //   console.log(this.product);
-  // }
-
   goToProductPage(productId: string) {
     this.router.navigate(['/product'], { queryParams: { id: productId } });
   }
