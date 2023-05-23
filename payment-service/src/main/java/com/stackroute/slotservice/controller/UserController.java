@@ -19,9 +19,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/registerUserPayment")
-    public ResponseEntity<?> registerUser(@RequestBody User user){
-        User saveUserData = userService.saveUserData(user);
-        return new ResponseEntity<>(saveUserData, HttpStatus.OK);
-    }
+//    @PostMapping("/registerUserPayment")
+//    public ResponseEntity<?> registerUser(@RequestBody User user){
+//        User saveUserData = userService.saveUserData(user);
+//        return new ResponseEntity<>(saveUserData, HttpStatus.OK);
+//    }
 }

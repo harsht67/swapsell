@@ -12,13 +12,15 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MessageConfiguration {
-    public static final String exchangeName1 = "swap-sell-user-service-exchange";
     public static final String queueName1 = "swap-sell-user-service-queue";
-    public static final String routingKey1 = "swap-sell-user-service-routing-key";
+//    public static final String exchangeName1 = "swap-sell-user-service-exchange";
+//    public static final String routingKey1 = "swap-sell-user-service-routing-key";
+public static final String exchangeName3 = "payment-service-exchange";
+    public static final String routingKey3 = "payment-service-routing-key";
 
     @Bean
     public DirectExchange directExchange() {
-        return new DirectExchange(exchangeName1);
+        return new DirectExchange(exchangeName3);
     }
 
     @Bean
@@ -28,7 +30,7 @@ public class MessageConfiguration {
 
     @Bean
     public Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingKey1);
+        return BindingBuilder.bind(queue).to(exchange).with(routingKey3);
     }
 
     @Bean

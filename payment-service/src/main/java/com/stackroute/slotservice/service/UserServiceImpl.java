@@ -1,8 +1,11 @@
 package com.stackroute.slotservice.service;
 
 import com.paypal.api.payments.Payment;
+import com.stackroute.slotservice.configuration.MessageConfiguration;
+import com.stackroute.slotservice.configuration.UserDTO;
 import com.stackroute.slotservice.domain.User;
 import com.stackroute.slotservice.repository.UserRepository;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+    @RabbitListener(queues = MessageConfiguration.queueName1)
+    public void userDataFromAuthService(UserDTO userDTO) {
+        User user = new User();
+        String userEmailId = userDTO.getEmail();
+        user.setEmailId(userEmailId);
+        saveUserData(user);
     }
 
     @Override

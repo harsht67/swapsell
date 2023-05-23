@@ -19,6 +19,9 @@ public class MessageConfiguration {
     public static final String exchangeName2 = "second-service-exchange";
     public static final String routingKey2 = "second-service-routing-key";
 
+    public static final String exchangeName3 = "payment-service-exchange";
+    public static final String routingKey3 = "payment-service-routing-key";
+
     @Bean
     @Primary
     public DirectExchange directExchange() {
@@ -45,6 +48,15 @@ public class MessageConfiguration {
         return BindingBuilder.bind(queue).to(exchange).with(routingKey2);
     }
 
+    @Bean
+    public DirectExchange thirdExchange() {
+        return new DirectExchange(exchangeName3);
+    }
+
+    @Bean
+    public Binding thirdBinding(Queue queue, DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with(routingKey3);
+    }
     @Bean
     public Jackson2JsonMessageConverter userJackson2JsonMessage() {
         return new Jackson2JsonMessageConverter();
