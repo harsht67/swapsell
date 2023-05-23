@@ -24,7 +24,10 @@ public class UserServiceImpl implements UserService {
         if(userRepository.findByEmail(user.getEmail()).isPresent()) {
             throw new UserAlreadyExistException();
         }
-        rabbitTemplate.convertAndSend(MessageConfiguration.exchangeName1,MessageConfiguration.routingKey1, user);
+
+        rabbitTemplate.convertAndSend(MessageConfiguration.exchangeName1, MessageConfiguration.routingKey1, user);
+        rabbitTemplate.convertAndSend(MessageConfiguration.exchangeName2, MessageConfiguration.routingKey2, user);
+
         return userRepository.save(user);
     }
 

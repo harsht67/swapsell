@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path:"userDashBoard",
     component:UserDashBoardComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path:"editDetails",
