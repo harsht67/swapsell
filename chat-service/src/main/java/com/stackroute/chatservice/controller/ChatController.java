@@ -30,6 +30,12 @@ public class ChatController {
         }
     }
 
+    @GetMapping("/chats/present")
+    public boolean isChat(@RequestParam("participantId1") String participantId1, @RequestParam("participantId2") String participantId2) {
+        Optional<Chat> chatOptional = chatService.getChat(participantId1, participantId2);
+        return chatOptional.isPresent();
+    }
+
     @PostMapping("/chats")
     public ResponseEntity<ApiResponse<Void>> addChat(@RequestBody ChatDTO chatDTO) {
         try {

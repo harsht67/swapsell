@@ -19,4 +19,9 @@ public class ProductDTO {
     private String condition;
     private Integer ageInDays;
     private String email;
+    private String address;
+    private String city;
+    private String state;
+    private Long pinCode;
+    private String date;
 }

@@ -7,13 +7,14 @@ import com.stackroute.productservice.domain.User;
 import java.util.List;
 
 public interface ProductService {
-    public Product addNewProduct(ProductDTO productDTO);
-    public List<Product> addNewProducts(List<ProductDTO> productDTOList);
-    public User addNewUser(User user);
-    public List<Product> getAllProducts();
-    public List<Product> getAllProductsWithSeller();
-    public List<Product> getProductsByName(String name);
-    public List<Product> getProductsForUser(String email);
-    public Product deleteProductById(Long id);
-    public User deleteUserByEmail(String email);
+    Product addNewProduct(ProductDTO productDTO);
+    List<Product> addNewProducts(List<ProductDTO> productDTOList);
+    User addNewUser(User user);
+    List<Product> getAllProducts();
+    List<Product> getAllProductsWithSeller();
+    User getSeller(Long productId);
+    List<Product> getProductsByName(String name);
+    List<Product> getProductsForUser(String email);
+    Product deleteProductById(Long id);
+    User deleteUserByEmail(String email);
 }

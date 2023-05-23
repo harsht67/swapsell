@@ -30,11 +30,11 @@
     <p class="desc__price">₹{{product.price.toLocaleString('en-IN')}}</p>
 
     <div class="desc__btns">
-      <button routerLink="/chat" class="desc__btn btn--offer">
+      <!-- <button class="desc__btn btn--offer">
         Make offer
-      </button>
+      </button> -->
 
-      <button routerLink="/chat" class="desc__btn btn--chat">
+      <button class="desc__btn btn--chat" (click)="chat()">
         Chat with seller
       </button>
     </div>
@@ -63,7 +63,7 @@
           <mat-icon>date_range</mat-icon>
           <div>
             <p>Posting date</p>
-            <p>5 may 2023</p>
+            <p>{{product.date}}</p>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@
 
         <div>
           <p class="seller__name">
-            John Doe
+            {{seller.firstName}} {{seller.lastName}}
             <mat-icon class="icon-tick">check_circle</mat-icon>
           </p>
 

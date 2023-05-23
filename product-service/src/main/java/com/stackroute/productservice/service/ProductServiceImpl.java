@@ -36,6 +36,11 @@ public class ProductServiceImpl implements ProductService {
         product1.setPrice(productDTO.getPrice());
         product1.setAgeInDays(productDTO.getAgeInDays());
         product1.setCondition(productDTO.getCondition());
+        product1.setAddress(productDTO.getAddress());
+        product1.setCity(productDTO.getCity());
+        product1.setState(productDTO.getState());
+        product1.setPinCode(productDTO.getPinCode());
+        product1.setDate(productDTO.getDate());
 
         Product newProduct = productRepository.save(product1);
 
@@ -59,6 +64,11 @@ public class ProductServiceImpl implements ProductService {
             product.setPrice(productDTO.getPrice());
             product.setAgeInDays(productDTO.getAgeInDays());
             product.setCondition(productDTO.getCondition());
+            product.setAddress(productDTO.getAddress());
+            product.setCity(productDTO.getCity());
+            product.setState(productDTO.getState());
+            product.setPinCode(productDTO.getPinCode());
+            product.setDate(productDTO.getDate());
 
             Product newProduct = productRepository.save(product);
 
@@ -104,6 +114,11 @@ public class ProductServiceImpl implements ProductService {
         }
 
         return products;
+    }
+
+    @Override
+    public User getSeller(Long productId) {
+        return userRepository.findSellerByProductId(productId);
     }
 
     @Override

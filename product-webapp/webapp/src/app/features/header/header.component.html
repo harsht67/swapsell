@@ -4,7 +4,12 @@
   <img class="logo" src="../../../assets/logo.svg" alt="logo" routerLink="/" />
 
   <div class="input">
-    <input type="text" name="search" placeholder="Search for product" [(ngModel)]="keyword" />
+    <input
+      type="text"
+      name="search"
+      placeholder="Search for product"
+      [(ngModel)]="keyword"
+    />
 
     <mat-icon class="searchIcon" (click)="search()"> search </mat-icon>
   </div>
@@ -12,7 +17,7 @@
   <div class="header__btns">
     <!-- <mat-icon>bedtime</mat-icon> -->
     <mat-icon>favorite_border</mat-icon>
-    <div class="user">
+    <div class="user" routerLink="/userDashBoard">
       <mat-icon>person</mat-icon>
 
       <span>{{ userInitials }}</span>

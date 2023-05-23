@@ -12,6 +12,8 @@ import { HomeComponent } from './features/home/home.component';
 import { PaymentComponent } from './features/payment/payment.component';
 import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
 import { ChatComponent } from './features/chat/chat.component';
+import { AuthGuard } from './guard/auth.guard';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -21,27 +23,38 @@ const routes: Routes = [
   {path: "product", component: ProductPageComponent},
   {
     path:"userDashBoard",
-    component:UserDashBoardComponent
+    component:UserDashBoardComponent,
+    // canActivate: [AuthGuard]
   },
   {
     path:"editDetails",
-    component:UpdateUserDataComponent
+    component:UpdateUserDataComponent,
+    canActivate: [AuthGuard]
   },{
     path:"postAnAdd",
-    component:PostAnAdComponent
+    component:PostAnAdComponent,
+    canActivate: [AuthGuard]
   },{
     path:"userDetails",
-    component:UsersDetailsComponent
+    component:UsersDetailsComponent,
+    canActivate: [AuthGuard]
   },{
     path:"payment",
-    component:PaymentComponent
+    component:PaymentComponent,
+    canActivate: [AuthGuard]
   },{
     path:"pay/success",
-    component:PaymentSuccessComponent
+    component:PaymentSuccessComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "chat",
-    component: ChatComponent
+    component: ChatComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "**",
+    component: NotFoundComponent
   }
   
 ];

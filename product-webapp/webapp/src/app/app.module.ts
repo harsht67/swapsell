@@ -45,6 +45,7 @@ import { PaymentComponent } from './features/payment/payment.component';
 import { PaymentSuccessComponent } from './features/payment-success/payment-success.component';
 import { OfferDialogComponent } from './components/offer-dialog/offer-dialog.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MessageComponent,
     OfferDialogComponent,
     MessageComponent,
+    NotFoundComponent,
     
   ],
   imports: [

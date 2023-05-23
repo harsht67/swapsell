@@ -10,13 +10,13 @@ export class ChatComponent implements OnInit {
   
   constructor(private userService: UserService) {}
 
-  participantId1: string = "6"; // id of logged user 
-  participantId2: string = "4"; // id of other user 
+  participantId1: string; // id of logged user 
+  participantId2: string; // id of other user 
 
   ngOnInit(): void {
     this.userService.user$.subscribe(data => {
       console.log("userId", data.id);
-      this.participantId1 = data.id;
+      this.participantId1 = data.email;
     }) 
   }
 

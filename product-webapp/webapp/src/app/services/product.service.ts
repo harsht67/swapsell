@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from '../modals/product';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,10 @@ export class ProductService {
 
   URL = "http://localhost:9090";
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private userService: UserService
+  ) { }
 
   // fetch all products
   fetchProducts(): void {
@@ -31,6 +35,36 @@ export class ProductService {
   fetchProductsForUser(email: string): Observable<Product[]> {
     return this.http.get<Product[]>(this.URL+"/products/"+email);
   }
+
+  fetchSellerForProduct(productId: string): Observable<any> {
+    return this.http.get(this.URL+"/user/"+productId);
+  }
+
+  // add a new product to database 
+  addProduct(product: any): Observable<boolean> {
+    return new Observable<boolean>(observer => {
+      this.userService.getUserEmail().subscribe(email => {
+        product.email = email;
+
+        const currentDate = new Date();
+        const options: Intl.DateTimeFormatOptions = { month: 'short', day: '2-digit', year: 'numeric' };
+        product.date = currentDate.toLocaleDateString('en-US', options).toUpperCase();
+
+        console.log("Product top be added: ", product);
+        
+        this.http.post(this.URL+"/product", product).subscribe(
+          () => {
+            observer.next(true); // Request succeeded
+            observer.complete();
+          },
+          () => {
+            observer.next(false); // Request failed
+            observer.complete();
+          }
+        );
+      });
+    });
+  }  
 
   // returns a single product by id 
   getProductById(productId: string): Observable<Product> {

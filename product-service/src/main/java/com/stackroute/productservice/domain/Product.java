@@ -28,6 +28,11 @@ public class Product {
     private String category;
     private String condition;
     private Integer ageInDays;
+    private String address;
+    private String city;
+    private String state;
+    private Long pinCode;
+    private String date;
 
     @Transient
     private User seller;

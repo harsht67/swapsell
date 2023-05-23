@@ -10,9 +10,8 @@ p, h1, h2, h3 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   height: 150px;
-  margin-block-end: 1rem;
 }
 
 .header__img {
@@ -36,7 +35,7 @@ img {
 }
 
 .header__info > *:nth-child(2) {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
@@ -77,16 +76,16 @@ button {
 
 .user__ads {
   margin-block-end: 2rem;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 .ads__title {
   text-align: center;
-  font-weight: 600;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #454545;
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  /* letter-spacing: 0.1em; */
+  /* color: #454545; */
   padding-inline: 1rem;
   margin-block-end: 1rem;
 }
@@ -95,4 +94,20 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+}
+
+.ads__ads2 {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  text-align: center;
+  margin-block: 4rem;
+
+}
+
+.emptyTitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text3);
 }
