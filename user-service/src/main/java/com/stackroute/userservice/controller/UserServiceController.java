@@ -53,10 +53,10 @@ public class UserServiceController {
         }
     }
 
-    @PutMapping("/user/updateDetails")
-    public ResponseEntity<?> updateUserDetails(@RequestBody User user){
+    @PutMapping("/user/updateDetails/{userEmail}")
+    public ResponseEntity<?> updateUserDetails(@RequestBody User user,@PathVariable String userEmail){
         try {
-            User updateUserDetails = userService.updateUserDetails(user);
+            User updateUserDetails = userService.updateUserDetails(user,userEmail);
             System.out.println("Data is saved ");
             return new ResponseEntity<>(updateUserDetails,HttpStatus.OK);
         } catch (UserNotFoundException e) {

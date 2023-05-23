@@ -46,9 +46,10 @@ export class UserService {
     return this.http.get(`${this.URL}/chats/users`, { params });
   }
 
-  updateUser(user: UserObj) {
+  updateUser(user: UserObj,userEmail:string) {
     console.log("inside user service", user);
-    this.http.put("http://localhost:8082/user/updateDetails", user).subscribe(data => {
+    console.log("User Email id : ",userEmail);
+    this.http.put("http://localhost:8082/user/updateDetails/"+userEmail, user).subscribe(data => {
       console.log(data);
       this.fetchUser(user.email);
     })

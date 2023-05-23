@@ -11,5 +11,4 @@ export type UserObj = {
   pinCode?:number;
   gender?:string;
   image?:string;
-  productAddList?: Product[]
 };
