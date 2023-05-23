@@ -43,14 +43,13 @@ export class ProductPageComponent {
       this.getProduct();
       this.getProductAndUserDetails();
       this.getSeller();
+      console.log(this.seller);
     });
   }
   
   //data for email 
   productName:string="";
 
-  
-  
   getProductAndUserDetails(){
     console.log("in the get product details and user datils");
     console.log(this.product);

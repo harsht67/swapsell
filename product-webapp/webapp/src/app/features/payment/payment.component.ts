@@ -12,7 +12,7 @@ import { PaymentService } from 'src/app/services/payment-service/payment.service
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent  {
+export class PaymentComponent implements OnInit  {
 
 //  @ViewChild('paypalRef',{static:true}) private paypalRef : ElementRef;
 //  ngOnInit(): void {
@@ -113,6 +113,10 @@ export class PaymentComponent  {
   constructor(private paymentService:PaymentService){
     
   }
+  ngOnInit(): void {
+    console.log(this.orderData);
+
+  }
 
   orderData:Order={
     price: 100,
@@ -135,6 +139,21 @@ export class PaymentComponent  {
     },error=>{
       console.error(error);  
     });
+    
+    function convertINRtoUSD(inrAmount) {
+      // Fixed exchange rate
+      const exchangeRate = 0.014; // 1 INR = 0.014 USD
+    
+      // Convert INR to USD
+      const usdAmount = inrAmount * exchangeRate;
+    
+      return usdAmount;
+    }
+    
+    
+    const inrAmount = 5000; // Amount in Indian Rupees
+    const usdAmount = convertINRtoUSD(inrAmount);
+    console.log(usdAmount); 
     
   }
 
