@@ -1,8 +1,9 @@
 import { Component, HostListener } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "src/app/modals/product";
 import { Seller } from "src/app/modals/seller";
 import { ProductService } from "src/app/services/product.service";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-product-page",
@@ -13,7 +14,9 @@ export class ProductPageComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private userService: UserService,
+    private router: Router
   ) {}
 
   // for image gallery
@@ -46,6 +49,7 @@ export class ProductPageComponent {
     window.scrollTo(0, 0);
   }
 
+  // fetch seller info
   getSeller(): void {
     this.productService.fetchSellerForProduct(this.productId).subscribe(
       data => {
@@ -55,6 +59,7 @@ export class ProductPageComponent {
     )
   }
 
+  // fetch product info
   getProduct(): void {
     this.productService.getProductById(this.productId).subscribe(
       product => {
@@ -65,6 +70,31 @@ export class ProductPageComponent {
         console.error('Error fetching product:', error);
       }
     );
+  }
+
+  chat() {    
+
+    this.userService.getUserEmail().subscribe(email => {
+      const participantId1 = email;
+      const participantId2 = this.seller.email;
+
+      this.userService.isChat(participantId1, participantId2).subscribe(res => {
+        if(res) {
+          console.log("chat already there");
+          this.router.navigate(['/chat']);
+        }
+        else {
+          console.log("no previous chat");
+          this.userService.createNewChat(participantId1, participantId2).subscribe(data => {
+            console.log("new chat added")
+            this.router.navigate(['/chat']);
+          });
+        }
+      })
+
+      
+    })
+
   }
 
   // image slider - go to previous image

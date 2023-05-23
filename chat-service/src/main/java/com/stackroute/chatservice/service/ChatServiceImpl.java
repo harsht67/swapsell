@@ -88,10 +88,10 @@ public class ChatServiceImpl implements ChatService {
         List<Chat> chats = chatRepository.findByParticipants(id);
         List<User> users = new ArrayList<>();
 
-        for(Chat chat: chats) {
+        for (Chat chat : chats) {
             List<String> participants = chat.getParticipants();
             List<Message> messages = chat.getMessages();
-            Message lastMessage = messages.get(messages.size() - 1);
+            Message lastMessage = messages.isEmpty() ? new Message() : messages.get(messages.size() - 1);
 
             User user = new User();
             for (String participant : participants) {
@@ -107,5 +107,6 @@ public class ChatServiceImpl implements ChatService {
 
         return users;
     }
+
 
 }

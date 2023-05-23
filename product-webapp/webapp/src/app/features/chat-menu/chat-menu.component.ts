@@ -11,7 +11,7 @@ export class ChatMenuComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   @Input()
-  participantId1: string = "";
+  participantId1: string;
 
   users = [];
 

@@ -30,11 +30,11 @@
     <p class="desc__price">₹{{product.price.toLocaleString('en-IN')}}</p>
 
     <div class="desc__btns">
-      <button routerLink="/chat" class="desc__btn btn--offer">
+      <!-- <button class="desc__btn btn--offer">
         Make offer
-      </button>
+      </button> -->
 
-      <button routerLink="/chat" class="desc__btn btn--chat">
+      <button class="desc__btn btn--chat" (click)="chat()">
         Chat with seller
       </button>
     </div>

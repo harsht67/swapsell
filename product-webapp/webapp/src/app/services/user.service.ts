@@ -54,6 +54,33 @@ export class UserService {
     })
   }
 
+  // check for existing chat between 2 users 
+  isChat(participantId1: string, participantId2: string): Observable<boolean> {
+    const params = new HttpParams()
+      .set('participantId1', participantId1)
+      .set('participantId2', participantId2);
+
+    return this.http.get<boolean>(`${this.URL}/chats/present`, { params }).pipe(
+      map(response => {
+        return response;
+      })
+    );
+  }
+
+  // create a new chat between 2 users 
+  createNewChat(participantId1: string, participantId2: string) {
+    console.log("creating chat in service", participantId1, participantId2);
+
+    const url = `${this.URL}/chats`;
+    const body = {
+      participant1: participantId1,
+      participant2: participantId2,
+      message: ''
+    };
+
+    return this.http.post(url, body);
+  }
+
   getMessageAddedObservable(): Observable<void> {
     return this.messageAddedSubject.asObservable();
   }

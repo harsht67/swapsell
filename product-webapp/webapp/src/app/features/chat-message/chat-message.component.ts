@@ -24,7 +24,7 @@ export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
   currentDate: string;
   offer: boolean = false;
   dropdown: boolean = false;
-  dropdownValues = ["Delete", "Mark as important"]
+  dropdownValues = ["Delete"];
 
   private unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -36,6 +36,7 @@ export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
     ).subscribe(() => {
       this.fetchChat();
     });
+    
   }
 
   ngOnChanges(): void {
