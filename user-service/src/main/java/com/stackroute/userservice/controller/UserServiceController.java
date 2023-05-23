@@ -53,14 +53,14 @@ public class UserServiceController {
         }
     }
 
-    @PutMapping("/user/updateDetails/{userEmail}")
-    public ResponseEntity<?> updateUserDetails(@RequestBody User user,@PathVariable String userEmail){
+    @PostMapping("/user/update")
+    public ResponseEntity<?> updateUserDetails(@RequestBody User user) {
         try {
-            User updateUserDetails = userService.updateUserDetails(user,userEmail);
-            System.out.println("Data is saved ");
-            return new ResponseEntity<>(updateUserDetails,HttpStatus.OK);
+            User updateUserDetails = userService.updateUserDetails(user);
+            System.out.println("Data is saved");
+            return new ResponseEntity<>(updateUserDetails, HttpStatus.OK);
         } catch (UserNotFoundException e) {
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 

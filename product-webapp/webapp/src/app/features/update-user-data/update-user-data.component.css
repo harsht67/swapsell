@@ -1,58 +1,89 @@
+.userForm {
+  padding: 1rem;
+}
+
+.userForm__title {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 900;
+  margin-block-end: 2rem;
+}
+
+.userForm__img {
+  margin: auto;
+  width: 180px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.userForm__img img {
+  width: 100%;
+}
+
+form {
+  width: 80%;
+  margin: auto;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.userForm__subtitle {
+  font-size: 1rem;
+  color: var(--text3);
+}
+
+.userForm__btns {
+  width: 100%;
+  margin-block-start: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.userForm__btns button {
+  outline: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  width: 150px;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  margin-block-end: 1rem;
+}
+
+.submitBtn {
+  border: none;
+  color: #fff;
+  background-color: var(--accent);
+}
+
+.backBtn {
+  background: none;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
 .full-width {
   width: 100%;
 }
 
-.shipping-card {
-  min-width: 60px;
-  margin: 20px auto;
+.half-width {
+  width: 49%;
+}
+
+.third-width {
+  width: 32%;
 }
 
 .mat-radio-button {
   display: block;
   margin: 5px 0;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.col {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.col:last-child {
-  margin-right: 0;
-}
-
-#card1-image{
-  width: 60%;
-  height: 60%;
-  padding: 2%;
-}
-#profile-image{
-  width: 20%;
-  height: 30%;
-  background-color: violet;
-  border-radius: 50%;
-} 
-#card-1{
-  background: linear-gradient(145deg, rgba(88,46,172,1)  0%, rgba(134,88,225,1) 100%);
-  display: flex;
-  align-items: center;
-}
-#image-card-para{
-    font-size: x-large;
-    text-align: center;
-    font-weight: normal;
-    color:rgb(90, 39, 230);
-    text-shadow: 25px 9px 9px rgba(0,0,0,0.39);
-    background: -webkit-linear-gradient(10deg, #c9c0c0 0%, #ceb6f9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.buttons__option{
-  display: flex;
-  column-gap: 4vh;
 }

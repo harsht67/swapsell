@@ -46,13 +46,12 @@ export class UserService {
     return this.http.get(`${this.URL}/chats/users`, { params });
   }
 
-  updateUser(user: UserObj,userEmail:string) {
-    console.log("inside user service", user);
-    console.log("User Email id : ",userEmail);
-    this.http.put("http://localhost:8082/user/updateDetails/"+userEmail, user).subscribe(data => {
-      console.log(data);
-      this.fetchUser(user.email);
-    })
+  updateUser(user: UserObj, email: string): Observable<any> {
+    user.email = email;
+    
+    console.log("user service", user);
+
+    return this.http.post("http://localhost:8082/user/update", user);
   }
 
   // check for existing chat between 2 users 
