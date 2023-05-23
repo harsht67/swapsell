@@ -9,7 +9,7 @@ import { PaymentSuccess } from 'src/app/modals/paymentSuccess';
 })
 export class PaymentService {
 
-  baseUrl:string="http://localhost:8080/pay";
+  baseUrl:string="http://localhost:8084/pay";
   constructor(private httpClient:HttpClient) { }
 
   createOrder(orderData:Order):Observable<Order>{

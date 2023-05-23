@@ -1,11 +1,14 @@
 package com.stackroute.productservice.service;
 
+import com.stackroute.productservice.config.MessageConfiguration;
+import com.stackroute.productservice.config.UserDTO;
 import com.stackroute.productservice.domain.Product;
 import com.stackroute.productservice.domain.ProductDTO;
 import com.stackroute.productservice.domain.ProductWithSellerDTO;
 import com.stackroute.productservice.domain.User;
 import com.stackroute.productservice.repository.ProductRepository;
 import com.stackroute.productservice.repository.UserRepository;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -86,6 +89,16 @@ public class ProductServiceImpl implements ProductService {
         User user1 = userRepository.save(user);
 
         return user1;
+    }
+
+    @RabbitListener(queues = MessageConfiguration.queueName1)
+    public void userDataFromAuthService(UserDTO userDTO) {
+        User user = new User();
+        user.setEmail(userDTO.getEmail());
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+
+        addNewUser(user);
     }
 
     @Override

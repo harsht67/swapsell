@@ -35,7 +35,7 @@ export class PostAnAdComponent {
         Validators.minLength(8),
         Validators.maxLength(8),
       ]),
-    ],
+    ]
   });
 
   hasUnitNumber = false;
@@ -74,17 +74,21 @@ export class PostAnAdComponent {
     { name: "Home & Furniture" }
   ];
 
-  images: { url: string }[] = [];
+  // images: { url: string }[] = [];
+  images: string[][] = [[]];
 
   onFileSelected(event: any) {
     const files = event.target.files;
     if (files && files.length > 0 && this.images.length < 10) {
+      if (!this.images[0]) {
+        this.images[0] = [];
+      }
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         console.log(file);
         const reader = new FileReader();
         reader.onload = () => {
-          this.images.push({ url: reader.result.toString() });
+          this.images[0].push(reader.result.toString()); 
         };
         reader.readAsDataURL(file);
       }
@@ -100,15 +104,16 @@ export class PostAnAdComponent {
   }
 
   onSubmit(): void {
-    this.productService.addProduct(this.addressForm.value).subscribe(result => {
-      if (result) {
-        this.popup.open("Product added successfully", 2000);
-        this.router.navigate(['/userDashBoard']);
+    console.log(this.images);
+    // this.productService.addProduct(this.addressForm.value).subscribe(result => {
+    //   if (result) {
+    //     this.popup.open("Product added successfully", 2000);
+    //     this.router.navigate(['/userDashBoard']);
 
-      } else {
-        this.popup.open("Failed to add product", 2000);
-      }
-    });;
+    //   } else {
+    //     this.popup.open("Failed to add product", 2000);
+    //   }
+    // });;
     // this.popup.open("Ad posted successfully", 2000);
   }
 
