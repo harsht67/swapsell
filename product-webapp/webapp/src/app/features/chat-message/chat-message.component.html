@@ -86,7 +86,7 @@
 
             <button 
                 class="offerBtn"
-                (click)="toggleOffer()"
+                (click)="toggleDialog()"
             >
                 <img
                     src="../../../assets/sell-icon.png"
@@ -95,9 +95,40 @@
                 make offer
             </button>
 
+            <!-- <article class="offer-dialog">
+
+                <div class="offer-dialog__container">
+                    
+                    <h1 class="offer-dialog__title">
+                        
+                        <span>Make an Offer</span>
+            
+                        <mat-icon 
+                            class="closeBtn"
+                            (click)="toggleDialog()"
+                        >
+                            close
+                        </mat-icon>
+                    
+                    </h1>
+            
+                    <input
+                        class="offer-dialog__input"
+                        type="number"
+                        [(ngModel)]="amount"
+                    />
+            
+                    <button class="offer-dialog__btn" (click)="toggleOffer()" >
+                        confirm
+                    </button>
+            
+                </div>
+            
+            </article> -->
+
             <app-offer-dialog 
                 *ngIf="offer"
-                [dialog]="toggleOffer()"
+                (dialog)="toggleDialogAndSendMsg($event)"
             >
             </app-offer-dialog>
             
