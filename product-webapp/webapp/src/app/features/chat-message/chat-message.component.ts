@@ -129,4 +129,10 @@ export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
     }, 0);
   }
 
+  openPageInNewTab(): void {
+    window.open('/payment', '_blank');
+  }
+  
+  
+
 }

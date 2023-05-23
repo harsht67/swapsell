@@ -15,8 +15,10 @@
               <img width="48" height="48" src="https://img.icons8.com/fluency/48/amex.png" alt="amex"/>
               <img width="48" height="48" src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard"/>
             </div>
-            <label for="price">Total</label>
-            <input type="text" id="price" name="price" [(ngModel)]="orderData.price" value="10" >
+            <label for="price">Total Amount in <b>Indian Rupees</b></label>
+            <input type="text" id="indian_rupees" [(ngModel)]="indianPrice" (input)="convertToUSD()"value="10" >
+            <label for="price">Total Amount in <b> USD</b></label>
+            <input type="text" id="price" name="price" [(ngModel)]="orderData.price" [readonly]="true" value="10" >
             <label for="currency">Currency</label>
             <input type="text" id="currency" name="currency" [(ngModel)]="orderData.currency" placeholder="Enter currency" [disabled]="true">
             <label for="method">Payment Method</label>
