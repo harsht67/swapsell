@@ -67,25 +67,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUserDetails(User userDetails) throws UserNotFoundException {
-        Optional<User> userByEmail = userServiceRepository.findUserByEmail(userDetails.getEmail());
+    public User updateUserDetails(User userDetails,String userEmail) throws UserNotFoundException {
+        Optional<User> userByEmail = userServiceRepository.findUserByEmail(userEmail);
         if (userByEmail.isPresent()) {
-            Image image;
-            try {
-                // Load the image from a file
-                String userImage = userDetails.getImage();
-                File imageFile = new File(userImage);
-                 image = ImageIO.read(imageFile);
-
-                // Get the width and height of the image
-                int width = image.getWidth(null);
-                int height = image.getHeight(null);
-
-                System.out.println("Image Width: " + width);
-                System.out.println("Image Height: " + height);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println("User email is present");
+            System.out.println(userEmail);
             System.out.println("In service of update user");
             User userFromDb = userByEmail.get();
             // Update user details with new values

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Route, Router } from "@angular/router";
 import { UserObj } from "src/app/modals/userObj";
 import { UserService } from "src/app/services/user.service";
 
@@ -9,7 +10,10 @@ import { UserService } from "src/app/services/user.service";
   styleUrls: ["./update-user-data.component.css"],
 })
 export class UpdateUserDataComponent implements OnInit {
-  constructor(private userService: UserService, private fb: FormBuilder) {}
+  constructor(
+    private userService: UserService, 
+    private fb: FormBuilder,
+    private router:Router) {}
 
   user: UserObj = {};
 
@@ -17,6 +21,7 @@ export class UpdateUserDataComponent implements OnInit {
     this.userService.user$.subscribe((user) => {
       console.log(user);
       this.user = user;
+      this.userEmailId=user.email;
       this.initializeForm();
   
       
@@ -24,14 +29,15 @@ export class UpdateUserDataComponent implements OnInit {
   }
 
   addressForm: FormGroup = this.fb.group({});
+  userEmailId:string="";
 
   initializeForm(): void {
     this.addressForm = this.fb.group({
-      image: [this.user.image, Validators.required],
+      // image: [this.user.image, Validators.required],
       firstName: [this.user.firstName, Validators.required],
       lastName: [this.user.lastName, Validators.required],
-      email:[this.user.email],
-      phoneNumber: [this.user.phoneNumber, Validators.required],
+      email:[{ value: this.user.email, disabled: true }],
+      phoneNumber: [this.user.phoneNumber, [Validators.required,Validators.maxLength(10)]],
       address: [this.user.address, Validators.required],
       city: [this.user.city, Validators.required],
       state: [this.user.state, Validators.required],
@@ -48,16 +54,7 @@ export class UpdateUserDataComponent implements OnInit {
   }
  
   hasUnitNumber = false;
-  imageUrl: string;
 
-  handleFileInput(event: any) {
-    const file: File = event.target.files[0];
-    console.log(file);
-    this.imageUrl = URL.createObjectURL(file);
-    console.log(this.imageUrl);
-    
-    
-  }
 
   states = [
     { name: "Andhra Pradesh" },
@@ -88,9 +85,10 @@ export class UpdateUserDataComponent implements OnInit {
   ];
 
   onSubmit(): void {
-    console.log(this.states);
-    this.handleFileInput(this.addressForm.value.image)
+    console.log("User email id");
+    console.log(this.userEmailId);
     console.log("inside update component", this.addressForm.value);
-    this.userService.updateUser(this.addressForm.value);
+    this.userService.updateUser(this.addressForm.value,this.userEmailId);
+    this.router.navigateByUrl("/userDashBoard")
   }
 }

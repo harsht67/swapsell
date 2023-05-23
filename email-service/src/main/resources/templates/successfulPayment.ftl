@@ -40,7 +40,7 @@
     <div class="mainDiv">
         <div class="header">
             <h3>Swap sell Order summary email</h3>
-            <img class="log_image" src="../logo.jpg">
+            <img class="log_image" src="https://myrepos.stackroute.niit.com/pgp-wave45-46/swapsell/-/blob/v1.0.0/email-service/src/main/resources/logo.jpg">
         </div>
         <div class="orderConfirm">
             <h1>Payment Confirmation</h1>

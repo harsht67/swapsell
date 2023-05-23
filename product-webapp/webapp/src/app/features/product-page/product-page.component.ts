@@ -36,7 +36,19 @@ export class ProductPageComponent {
       this.productId = params['id'];
       console.log("Product page - product id: ", this.productId);
       this.getProduct();
+      this.getProductAndUserDetails();
     });
+  }
+  
+  //data for email 
+  productName:string="";
+
+  
+  
+  getProductAndUserDetails(){
+    console.log("in the get product details and user datils");
+    console.log(this.product);
+
   }
 
   scrollToTop() {

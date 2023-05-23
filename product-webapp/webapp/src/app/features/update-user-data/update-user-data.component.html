@@ -62,9 +62,12 @@
               <div class="col">
                 <mat-form-field appearance="outline" class="full-width">
                 <mat-label>phone Number</mat-label>
-                  <input matInput type="number" placeholder="phone number" formControlName="phoneNumber">
+                  <input matInput type="number" placeholder="phone number" formControlName="phoneNumber" maxlength="10">
                   <mat-error *ngIf="addressForm.controls['phoneNumber'].hasError('required')">
                     phone number is <strong>required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="addressForm.controls['phoneNumber'].hasError('maxlength')">
+                    phone number cannot exceed 10 digits
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -117,8 +120,11 @@
                 <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Pin code</mat-label>
                   <input matInput #postalCode maxlength="5" placeholder="pin code" type="number" formControlName="pinCode">
-                  <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                  <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
                   <mat-error *ngIf="addressForm.controls['pinCode'].hasError('required')">
+                    Pin code is <strong>required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="addressForm.controls['pinCode'].hasError('minlength')">
                     Pin code is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>
