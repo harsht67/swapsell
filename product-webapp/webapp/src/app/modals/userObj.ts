@@ -1,10 +1,10 @@
 import { Product } from "./product";
 
 export type UserObj = {
+  email?:string;
   firstName?: string;
   lastName?: string;
   phoneNumber?:number;
-  email?:string;
   address?:string;
   city?:string;
   state?:string;

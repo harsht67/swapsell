@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Route, Router } from "@angular/router";
 import { UserObj } from "src/app/modals/userObj";
+import { PopupService } from "src/app/services/popup.service";
 import { UserService } from "src/app/services/user.service";
 
 @Component({
@@ -11,9 +12,11 @@ import { UserService } from "src/app/services/user.service";
 })
 export class UpdateUserDataComponent implements OnInit {
   constructor(
-    private userService: UserService, 
+    private userService: UserService,
     private fb: FormBuilder,
-    private router:Router) {}
+    private router: Router,
+    private popup: PopupService
+  ) {}
 
   user: UserObj = {};
 
@@ -21,23 +24,24 @@ export class UpdateUserDataComponent implements OnInit {
     this.userService.user$.subscribe((user) => {
       console.log(user);
       this.user = user;
-      this.userEmailId=user.email;
+
       this.initializeForm();
-  
-      
     });
   }
 
   addressForm: FormGroup = this.fb.group({});
-  userEmailId:string="";
+  userEmailId: string = "";
 
   initializeForm(): void {
     this.addressForm = this.fb.group({
       // image: [this.user.image, Validators.required],
       firstName: [this.user.firstName, Validators.required],
       lastName: [this.user.lastName, Validators.required],
-      email:[{ value: this.user.email, disabled: true }],
-      phoneNumber: [this.user.phoneNumber, [Validators.required,Validators.maxLength(10)]],
+      email: [{ value: this.user.email, disabled: true }],
+      phoneNumber: [
+        this.user.phoneNumber,
+        [Validators.required, Validators.maxLength(10)],
+      ],
       address: [this.user.address, Validators.required],
       city: [this.user.city, Validators.required],
       state: [this.user.state, Validators.required],
@@ -52,16 +56,15 @@ export class UpdateUserDataComponent implements OnInit {
       gender: [this.user.gender, Validators.required],
     });
   }
- 
-  hasUnitNumber = false;
 
+  hasUnitNumber = false;
 
   states = [
     { name: "Andhra Pradesh" },
     { name: "Arunachal Pradesh" },
     { name: "Assam" },
     { name: "Bihar" },
-    { name: "Chataftisgarh" },
+    { name: "chhattisgarh" },
     { name: "Goa" },
     { name: "Gujarat" },
     { name: "Haryana" },
@@ -85,10 +88,21 @@ export class UpdateUserDataComponent implements OnInit {
   ];
 
   onSubmit(): void {
-    console.log("User email id");
-    console.log(this.userEmailId);
-    console.log("inside update component", this.addressForm.value);
-    this.userService.updateUser(this.addressForm.value,this.userEmailId);
-    this.router.navigateByUrl("/userDashBoard")
+    console.log("update component", this.addressForm.value);
+
+    this.userService.getUserEmail().subscribe((email) => {
+      this.userService.updateUser(this.addressForm.value, email).subscribe(
+        () => {
+          this.popup.open("User details updated!", 2000);
+          this.userService.fetchUser(email);
+          this.router.navigate(['/userDashBoard']);
+        },
+        () => {
+          this.popup.open("Error updating details!", 2000);
+          this.router.navigate(['/userDashBoard']);
+        }
+      );
+    });
+
   }
 }

@@ -67,12 +67,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUserDetails(User userDetails,String userEmail) throws UserNotFoundException {
-        Optional<User> userByEmail = userServiceRepository.findUserByEmail(userEmail);
+    public User updateUserDetails(User userDetails) throws UserNotFoundException {
+        Optional<User> userByEmail = userServiceRepository.findUserByEmail(userDetails.getEmail());
         if (userByEmail.isPresent()) {
-            System.out.println("User email is present");
-            System.out.println(userEmail);
-            System.out.println("In service of update user");
             User userFromDb = userByEmail.get();
             // Update user details with new values
             userFromDb.setFirstName(userDetails.getFirstName());
@@ -92,7 +89,6 @@ public class UserServiceImpl implements UserService {
 
         throw new UserNotFoundException("No user exists with email id " + userDetails.getEmail());
     }
-
 
     @Override
     public User getUserInformation(String emailId) throws UserNotFoundException {
