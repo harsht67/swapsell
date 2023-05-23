@@ -15,17 +15,13 @@
         
         </h1>
 
-        <p class="offer-dialog__subtitle">
-            <span>iPhone 13 mini 128gb</span>
-            <span>₹38,990</span>
-        </p>
-
         <input
             class="offer-dialog__input"
             type="number"
+            [(ngModel)]="amount"
         />
 
-        <button class="offer-dialog__btn">
+        <button class="offer-dialog__btn" (click)="toggleDialog()">
             confirm
         </button>
 

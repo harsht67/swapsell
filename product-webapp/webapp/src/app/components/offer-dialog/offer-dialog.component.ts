@@ -8,10 +8,12 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class OfferDialogComponent {
 
   @Output()
-  dialog = new EventEmitter();
+  dialog = new EventEmitter<number>();
+
+  amount: number;
 
   toggleDialog() {
-    this.dialog.emit();
+    this.dialog.emit(this.amount);
   }
 
 }

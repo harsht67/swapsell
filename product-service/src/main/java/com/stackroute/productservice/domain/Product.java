@@ -10,6 +10,8 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
+import java.util.List;
+
 @NodeEntity
 //@Node("Product")
 @Getter
@@ -23,7 +25,6 @@ public class Product {
     private String name;
     private String title;
     private String description;
-    private String  image;
     private Double price;
     private String category;
     private String condition;
@@ -33,6 +34,7 @@ public class Product {
     private String state;
     private Long pinCode;
     private String date;
+    private List<String> images;
 
     @Transient
     private User seller;

@@ -42,6 +42,7 @@ export class ProductPageComponent {
       console.log("Product page - product id: ", this.productId);
       this.getProduct();
       this.getProductAndUserDetails();
+      this.getSeller();
       console.log(this.seller);
     });
   }
@@ -49,8 +50,6 @@ export class ProductPageComponent {
   //data for email 
   productName:string="";
 
-  
-  
   getProductAndUserDetails(){
     console.log("in the get product details and user datils");
     console.log(this.product);

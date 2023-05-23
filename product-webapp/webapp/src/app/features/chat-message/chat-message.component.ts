@@ -25,6 +25,7 @@ export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
   offer: boolean = false;
   dropdown: boolean = false;
   dropdownValues = ["Delete"];
+  amount: number;
 
   private unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -102,8 +103,17 @@ export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
     this.dropdown = !this.dropdown;
   }
 
-  toggleOffer() {
-    this.offer = !this.offer;
+  toggleDialogAndSendMsg(amount: number) {
+    this.toggleDialog();
+  
+    if (!this.offer && amount) {
+      this.newMessage = "I would like to buy this product for: ₹" + amount;
+      this.sendMessage();
+    }
+  }
+  
+  toggleDialog() {
+    this.offer = !this.offer; 
   }
 
   closeMessage() {

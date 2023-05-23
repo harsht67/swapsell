@@ -19,6 +19,7 @@ export class UserDashBoardComponent implements OnInit {
   products: Product[] = [];
 
   ngOnInit(): void {
+
     this.userService.user$.subscribe(user => {
       console.log("userdashboard user: ", user);
       this.user = user;

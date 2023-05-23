@@ -75,27 +75,23 @@ export class PostAnAdComponent {
   ];
 
   // images: { url: string }[] = [];
-  images: string[][] = [[]];
+  images: string[] = [];
 
   onFileSelected(event: any) {
     const files = event.target.files;
     if (files && files.length > 0 && this.images.length < 10) {
-      if (!this.images[0]) {
-        this.images[0] = [];
-      }
+      // if (!this.images[0]) {
+      //   this.images[0] = [];
+      // }
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        console.log(file);
-        const reader = new FileReader();
-        reader.onload = () => {
-          this.images[0].push(reader.result.toString()); 
-        };
-        reader.readAsDataURL(file);
+        console.log(file.name);
+        this.images.push(file.name);
       }
     } else if (this.images.length >= 10) {
       this.popup.open("Image maximum limit reached!", 2000);
     }
-  }
+  }  
 
   removeImage(index: number) {
     this.images.splice(index, 1);
@@ -105,16 +101,15 @@ export class PostAnAdComponent {
 
   onSubmit(): void {
     console.log(this.images);
-    // this.productService.addProduct(this.addressForm.value).subscribe(result => {
-    //   if (result) {
-    //     this.popup.open("Product added successfully", 2000);
-    //     this.router.navigate(['/userDashBoard']);
-
-    //   } else {
-    //     this.popup.open("Failed to add product", 2000);
-    //   }
-    // });;
-    // this.popup.open("Ad posted successfully", 2000);
+    this.productService.addProduct(this.addressForm.value, this.images).subscribe(result => {
+      if (result) {
+        this.popup.open("Product added successfully", 2000);
+        this.router.navigate(['']);
+      } else {
+        this.popup.open("Failed to add product", 2000);
+      }
+    });;
+    this.popup.open("Ad posted successfully", 2000);
   }
 
 }

@@ -34,7 +34,6 @@ public class ProductServiceImpl implements ProductService {
         product1.setName(productDTO.getName());
         product1.setTitle(productDTO.getTitle());
         product1.setDescription(productDTO.getDescription());
-        product1.setImage(productDTO.getImage());
         product1.setCategory(productDTO.getCategory());
         product1.setPrice(productDTO.getPrice());
         product1.setAgeInDays(productDTO.getAgeInDays());
@@ -44,6 +43,7 @@ public class ProductServiceImpl implements ProductService {
         product1.setState(productDTO.getState());
         product1.setPinCode(productDTO.getPinCode());
         product1.setDate(productDTO.getDate());
+        product1.setImages(productDTO.getImages());
 
         Product newProduct = productRepository.save(product1);
 
@@ -62,7 +62,6 @@ public class ProductServiceImpl implements ProductService {
             product.setName(productDTO.getName());
             product.setTitle(productDTO.getTitle());
             product.setDescription(productDTO.getDescription());
-            product.setImage(productDTO.getImage());
             product.setCategory(productDTO.getCategory());
             product.setPrice(productDTO.getPrice());
             product.setAgeInDays(productDTO.getAgeInDays());
@@ -72,6 +71,7 @@ public class ProductServiceImpl implements ProductService {
             product.setState(productDTO.getState());
             product.setPinCode(productDTO.getPinCode());
             product.setDate(productDTO.getDate());
+            product.setImages(productDTO.getImages());
 
             Product newProduct = productRepository.save(product);
 
