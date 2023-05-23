@@ -79,6 +79,10 @@ input {
     }
 }
 
+.header__btns > * {
+    cursor: pointer;
+}
+
 .user {
     display: flex;
     align-items: center;
