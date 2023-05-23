@@ -41,11 +41,8 @@ export class ProductPageComponent {
       this.productId = params['id'];
       console.log("Product page - product id: ", this.productId);
       this.getProduct();
-<<<<<<< HEAD
       this.getProductAndUserDetails();
-=======
       this.getSeller();
->>>>>>> 0865761ab1445cb720cffbd9b2ba2ed991a2fa84
     });
   }
   

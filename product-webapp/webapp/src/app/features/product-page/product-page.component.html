@@ -10,7 +10,7 @@
 
       <div
         class="product-page__img"
-        [style.background-image]="'url(' + imgUrl + product.image + images[currentImage] + '.jpg)'"
+        [style.background-image]="'url(' + imgUrl + product.images[0] + ')'"
       ></div>
 
       <mat-icon class="img-btn" (click)="nextImage()">

@@ -41,10 +41,11 @@ export class ProductService {
   }
 
   // add a new product to database 
-  addProduct(product: any): Observable<boolean> {
+  addProduct(product: any, images: string[]): Observable<boolean> {
     return new Observable<boolean>(observer => {
       this.userService.getUserEmail().subscribe(email => {
         product.email = email;
+        product.images = images;
 
         const currentDate = new Date();
         const options: Intl.DateTimeFormatOptions = { month: 'short', day: '2-digit', year: 'numeric' };
