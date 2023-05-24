@@ -41,20 +41,14 @@ export class ProductPageComponent {
       this.productId = params['id'];
       console.log("Product page - product id: ", this.productId);
       this.getProduct();
-      this.getProductAndUserDetails();
       this.getSeller();
-      console.log(this.seller);
     });
   }
   
   //data for email 
   productName:string="";
 
-  getProductAndUserDetails(){
-    console.log("in the get product details and user datils");
-    console.log(this.product);
 
-  }
 
   scrollToTop() {
     window.scrollTo(0, 0);
@@ -64,8 +58,10 @@ export class ProductPageComponent {
   getSeller(): void {
     this.productService.fetchSellerForProduct(this.productId).subscribe(
       data => {
+        console.log("--------------------------------Seller details-----------------------------");
         console.log(data);
         this.seller = data;
+        
       }
     )
   }

@@ -41,7 +41,7 @@ const routes: Routes = [
   },{
     path:"payment",
     component:PaymentComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },{
     path:"pay/success",
     component:PaymentSuccessComponent,
