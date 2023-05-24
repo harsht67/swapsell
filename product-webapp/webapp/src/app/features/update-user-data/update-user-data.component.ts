@@ -4,6 +4,7 @@ import { Route, Router } from "@angular/router";
 import { UserObj } from "src/app/modals/userObj";
 import { PopupService } from "src/app/services/popup.service";
 import { UserService } from "src/app/services/user.service";
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: "app-update-user-data",
@@ -21,12 +22,13 @@ export class UpdateUserDataComponent implements OnInit {
   user: UserObj = {};
 
   ngOnInit(): void {
-    this.userService.user$.subscribe((user) => {
-      console.log(user);
-      this.user = user;
-
-      this.initializeForm();
-    });
+    this.userService.user$
+      .pipe(distinctUntilChanged())
+      .subscribe((user) => {
+        console.log(user);
+        this.user = user;
+        this.initializeForm();
+      });
   }
 
   addressForm: FormGroup = this.fb.group({});
@@ -94,12 +96,12 @@ export class UpdateUserDataComponent implements OnInit {
       this.userService.updateUser(this.addressForm.value, email).subscribe(
         () => {
           this.popup.open("User details updated!", 2000);
-          this.userService.fetchUser(email);
-          this.router.navigate(['/userDashBoard']);
+          // this.userService.fetchUser(email);
+          this.router.navigate(['/']);
         },
         () => {
           this.popup.open("Error updating details!", 2000);
-          this.router.navigate(['/userDashBoard']);
+          // this.router.navigate(['/']);
         }
       );
     });

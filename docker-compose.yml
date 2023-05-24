@@ -4,20 +4,16 @@ services:
     build: eureka-server/
     container_name: eureka-server
     restart: always
-    network_mode: "host"
-    hostname: localhost
     ports:
-      - 8076:8076
+      - "8076:8076"
   api-gateway:
     build: api-gateway/
     container_name: api-gateway
     depends_on:
       - eureka-server
     restart: always
-    network_mode: "host"
-    hostname: localhost
     ports:
-      - 8086:8086
+      - "8086:8086"
   product-webapp:
     build: product-webapp/
     image: product-webapp
@@ -26,7 +22,105 @@ services:
       - api-gateway
     restart: always
     container_name: product-webapp
-    network_mode: "host"
-    hostname: localhost
     ports:
       - "8099:8099"
+  mysql-service:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    container_name: mysql-swapsell
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: user
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  mongodb-service:
+    image: mongo:latest
+    container_name: mongodb-swapsell
+    ports:
+      - "27017-27017"
+  neo4j-service:
+    image: neo4j:4.2.3
+    container_name: neo4j-swapsell
+    restart: always
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/root
+  authentication-service:
+    build: authentication-service/
+    container_name: authentication-service
+    ports:
+      - "8080:8080"
+    links:
+      - eureka-server
+    environment:
+      - eureka.client.service-url.defaultZone=http://eureka-server:8076/eureka/
+    depends_on:
+      - mysql-service #rabbit?
+      - eureka-server
+      - api-gateway
+    restart: always
+  chat-service:
+    build: chat-service/
+    container_name: chat-service
+    ports:
+      - "8081:8081"
+    links:
+      - eureka-server
+    environment:
+      - eureka.client.service-url.defaultZone=http://eureka-server:8076/eureka/
+    depends_on:
+      - mongodb-service
+      - eureka-server
+      - api-gateway
+    restart: always
+  email-service:
+    build: email-service/
+    container_name: email-service
+    ports:
+      - "8086:8086"
+    links:
+      - eureka-server
+    environment:
+      - eureka.client.service-url.defaultZone=http://eureka-server:8076/eureka/
+    # ???
+  payment-service:
+    build: payment-service/
+    container_name: payment-service
+    ports:
+      - "8084:8084"
+    links:
+      - eureka-server
+    environment:
+      - eureka.client.service-url.defaultZone=http://eureka-server:8076/eureka/
+    # ???
+  product-service:
+    build: product-service/
+    container_name: product-service
+    ports:
+      - "9090:9090"
+    links:
+      - eureka-server
+    environment:
+      - eureka.client.service-url.defaultZone=http://eureka-server:8076/eureka/
+    depends_on:
+      - neo4j-service
+      - eureka-server
+      - api-gateway
+    restart: always
+  user-service:
+    build: user-service/
+    container_name: user-service
+    ports:
+      - "8082:8082"
+    links:
+      - eureka-server
+    environment:
+      - eureka.client.service-url.defaultZone=http://eureka-server:8076/eureka/
+    depends_on:
+      - mongodb-service
+      - eureka-server
+      - api-gateway
+    restart: always
