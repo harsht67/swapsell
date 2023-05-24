@@ -18,6 +18,7 @@
   justify-content: center;
   border-radius: 50%;
   background-color: var(--accent);
+  margin-block-end: 1rem;
 }
 
 .userForm__img img {

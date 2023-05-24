@@ -3,6 +3,7 @@ import { Product } from "src/app/modals/product";
 import { UserObj } from "src/app/modals/userObj";
 import { ProductService } from "src/app/services/product.service";
 import { UserService } from "src/app/services/user.service";
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: "app-user-dash-board",
@@ -20,7 +21,9 @@ export class UserDashBoardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userService.user$.subscribe(user => {
+    this.userService.user$
+    .pipe(distinctUntilChanged())
+    .subscribe(user => {
       console.log("userdashboard user: ", user);
       this.user = user;
 

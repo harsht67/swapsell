@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Product } from "src/app/modals/product";
 import { ProductService } from "src/app/services/product.service";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-home",
@@ -12,7 +13,7 @@ export class HomeComponent {
   products1: Product[] = [];
   products2: Product[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private userService: UserService) {}
 
   ngOnInit(): void {
     this.productService.fetchProducts();
