@@ -9,6 +9,7 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    database-platform: org.hibernate.dialect.MySQL8Dialect
   rabbitmq:
     host: rabbitmq
   jpa:
