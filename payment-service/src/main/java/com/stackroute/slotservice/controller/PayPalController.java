@@ -11,14 +11,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+
 @RestController
 @RequestMapping("/pay")
 public class PayPalController {
 
+    public static final String SUCCESS_URL = "pay/success";
+    public static final String CANCEL_URL = "cancel";
     private final PayPalService payPalService;
     private final UserService userService;
-    public  static  final  String SUCCESS_URL = "pay/success";
-    public  static  final  String CANCEL_URL = "cancel";
 
     @Autowired
     public PayPalController(PayPalService payPalService, UserService userService) {
@@ -27,18 +33,18 @@ public class PayPalController {
     }
 
     @GetMapping("/home")
-    public String home(){
+    public String home() {
         return "home";
     }
 
     @PostMapping("/payment")
-    public ResponseEntity<String> payment(@RequestBody Order order){
+    public ResponseEntity<String> payment(@RequestBody Order order) {
         try {
             Payment payment = payPalService.createPayment(order.getPrice(), order.getCurrency(), order.getIntent(), order.getMethod(), order.getDescription(), "http://localhost:8084/" + CANCEL_URL, "http://localhost:8084/" + SUCCESS_URL);
 
-            for (Links link : payment.getLinks()){
+            for (Links link : payment.getLinks()) {
                 System.out.println(link);
-                if (link.getRel().equals("approval_url")){
+                if (link.getRel().equals("approval_url")) {
                     System.out.println("in if of the controller");
 //                    return "redirect: "+link.getHref();
                     String redirectUrl = link.getHref();
@@ -54,22 +60,28 @@ public class PayPalController {
     }
 
     @GetMapping(value = CANCEL_URL)
-    public String cancelPay(){
+    public String cancelPay() {
         return "cancel";
     }
 
     @GetMapping("/success")
-    public ResponseEntity<?> successPay(@RequestParam("paymentId") String paymentId,@RequestParam("PayerID") String payerId) throws PayPalRESTException {
+    public ResponseEntity<?> successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId, HttpServletResponse response) throws PayPalRESTException, IOException {
 
-            System.out.println("in the success pay method");
-            Payment payment = payPalService.executePayment(paymentId, payerId);
-            System.out.println(payment.toJSON());
-            String email = payment.getPayer().getPayerInfo().getEmail();
+        System.out.println("in the success pay method");
+        Payment payment = payPalService.executePayment(paymentId, payerId);
+        System.out.println(payment.toJSON());
+        String email = payment.getPayer().getPayerInfo().getEmail();
 
-            if (payment.getState().equals("approved")){
-                userService.UpdateUserTransaction(email,payment);
-                return  new ResponseEntity<>("success", HttpStatus.ACCEPTED);
-            }
-            return new ResponseEntity<>(payment,HttpStatus.ACCEPTED);
-    }
+        if (payment.getState().equals("approved")) {
+            userService.UpdateUserTransaction(email, payment);
+            InputStream inputStream = getClass().getResourceAsStream("/success.html");
+            assert inputStream != null;
+            String htmlContent = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+            inputStream.close();
+            return ResponseEntity.ok().body(htmlContent);
+        }
+        return new ResponseEntity<>(payment, HttpStatus.ACCEPTED);
+        }
+
+
 }

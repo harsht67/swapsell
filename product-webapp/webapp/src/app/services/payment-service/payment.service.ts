@@ -20,5 +20,8 @@ export class PaymentService {
     return this.httpClient.post<Order>(`${this.baseUrl}/payment`,orderData);
   }
 
+  fetchOrderData():Observable<any>{
+    return this.httpClient.get("http://localhost:8084/pay/success?");
+  }
  
 }
