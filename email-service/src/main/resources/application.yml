@@ -18,3 +18,9 @@ mail:
     debug: true
 server:
   port: 8086
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true

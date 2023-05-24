@@ -3,7 +3,13 @@ spring:
     name: chatService
   data:
     mongodb:
-      uri: mongodb://localhost:27017
+      uri: mongodb://mongodb:27017
       database: SwapSellChats
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
 server:
   port: 8081
