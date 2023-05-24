@@ -30,6 +30,8 @@ public class EmailService {
         MailResponse response = new MailResponse();
         MimeMessage message  = sender.createMimeMessage();
         try {
+            System.out.println("make response");
+            System.out.println(response);
             MimeMessageHelper helper = new MimeMessageHelper(message,MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,StandardCharsets.UTF_8.name());
             Template t = configuration.getTemplate("successfulPayment.ftl");
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, model);
@@ -41,6 +43,7 @@ public class EmailService {
 
             response.setMessage("mail send to : "+request.getTo());
             response.setStatus(Boolean.TRUE);
+            System.out.println("Email send");
 
         } catch (MessagingException | IOException | TemplateException e){
             response.setMessage("Mail sending failure : "+e.getMessage());

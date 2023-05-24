@@ -2,6 +2,7 @@ import { Component, HostListener } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "src/app/modals/product";
 import { Seller } from "src/app/modals/seller";
+import { PaymentDataService } from "src/app/services/payment-data/payment-data.service";
 import { ProductService } from "src/app/services/product.service";
 import { UserService } from "src/app/services/user.service";
 
@@ -16,7 +17,8 @@ export class ProductPageComponent {
     private route: ActivatedRoute,
     private productService: ProductService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+  
   ) {}
 
   // for image gallery

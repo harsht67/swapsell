@@ -43,9 +43,9 @@ const routes: Routes = [
     component:PaymentComponent,
     // canActivate: [AuthGuard]
   },{
-    path:"pay/success",
+    path:"paypal/success-component",
     component:PaymentSuccessComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: "chat",

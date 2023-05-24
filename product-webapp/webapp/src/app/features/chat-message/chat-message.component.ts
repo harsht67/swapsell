@@ -17,7 +17,7 @@ export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
   participantId1: string;
 
   @Input()
-  participantId2: string;
+  participantId2: string; // this is email id
 
   messages = [];
   newMessage = "";
@@ -37,6 +37,7 @@ export class ChatMessageComponent implements OnInit, OnDestroy, OnChanges {
     ).subscribe(() => {
       this.fetchChat();
     });
+    console.log(this.participantId2);
     
   }
 

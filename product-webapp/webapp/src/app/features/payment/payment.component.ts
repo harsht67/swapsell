@@ -8,6 +8,7 @@ import { promise } from 'protractor';
 import { Order } from 'src/app/modals/Order';
 import { PaymentService } from 'src/app/services/payment-service/payment.service';
 import { ProductPageComponent } from '../product-page/product-page.component';
+import { PaymentDataService } from 'src/app/services/payment-data/payment-data.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -27,6 +28,7 @@ export class PaymentComponent implements OnInit  {
   }
   ngOnInit(): void {
     console.log(this.orderData);
+
   }
   indianPrice:number;
   orderData:Order={
