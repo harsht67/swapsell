@@ -18,7 +18,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-      dialect: org.hibernate.dialect.MYSQL80Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
 eureka:
   client:
     service-url:
