@@ -10,10 +10,10 @@ import { PopupService } from "src/app/services/popup.service";
 })
 export class RegisterComponent implements OnInit {
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private popup: PopupService,
     private router: Router
-    ) {}
+  ) {}
 
   user = {
     firstName: "",
@@ -23,6 +23,9 @@ export class RegisterComponent implements OnInit {
     confirmPassword: "",
   };
 
+  isPasswordDiff: boolean = true;
+  isFormValid: boolean = false;
+
   scrollToTop() {
     window.scrollTo(0, 0);
   }
@@ -31,15 +34,19 @@ export class RegisterComponent implements OnInit {
     this.scrollToTop();
   }
 
-  isPasswordDiff: boolean = true;
   checkPassword() {
-    if (this.user.password === this.user.confirmPassword)
-      this.isPasswordDiff = false;
-    else this.isPasswordDiff = true;
-    console.log(
-      this.isPasswordDiff,
-      this.user.password,
-      this.user.confirmPassword
+    this.isPasswordDiff = this.user.password !== this.user.confirmPassword;
+    this.isFormValid = this.isFieldsValid();
+  }
+  
+  isFieldsValid(): boolean {
+    return (
+      this.user.firstName &&
+      this.user.lastName &&
+      this.user.email &&
+      this.user.password &&
+      this.user.confirmPassword &&
+      !this.isPasswordDiff
     );
   }
 

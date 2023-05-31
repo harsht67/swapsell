@@ -34,7 +34,7 @@
             <p>Let's sign you in.</p>
         </div>
 
-        <form #form="ngForm">
+        <form #form="ngForm" (ngSubmit)="login()">
 
             <mat-form-field appearance="outline">
             
@@ -58,7 +58,8 @@
                 <mat-label>Password</mat-label>
 
                 <input type="password" matInput name="password" [(ngModel)]="user.password" #password="ngModel" 
-                required pattern="^(?=.*\d).{8,}$">
+                required>
+                <!-- pattern="^(?=.*\d).{8,}$" -->
                 
                 <mat-error *ngIf="(password.touched || password.dirty) && password.errors?.required">
                     Password is required
@@ -73,14 +74,14 @@
             <button 
                 class="loginBtn"
                 type="submit" 
-                (click)="login()"
+                [disabled]="!form.valid"
             >
-                Log in
+                Sign in
             </button>
 
         </form>
 
-        <p class="form__gap">or log in using</p>
+        <!-- <p class="form__gap">or log in using</p>
 
         <button class="googleBtn">
         
@@ -88,7 +89,7 @@
 
             <span>Google</span>
         
-        </button>
+        </button> -->
 
         <div class="form__footer">
             Don't have an account? <br/>

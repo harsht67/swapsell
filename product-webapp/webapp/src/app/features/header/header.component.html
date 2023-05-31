@@ -16,8 +16,8 @@
 
   <div class="header__btns">
     <!-- <mat-icon>bedtime</mat-icon> -->
-    <mat-icon>favorite_border</mat-icon>
-    <div class="user" routerLink="/userDashBoard">
+    <!-- <mat-icon>favorite_border</mat-icon> -->
+    <div class="user" routerLink="/userDashBoard" matTooltip="Profile">
       <mat-icon>person</mat-icon>
 
       <span>{{ userInitials }}</span>
@@ -30,7 +30,7 @@
     </div>
 
     <ul>
-      <li routerLink="/" (click)="toggleMenu()">
+      <li routerLink="/" (click)="toggleMenu()" *ngIf="isLoggedIn">
         <img
           class="icon-image"
           src="../../../assets/home-icon.png"
@@ -38,23 +38,25 @@
         />
         Home
       </li>
-      <li routerLink="/userDashBoard" (click)="toggleMenu()">
+      <li routerLink="/userDashBoard" (click)="toggleMenu()" *ngIf="isLoggedIn">
         <img
           class="icon-image"
           src="../../../assets/user-icon2.png"
           alt="user-icon"
+          *ngIf="isLoggedIn"
         />
         Profile
       </li>
-      <li (click)="toggleMenu()">
+      <!-- <li (click)="toggleMenu()" *ngIf="isLoggedIn">
         <img
           class="icon-image"
           src="../../../assets/fav-icon.png"
           alt="fav-icon"
+          *ngIf="isLoggedIn"
         />
         Wishlist
-      </li>
-      <li routerLink="/chat" (click)="toggleMenu()">
+      </li> -->
+      <li routerLink="/chat" (click)="toggleMenu()" *ngIf="isLoggedIn">
         <img
           class="icon-image"
           src="../../../assets/chat-icon.png"
@@ -73,7 +75,13 @@
     </ul>
 
     <div class="content__btns">
-      <button class="post">post an ad</button>
+      <button 
+        class="post"
+        routerLink="/postAnAdd"
+        *ngIf="isLoggedIn"
+      >
+        post an ad
+      </button>
 
       <button
         class="log"
@@ -81,10 +89,13 @@
         routerLink="/login"
         *ngIf="isLoggedIn"
       >
-        logout
+        sign out
       </button>
 
-      <button class="log" routerLink="/login" *ngIf="!isLoggedIn">login</button>
+      <button class="log" routerLink="/login" *ngIf="!isLoggedIn">sign in</button>
+
+      <button class="post" routerLink="/register" *ngIf="!isLoggedIn">sign up</button>
+
     </div>
   </nav>
 </header>

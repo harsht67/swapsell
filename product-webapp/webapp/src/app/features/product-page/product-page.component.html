@@ -4,25 +4,25 @@
 
   <section class="product-page__img-container">
     <div>
-      <mat-icon class="img-btn" (click)="prevImage()">
+      <!-- <mat-icon class="img-btn" (click)="prevImage()">
         keyboard_arrow_left
-      </mat-icon>
+      </mat-icon> -->
 
       <div
         class="product-page__img"
         [style.background-image]="'url(' + imgUrl + product.images[0] + ')'"
       ></div>
 
-      <mat-icon class="img-btn" (click)="nextImage()">
+      <!-- <mat-icon class="img-btn" (click)="nextImage()">
         keyboard_arrow_right
-      </mat-icon>
+      </mat-icon> -->
     </div>
   </section>
 
   <section class="product-page__desc">
     <h1 class="desc__name">
       {{product.name}}
-      <mat-icon class="wishlistBtn">favorite_border</mat-icon>
+      <!-- <mat-icon class="wishlistBtn">favorite_border</mat-icon> -->
     </h1>
 
     <h2 class="desc__title">{{product.title}}</h2>

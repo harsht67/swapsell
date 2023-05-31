@@ -49,6 +49,14 @@
             <app-product-card *ngFor="let product of filteredProducts" [product]="product"></app-product-card>
         </ng-container>
 
+        <ng-container *ngIf="products && filteredProducts.length == 0">
+            <img
+                src="../../../assets/no-result.jpg"
+                alt="no result image"
+                class="no-result"
+            />
+        </ng-container>
+
     </main>
 
 

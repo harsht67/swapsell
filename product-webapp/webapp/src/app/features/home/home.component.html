@@ -159,7 +159,11 @@
     <h3 class="home__title">Customer reviews</h3>
 
     <div>
-      <app-review-card *ngFor="let review of [1, 2, 3, 4]"> </app-review-card>
+      <app-review-card 
+        *ngFor="let review of reviews"
+        [review]="review"
+      >
+      </app-review-card>
     </div>
   </section>
 </main>

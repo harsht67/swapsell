@@ -32,7 +32,7 @@
             <p class="card__footer">
                 Already has an account? <br/>
                 <a routerLink="/login">
-                    Log in
+                    Sign in
                     <mat-icon>lock_open</mat-icon>
                 </a>
             </p>
@@ -48,7 +48,7 @@
         </div>
 
         
-        <form #form="ngForm">
+        <form #form="ngForm" (ngSubmit)="register()">
 
             <div class="form__small">
                 <mat-form-field appearance="outline">
@@ -119,9 +119,7 @@
                 <input (input)="checkPassword()" type="password" matInput name="confirmPassword" [(ngModel)]="user.confirmPassword" 
                 #confirmPassword="ngModel" required>
 
-                <mat-error *ngIf="confirmPassword.errors?.isPasswordDiff">
-                    Both passwords should match.
-                </mat-error>
+                <mat-error *ngIf="user.confirmPassword && isPasswordDiff">Passwords do not match</mat-error>
 
                 <mat-error *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
                     Confirm your password.
@@ -142,14 +140,14 @@
             <button 
                 class="submitBtn"
                 type="submit" 
-                (click)="register()"
+                [disabled]="!form.valid || isPasswordDiff"
             >
                 Sign Up
             </button>
 
         </form>
 
-        <p class="form__gap">or sign up using</p>
+        <!-- <p class="form__gap">or sign up using</p>
 
         <button class="googleBtn">
         
@@ -157,7 +155,7 @@
 
             <span>Google</span>
         
-        </button>
+        </button> -->
 
         <p class="form__footer">
             Already has an account? <br/>

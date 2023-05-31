@@ -120,6 +120,12 @@ button {
     color: #fff;
 }
 
+.loginBtn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+
 .googleBtn {
     position: relative;
     border: 1px solid #616161;

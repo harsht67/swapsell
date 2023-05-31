@@ -121,6 +121,7 @@ aside {
 */
 
 main {
+    position: relative;
     padding: 0.5rem 1rem;
     grid-area: container;
     display: grid;
@@ -133,4 +134,12 @@ main {
         grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
     }
+}
+
+.no-result {
+    width: 400px;
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
 }

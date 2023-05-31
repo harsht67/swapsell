@@ -25,6 +25,10 @@
     position: relative;
 }
 
+.footer__logo img {
+    cursor: pointer;
+}
+
 .copyright {
     font-size: 0.75em;
     text-align: center;

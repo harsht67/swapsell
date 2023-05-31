@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/modals/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { PopupService } from 'src/app/services/popup.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',

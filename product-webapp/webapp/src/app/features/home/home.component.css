@@ -52,11 +52,12 @@ section {
 .home__title {
   text-align: center;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #454545;
   padding-inline: 1rem;
+  margin-block: 4rem 0.5rem;
 }
 
 /* 
