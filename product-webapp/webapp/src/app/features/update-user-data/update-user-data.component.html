@@ -118,7 +118,7 @@
     <!-- <label id="example-radio-group-label">Pick your Gender</label> -->
     <mat-radio-group class="full-width" formControlName="gender">
       <mat-label>Gender</mat-label>
-      <div class="row">
+      <div class="gender__row">
         <mat-radio-button value="Male">Male</mat-radio-button>
         <mat-radio-button value="Female">Female</mat-radio-button>
         <mat-radio-button value="Other">Other</mat-radio-button>
@@ -126,7 +126,8 @@
     </mat-radio-group>
 
     <div class="userForm__btns">
-      <button class="submitBtn" type="submit" [disabled]="addressForm.invalid">
+      <button class="submitBtn" type="submit">
+        <!-- [disabled]="addressForm.invalid" -->
         Update
       </button>
       <button class="backBtn" routerLink="/userDashBoard">Back</button>

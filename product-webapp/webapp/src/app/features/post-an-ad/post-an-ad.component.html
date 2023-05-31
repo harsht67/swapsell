@@ -50,19 +50,24 @@
         placeholder="Set a suitable price for your product"
         formControlName="price"
       />
-      <mat-error *ngIf="addressForm.controls['price'].hasError('required')">
-        Price is <strong>required</strong>
+      <mat-error *ngIf="addressForm.get('price')?.invalid && addressForm.get('price')?.touched">
+        <span *ngIf="addressForm.get('price')?.errors?.required">Price is <strong>required</strong></span>
+        <span *ngIf="addressForm.get('price')?.errors?.pattern">Price should contain only numbers</span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="half-width" appearance="outline">
-      <mat-label>Age </mat-label>
+      <mat-label>Age</mat-label>
       <input
         matInput
         placeholder="How old is it? (in days...)"
         type="number"
         formControlName="ageInDays"
       />
+      <mat-error *ngIf="addressForm.get('ageInDays')?.invalid && addressForm.get('ageInDays')?.touched">
+        <span *ngIf="addressForm.get('ageInDays')?.errors?.required">Age is <strong>required</strong></span>
+        <span *ngIf="addressForm.get('ageInDays')?.errors?.pattern">Age should contain only numbers</span>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="third-width" appearance="outline">
@@ -88,15 +93,19 @@
     <mat-form-field class="third-width" appearance="outline">
       <mat-label>Pin Code</mat-label>
       <input matInput formControlName="pinCode" />
-      <mat-error *ngIf="addressForm.controls['pinCode'].hasError('required')">
-        Pin Code is <strong>required</strong>
+      <mat-error *ngIf="addressForm.get('pinCode')?.invalid && addressForm.get('pinCode')?.touched">
+        <span *ngIf="addressForm.get('pinCode')?.errors?.required">Pin Code is <strong>required</strong></span>
+        <span *ngIf="addressForm.get('pinCode')?.errors?.pattern">Pin Code should contain only numbers</span>
+        <span *ngIf="addressForm.get('pinCode')?.errors?.minlength || addressForm.get('pinCode')?.errors?.maxlength">
+          Pin Code should be 6 digits
+        </span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Address</mat-label>
       <textarea
         matInput
-        placeholder="Your Address"
         formControlName="address"
       ></textarea>
       <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
@@ -136,8 +145,16 @@
     </div>
 
     <div class="postForm__buttons">
-      <button class="submitBtn" type="submit">Post</button>
+      <button 
+        class="submitBtn" 
+        type="submit"
+        [disabled]="!addressForm.valid"
+        >
+        Post
+      </button>
+
       <button class="backBtn" routerLink="/userDashBoard">Back</button>
+
     </div>
   </form>
 </div>

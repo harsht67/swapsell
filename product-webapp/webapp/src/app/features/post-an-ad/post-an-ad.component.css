@@ -54,6 +54,11 @@ form {
   background-color: var(--accent);
 }
 
+.submitBtn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
 .backBtn {
   background: none;
   color: var(--accent);

@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { map, tap } from "rxjs/operators";
 import { Message } from "../modals/message";
 import { UserObj } from "../modals/userObj";
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: "root",
@@ -14,8 +15,11 @@ export class UserService {
   // url to fetch a chat between 2 participants
   URL = "http://localhost:8081/swapsell/api";
 
-  private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public user$ = this.userSubject.asObservable();
+  // userSubject = new BehaviorSubject<any>({});
+  // user$ = this.userSubject.asObservable();
+
   private messageAddedSubject: Subject<void> = new Subject<void>();
 
   // fetch user data
@@ -47,11 +51,12 @@ export class UserService {
 
     console.log("user service", user);
 
-    return this.http.post("http://localhost:8082/user/update", user).pipe(
-      tap(() => {
-        this.fetchUser(email);
-      })
-    );
+    return this.http.post("http://localhost:8082/user/update", user);
+    // .pipe(
+    //   tap(() => {
+    //     this.fetchUser(email);
+    //   })
+    // );
   }
 
   // check for existing chat between 2 users

@@ -11,7 +11,7 @@ import { ProductService } from "src/app/services/product.service";
 })
 export class PostAnAdComponent {
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private popup: PopupService,
     private productService: ProductService,
     private router: Router
@@ -21,21 +21,22 @@ export class PostAnAdComponent {
     name: [null, Validators.required],
     title: [null, Validators.required],
     description: [null, Validators.required],
-    price: [null, Validators.required],
+    price: [null, [Validators.required, Validators.pattern("^[0-9]+$")]],
     category: [null, Validators.required],
     condition: [null, Validators.required],
-    ageInDays: [null, Validators.required],
+    ageInDays: [null, [Validators.required, Validators.pattern("^[0-9]+$")]],
     address: [null, Validators.required],
     city: [null, Validators.required],
     state: [null, Validators.required],
     pinCode: [
       null,
-      Validators.compose([
+      [
         Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(8),
-      ]),
-    ]
+        Validators.minLength(6),
+        Validators.maxLength(6),
+        Validators.pattern("^[0-9]+$"),
+      ],
+    ],
   });
 
   hasUnitNumber = false;
@@ -71,7 +72,7 @@ export class PostAnAdComponent {
     { name: "Automotive" },
     { name: "Real Estate" },
     { name: "Electronics" },
-    { name: "Home & Furniture" }
+    { name: "Home & Furniture" },
   ];
 
   // images: { url: string }[] = [];
@@ -91,7 +92,7 @@ export class PostAnAdComponent {
     } else if (this.images.length >= 10) {
       this.popup.open("Image maximum limit reached!", 2000);
     }
-  }  
+  }
 
   removeImage(index: number) {
     this.images.splice(index, 1);
@@ -101,15 +102,16 @@ export class PostAnAdComponent {
 
   onSubmit(): void {
     console.log(this.images);
-    this.productService.addProduct(this.addressForm.value, this.images).subscribe(result => {
-      if (result) {
-        this.popup.open("Product added successfully", 2000);
-        this.router.navigate(['']);
-      } else {
-        this.popup.open("Failed to add product", 2000);
-      }
-    });;
+    this.productService
+      .addProduct(this.addressForm.value, this.images)
+      .subscribe((result) => {
+        if (result) {
+          this.popup.open("Product added successfully", 2000);
+          this.router.navigate([""]);
+        } else {
+          this.popup.open("Failed to add product", 2000);
+        }
+      });
     this.popup.open("Ad posted successfully", 2000);
   }
-
 }

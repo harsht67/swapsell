@@ -1,17 +1,18 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Route, Router } from "@angular/router";
 import { UserObj } from "src/app/modals/userObj";
 import { PopupService } from "src/app/services/popup.service";
 import { UserService } from "src/app/services/user.service";
-import { distinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilChanged } from "rxjs/operators";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-update-user-data",
   templateUrl: "./update-user-data.component.html",
   styleUrls: ["./update-user-data.component.css"],
 })
-export class UpdateUserDataComponent implements OnInit {
+export class UpdateUserDataComponent implements OnInit, OnDestroy {
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
@@ -21,14 +22,33 @@ export class UpdateUserDataComponent implements OnInit {
 
   user: UserObj = {};
 
+  // ngOnInit(): void {
+  //   this.userService.user$
+  //     .pipe(distinctUntilChanged())
+  //     .subscribe((user) => {
+  //       console.log(user);
+  //       this.user = user;
+  //       this.initializeForm();
+  //     });
+  // }
+
+  
+  private userSubscription: Subscription;
+  formSubmitted = false;
+
   ngOnInit(): void {
-    this.userService.user$
-      .pipe(distinctUntilChanged())
-      .subscribe((user) => {
-        console.log(user);
+    this.userSubscription = this.userService.user$.pipe(distinctUntilChanged()).subscribe((user) => {
+      console.log(user);
+      if (!this.formSubmitted) { // Check if form is not submitted
         this.user = user;
         this.initializeForm();
-      });
+      }
+      this.formSubmitted = false; // Reset the flag
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 
   addressForm: FormGroup = this.fb.group({});
@@ -89,22 +109,42 @@ export class UpdateUserDataComponent implements OnInit {
     { name: "West Bengal" },
   ];
 
+  
   onSubmit(): void {
     console.log("update component", this.addressForm.value);
 
     this.userService.getUserEmail().subscribe((email) => {
       this.userService.updateUser(this.addressForm.value, email).subscribe(
         () => {
-          this.popup.open("User details updated!", 2000);
+          console.log("User updated successfully");
+          this.router.navigate(["/"]);
+          this.popup.open("User updated successfully", 2000);
           // this.userService.fetchUser(email);
-          this.router.navigate(['/']);
         },
-        () => {
-          this.popup.open("Error updating details!", 2000);
-          // this.router.navigate(['/']);
+        (error) => {
+          console.error("Error updating user:", error);
+          this.popup.open("Error updating user", 2000);
         }
       );
     });
-
   }
+
+  // onSubmit(): void {
+  //   console.log("update component", this.addressForm.value);
+
+  //   this.userService.getUserEmail().subscribe((email) => {
+  //     this.userService.updateUser(this.addressForm.value, email).subscribe(
+  //       () => {
+  //         this.popup.open("User details updated!", 2000);
+  //         // this.userService.fetchUser(email);
+  //         this.router.navigate(['/']);
+  //       },
+  //       () => {
+  //         this.popup.open("Error updating details!", 2000);
+  //         // this.router.navigate(['/']);
+  //       }
+  //     );
+  //   });
+
+  // }
 }

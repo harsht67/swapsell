@@ -38,6 +38,7 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-block-end: 2rem;
 }
 
 .userForm__subtitle {
@@ -91,4 +92,9 @@ form {
 .mat-radio-button {
   display: block;
   margin: 5px 0;
+}
+
+.gender__row {
+  display: flex;
+  gap: 1rem;
 }
