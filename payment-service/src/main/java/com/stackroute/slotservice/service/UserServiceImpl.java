@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    @RabbitListener(queues = MessageConfiguration.queueName1)
+    //    @RabbitListener(queues = MessageConfiguration.queueName1)
     public void userDataFromAuthService(UserDTO userDTO) {
         User user = new User();
         String userEmailId = userDTO.getEmail();

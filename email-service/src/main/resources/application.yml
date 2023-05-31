@@ -12,12 +12,13 @@ spring:
           starttls:
             enable: true
             required: true
-
+  application:
+    name: email-service
 mail:
   smtp:
     debug: true
 server:
-  port: 8086
+  port: 8089
 eureka:
   client:
     service-url:

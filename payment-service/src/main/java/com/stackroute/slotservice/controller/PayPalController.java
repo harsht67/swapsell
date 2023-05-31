@@ -18,18 +18,18 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
 @RestController
-@RequestMapping("/pay")
+@CrossOrigin
 public class PayPalController {
 
     public static final String SUCCESS_URL = "pay/success";
-    public static final String CANCEL_URL = "cancel";
+    public static final String CANCEL_URL = "pay/cancel";
     private final PayPalService payPalService;
-    private final UserService userService;
+//    private final UserService userService;
 
     @Autowired
     public PayPalController(PayPalService payPalService, UserService userService) {
         this.payPalService = payPalService;
-        this.userService = userService;
+//        this.userService = userService;
     }
 
     @GetMapping("/home")
@@ -37,7 +37,7 @@ public class PayPalController {
         return "home";
     }
 
-    @PostMapping("/payment")
+    @PostMapping("/pay/payment")
     public ResponseEntity<String> payment(@RequestBody Order order) {
         try {
             Payment payment = payPalService.createPayment(order.getPrice(), order.getCurrency(), order.getIntent(), order.getMethod(), order.getDescription(), "http://localhost:8084/" + CANCEL_URL, "http://localhost:8084/" + SUCCESS_URL);
@@ -49,6 +49,7 @@ public class PayPalController {
 //                    return "redirect: "+link.getHref();
                     String redirectUrl = link.getHref();
                     System.out.println(redirectUrl);
+//                    return ResponseEntity.ok().body(redirectUrl);
                     return ResponseEntity.ok().body("{\"redirectUrl\": \"" + redirectUrl + "\"}");
                 }
 
@@ -64,8 +65,8 @@ public class PayPalController {
         return "cancel";
     }
 
-    @GetMapping("/success")
-    public ResponseEntity<?> successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId, HttpServletResponse response) throws PayPalRESTException, IOException {
+    @GetMapping("/pay/success")
+    public ResponseEntity<?> successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId) throws PayPalRESTException, IOException {
 
         System.out.println("in the success pay method");
         Payment payment = payPalService.executePayment(paymentId, payerId);
@@ -73,15 +74,35 @@ public class PayPalController {
         String email = payment.getPayer().getPayerInfo().getEmail();
 
         if (payment.getState().equals("approved")) {
-            userService.UpdateUserTransaction(email, payment);
+//            userService.UpdateUserTransaction(email, payment);
             InputStream inputStream = getClass().getResourceAsStream("/success.html");
             assert inputStream != null;
             String htmlContent = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
             inputStream.close();
+            System.out.println("At the end payment is approved and html is shown");
             return ResponseEntity.ok().body(htmlContent);
         }
+//        System.out.println();
         return new ResponseEntity<>(payment, HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("pay/target-page")
+    public ResponseEntity<?> pageAfterSendingEmail(){
+        InputStream inputStream = getClass().getResourceAsStream("/target-page.html");
+        assert inputStream != null;
+        String htmlContent ;
+        try {
+            htmlContent = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        try {
+            inputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return ResponseEntity.ok().body(htmlContent);
+    }
 
 
 }

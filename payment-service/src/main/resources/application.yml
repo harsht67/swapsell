@@ -1,12 +1,13 @@
 server:
   port: 8084
 spring:
-  data:
-    mongodb:
-      uri: mongodb://mongodb:27017
-      database: userTransactions
+  #  data:
+  #    mongodb:
+  ##      uri: mongodb://mongodb:27017
+  #      database: userTransactions
+  #      uri: mongodb://localhost:27017
   application:
-    name: userTransactionService
+    name: payment-service
 paypal:
   mode: sandbox
   client:

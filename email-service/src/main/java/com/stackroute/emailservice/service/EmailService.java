@@ -41,9 +41,9 @@ public class EmailService {
             helper.setFrom(request.getFrom());
             sender.send(message);
 
-            response.setMessage("mail send to : "+request.getTo());
+//            response.setMessage("mail send to : "+request.getTo());
             response.setStatus(Boolean.TRUE);
-            System.out.println("Email send");
+//            System.out.println("Email send");
 
         } catch (MessagingException | IOException | TemplateException e){
             response.setMessage("Mail sending failure : "+e.getMessage());
